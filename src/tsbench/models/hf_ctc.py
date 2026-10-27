@@ -18,7 +18,8 @@ class HFCTC(STTModel):
     def __init__(self, name: str, threads: int) -> None:
         super().__init__(name, threads)
         self._model: Any = None
-        self._processor: Any = None
+        self._features: Any = None
+        self._tokenizer: Any = None
         self._torch: Any = None
 
     def prepare(self) -> None:
@@ -30,20 +31,24 @@ class HFCTC(STTModel):
     def load(self) -> None:
         try:
             import torch
-            from transformers import AutoModelForCTC, AutoProcessor
+            from transformers import AutoFeatureExtractor, AutoModelForCTC, AutoTokenizer
         except ImportError as exc:  # pragma: no cover - depends on extras
             raise MissingBackendError(self.backend, self.extra) from exc
         torch.set_num_threads(self.threads)
         self._torch = torch
-        self._processor = AutoProcessor.from_pretrained(self.name)
+        # Load the feature extractor and tokenizer directly rather than AutoProcessor:
+        # repos that ship an n-gram LM resolve to Wav2Vec2ProcessorWithLM, which needs
+        # pyctcdecode/kenlm. We measure the acoustic model with greedy decoding.
+        self._features = AutoFeatureExtractor.from_pretrained(self.name)
+        self._tokenizer = AutoTokenizer.from_pretrained(self.name)
         self._model = AutoModelForCTC.from_pretrained(self.name).eval()
 
     def transcribe(self, audio: Audio) -> str:
-        inputs = self._processor(audio, sampling_rate=SAMPLE_RATE, return_tensors="pt")
+        inputs = self._features(audio, sampling_rate=SAMPLE_RATE, return_tensors="pt")
         with self._torch.inference_mode():
             logits = self._model(**inputs).logits
         ids = logits.argmax(dim=-1)
-        return str(self._processor.batch_decode(ids)[0])
+        return str(self._tokenizer.batch_decode(ids)[0])
 
     def info(self) -> ModelInfo:
         params = None

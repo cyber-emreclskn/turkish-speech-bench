@@ -73,8 +73,8 @@ jobs:
           args=()
           for m in $MODELS; do args+=(-m "$m"); done
           [ -n "$LIMIT" ] && args+=(--limit "$LIMIT")
-          uv run --no-sync tsb run "${args[@]}" -d "$DATASET" -t "$THREADS" \
-            --label "GitHub Actions ubuntu-latest (${THREADS} threads)" > report.md
+          # No --label: the default names the runner's CPU, since GitHub's runners vary.
+          uv run --no-sync tsb run "${args[@]}" -d "$DATASET" -t "$THREADS" > report.md
           status=$?
           cat report.md
           cat report.md >> "$GITHUB_STEP_SUMMARY"

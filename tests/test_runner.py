@@ -99,3 +99,15 @@ def test_report(result: dict) -> None:
     assert "### test-box · manifest:mini (full, 3 utt.)" in md
     assert "| `fake:better` | 1.0% |" in md
     assert "| `fake:scripted` | 12.5% |" in md
+
+
+def test_default_label_names_cpu(monkeypatch: pytest.MonkeyPatch) -> None:
+    from tsbench.system import fingerprint
+
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    fp = fingerprint()
+    assert fp["label"].startswith("GitHub Actions · ")
+    assert fp["cpu"] in fp["label"]
+    monkeypatch.delenv("GITHUB_ACTIONS")
+    assert fingerprint()["label"] == f"{fp['cpu']} ({fp['cores_logical']} threads)"
+    assert fingerprint("kiosk")["label"] == "kiosk"

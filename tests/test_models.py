@@ -44,7 +44,7 @@ def test_info() -> None:
     info = create("faster-whisper:large-v3-turbo", 1).info()
     assert info.params_millions == 809
     assert info.license == "MIT"
-    assert info.settings == {"compute_type": "int8", "beam_size": 5}
+    assert info.settings == {"compute_type": "int8", "beam_size": 5, "temperature": 0.0}
 
 
 def test_missing_backend_message() -> None:

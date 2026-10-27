@@ -51,6 +51,13 @@ def _environment() -> str:
     return "local"
 
 
+def _default_label(cpu: str, logical: int) -> str:
+    # GitHub-hosted runners of one label run on several CPU models with very
+    # different speeds, so the CPU is always part of the name.
+    prefix = "GitHub Actions · " if _environment().startswith("github-actions") else ""
+    return f"{prefix}{cpu} ({logical} threads)"
+
+
 def fingerprint(label: str | None = None) -> dict[str, Any]:
     """Describe this machine. ``label`` is a human name such as ``"kiosk-n100"``."""
     cpu = _cpu_name()
@@ -59,7 +66,7 @@ def fingerprint(label: str | None = None) -> dict[str, Any]:
     ram_gb = round(psutil.virtual_memory().total / 1024**3, 1)
     hardware_id = hashlib.sha256(f"{cpu}|{physical}|{logical}|{ram_gb:.0f}".encode()).hexdigest()
     return {
-        "label": label or f"{cpu} ({logical} threads)",
+        "label": label or _default_label(cpu, logical),
         "hardware_id": hardware_id[:12],
         "cpu": cpu,
         "cores_physical": physical,

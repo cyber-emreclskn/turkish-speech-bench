@@ -58,6 +58,9 @@ class FasterWhisper(STTModel):
             language="tr",
             task="transcribe",
             beam_size=self.beam_size,
+            # A single temperature disables faster-whisper's default fallback to random
+            # sampling, which made results differ between identical runs.
+            temperature=0.0,
             condition_on_previous_text=False,
             vad_filter=False,
         )
@@ -70,7 +73,11 @@ class FasterWhisper(STTModel):
             name=self.name,
             license="MIT",
             params_millions=_PARAMS.get(self.name),
-            settings={"compute_type": self.compute_type, "beam_size": self.beam_size},
+            settings={
+                "compute_type": self.compute_type,
+                "beam_size": self.beam_size,
+                "temperature": 0.0,
+            },
         )
 
     def files(self) -> list[Path]:
