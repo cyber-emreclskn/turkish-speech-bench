@@ -1,0 +1,1861 @@
+{
+  "schema_version": 1,
+  "tsbench_version": "0.1.0",
+  "created_at": "2026-10-27T17:51:46+00:00",
+  "system": {
+    "label": "GitHub Actions ubuntu-latest (4 threads)",
+    "hardware_id": "4f9a7231fcb2",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "cores_physical": 2,
+    "cores_logical": 4,
+    "ram_gb": 15.6,
+    "os": "Linux 6.17.0-1022-azure",
+    "arch": "x86_64",
+    "python": "3.12.3",
+    "environment": "github-actions:ubuntu24",
+    "packages": {
+      "faster-whisper": "1.2.1",
+      "ctranslate2": "4.8.4",
+      "vosk": "0.3.45",
+      "torch": "2.14.1+cpu",
+      "transformers": "5.21.0",
+      "onnxruntime": "1.31.1"
+    }
+  },
+  "dataset": {
+    "name": "fleurs-tr/test",
+    "license": "CC-BY-4.0",
+    "utterances": 200,
+    "subset": "first-200",
+    "audio_seconds": 2515.08
+  },
+  "model": {
+    "spec": "faster-whisper:tiny",
+    "backend": "faster-whisper",
+    "name": "tiny",
+    "license": "MIT",
+    "params_millions": 39,
+    "settings": {
+      "compute_type": "int8",
+      "beam_size": 5
+    },
+    "disk_mb": 74.6
+  },
+  "run": {
+    "threads": 4,
+    "warmup": 1
+  },
+  "metrics": {
+    "wer": 0.3869,
+    "cer": 0.1076,
+    "rtf": 0.0435,
+    "rtfx": 22.98,
+    "latency_p50_s": 0.5182,
+    "latency_p90_s": 0.6989,
+    "load_s": 0.13,
+    "model_ram_mb": 59.4,
+    "peak_rss_mb": 503.7
+  },
+  "predictions": [
+    {
+      "id": "10000377651956138413",
+      "ref": "Aynı ay, başka bir yolcu uçağı Meşhed'deki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "hyp": "Aynı ay başka bir yolcu uçağı, meşetdiki, bir piste aşevrak bir duvarı çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "duration_s": 14.16,
+      "latency_s": 0.5436,
+      "ref_norm": "aynı ay başka bir yolcu uçağı meşheddeki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu",
+      "hyp_norm": "aynı ay başka bir yolcu uçağı meşetdiki bir piste aşevrak bir duvarı çarptı ve on yedi kişinin ölümüne neden oldu"
+    },
+    {
+      "id": "10002518854052673247",
+      "ref": "Romantizm; Goethe, Fichte ve Schlegel gibi yazarlardan geçen geniş bir kültürel determinizm özelliği taşıyordu.",
+      "hyp": "Romantizin göte, pihte ve şilegel gibi yazarlardan geçen geniş bir kültüral determinizin özelliği taşıyordu.",
+      "duration_s": 12.36,
+      "latency_s": 0.4823,
+      "ref_norm": "romantizm goethe fichte ve schlegel gibi yazarlardan geçen geniş bir kültürel determinizm özelliği taşıyordu",
+      "hyp_norm": "romantizin göte pihte ve şilegel gibi yazarlardan geçen geniş bir kültüral determinizin özelliği taşıyordu"
+    },
+    {
+      "id": "10067972835475076305",
+      "ref": "Japonya'nın nükleer ajansına göre, tesiste radyoaktif sezyum ve iyodin tespit edildi.",
+      "hyp": "Japon yanım, nükler, ajansıma göre, tesiste, radioaktif, sejrum ve iyodim, tespit eville.",
+      "duration_s": 11.1,
+      "latency_s": 0.4686,
+      "ref_norm": "japonyanın nükleer ajansına göre tesiste radyoaktif sezyum ve iyodin tespit edildi",
+      "hyp_norm": "japon yanım nükler ajansıma göre tesiste radioaktif sejrum ve iyodim tespit eville"
+    },
+    {
+      "id": "10073710776711594036",
+      "ref": "Bu teoriler, bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir.",
+      "hyp": "Bu tevoriler bazı insanların yaptıkları şeyleri arzu etmelerine sebebi etmeden şeyleri ve çevredirindeki şeyleri onlara belirli şeyleri yapıp yapmamasında sebeb olan şeyler ile ilgili nir",
+      "duration_s": 16.62,
+      "latency_s": 0.6248,
+      "ref_norm": "bu teoriler bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir",
+      "hyp_norm": "bu tevoriler bazı insanların yaptıkları şeyleri arzu etmelerine sebebi etmeden şeyleri ve çevredirindeki şeyleri onlara belirli şeyleri yapıp yapmamasında sebeb olan şeyler ile ilgili nir"
+    },
+    {
+      "id": "101089684978402857",
+      "ref": "Avrupa nispeten küçük ama birçok bağımsız ülkenin bulunduğu bir kıtadır. Normal şartlar altında, birden fazla ülkeyi gezmek birçok vize uygulamalarından ve pasaport kontrollerinden geçmek anlamına gelmektedir.",
+      "hyp": "Avrupa, Nizpeden küçük ama birçok bağımsız ülkenin bunun dağı bir kıtılır. Normal şartlar altında birdan fazla ülkeyi gezmek, birçok bize uygun olanlar ve pasaport kontrollerinden geçmek anlamına gelmektedir.",
+      "duration_s": 15.84,
+      "latency_s": 0.7379,
+      "ref_norm": "avrupa nispeten küçük ama birçok bağımsız ülkenin bulunduğu bir kıtadır normal şartlar altında birden fazla ülkeyi gezmek birçok vize uygulamalarından ve pasaport kontrollerinden geçmek anlamına gelmektedir",
+      "hyp_norm": "avrupa nizpeden küçük ama birçok bağımsız ülkenin bunun dağı bir kıtılır normal şartlar altında birdan fazla ülkeyi gezmek birçok bize uygun olanlar ve pasaport kontrollerinden geçmek anlamına gelmektedir"
+    },
+    {
+      "id": "10147164563742619338",
+      "ref": "Güreşçi arkadaşları da Luna'ya saygılarını sundular.",
+      "hyp": "Güre hiç arkadaşları da buna ya saygılarını son bular.",
+      "duration_s": 4.2,
+      "latency_s": 0.3455,
+      "ref_norm": "güreşçi arkadaşları da lunaya saygılarını sundular",
+      "hyp_norm": "güre hiç arkadaşları da buna ya saygılarını son bular"
+    },
+    {
+      "id": "10153339660659037735",
+      "ref": "Apia, Samoa'nın başkentidir. Şehir Upolu adasındadır ve 40.000'in biraz altında bir nüfusa sahiptir.",
+      "hyp": "Apiya Samoğanın başkanliler, şiir upoğlu adasındadır ve küt binin biraz altında birbirini fısa sahiptir.",
+      "duration_s": 10.2,
+      "latency_s": 0.4895,
+      "ref_norm": "apia samoanın başkentidir şehir upolu adasındadır ve 40 000in biraz altında bir nüfusa sahiptir",
+      "hyp_norm": "apiya samoğanın başkanliler şiir upoğlu adasındadır ve küt binin biraz altında birbirini fısa sahiptir"
+    },
+    {
+      "id": "10175328357718171270",
+      "ref": "Özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor.",
+      "hyp": "Özellikle mikroifadeleri doğru bir şekilde yorumlamayın temeyile bir kişinin yalan söyleyeyim. Söylemedinin anlaşılabileceği yönetülüyor.",
+      "duration_s": 9.12,
+      "latency_s": 0.5135,
+      "ref_norm": "özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor",
+      "hyp_norm": "özellikle mikroifadeleri doğru bir şekilde yorumlamayın temeyile bir kişinin yalan söyleyeyim söylemedinin anlaşılabileceği yönetülüyor"
+    },
+    {
+      "id": "10199707715835400660",
+      "ref": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "hyp": "Bu bazı fiyiller ve neseler arasında ayrım yapın önemli bir yoldur.",
+      "duration_s": 5.76,
+      "latency_s": 0.3655,
+      "ref_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur",
+      "hyp_norm": "bu bazı fiyiller ve neseler arasında ayrım yapın önemli bir yoldur"
+    },
+    {
+      "id": "10206694987828197818",
+      "ref": "Örneğin, Kuzey Carolina'daki Bennet Okulu'ndan öğrenciler her yıl Eyalet Başkenti'ne yaptıkları gezilerle ilgili bir web sitesi tasarlarlar, her yıl web sitesi yeniden düzenlenir, ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur.",
+      "hyp": "Ornağın kuzerik karolayını da ki ben övrenciler, hariyon eyalet başkântine yaptıkları izlerle ilgili bir versitesi tasarlarlar, hariyon versitesi yeniden düzenlenir, ancak eski süründer bir not derter olarak kullanılmak üzere çevrimi çoğlara tutulur.",
+      "duration_s": 22.2,
+      "latency_s": 0.7962,
+      "ref_norm": "örneğin kuzey carolinadaki bennet okulundan öğrenciler her yıl eyalet başkentine yaptıkları gezilerle ilgili bir web sitesi tasarlarlar her yıl web sitesi yeniden düzenlenir ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur",
+      "hyp_norm": "ornağın kuzerik karolayını da ki ben övrenciler hariyon eyalet başkantine yaptıkları izlerle ilgili bir versitesi tasarlarlar hariyon versitesi yeniden düzenlenir ancak eski süründer bir not derter olarak kullanılmak üzere çevrimi çoğlara tutulur"
+    },
+    {
+      "id": "10208729035292662070",
+      "ref": "Eğlence haberleri web sitesi TMZ'ye göre fotoğrafçı aracını Sepulveda Bulvarı'nın öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış, daha sonra yolun karşısına geçip devam ederek Kaliforniya Otoyol Devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur.",
+      "hyp": "Eğlence haberleri ve pistesi temeezeye göre fotoğrafcı aracının sepul ve da bul boyunun öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış. Daha sonra yolun karşısına geçip devam ederek California otuyol devriye polismeye murnum trafiği durdurup, on iki kez geriye dommesini emletmesine neden olmuştur.",
+      "duration_s": 24.42,
+      "latency_s": 0.9557,
+      "ref_norm": "eğlence haberleri web sitesi tmzye göre fotoğrafçı aracını sepulveda bulvarının öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur",
+      "hyp_norm": "eğlence haberleri ve pistesi temeezeye göre fotoğrafcı aracının sepul ve da bul boyunun öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek california otuyol devriye polismeye murnum trafiği durdurup on iki kez geriye dommesini emletmesine neden olmuştur"
+    },
+    {
+      "id": "10213509574977034508",
+      "ref": "Bu, oyunculara cihazı havada hareket ettirerek video oyunlarındaki hareket ve eylemleri kontrol etme imkanı sunacaktır.",
+      "hyp": "Bu oyunçuları ciyozu havada hareket ettirerek videogunlarındaki hareket eylemleri kontrol imkanı sonuacaktır.",
+      "duration_s": 8.64,
+      "latency_s": 0.4874,
+      "ref_norm": "bu oyunculara cihazı havada hareket ettirerek video oyunlarındaki hareket ve eylemleri kontrol etme imkanı sunacaktır",
+      "hyp_norm": "bu oyunçuları ciyozu havada hareket ettirerek videogunlarındaki hareket eylemleri kontrol imkanı sonuacaktır"
+    },
+    {
+      "id": "10238618737057418994",
+      "ref": "Bunun neticesinde iki balık cinsinin soyu tükendi ve aralarında kambur kefalin de yer aldığı iki balık cinsi tehlike altına girdi.",
+      "hyp": "Bunun neteyecesinde iki balık cinsinin soyutken de ve aralarında kambur kefalin ve yer aldığı iki balık cinsi tehlike altına girdi.",
+      "duration_s": 12.24,
+      "latency_s": 0.5679,
+      "ref_norm": "bunun neticesinde iki balık cinsinin soyu tükendi ve aralarında kambur kefalin de yer aldığı iki balık cinsi tehlike altına girdi",
+      "hyp_norm": "bunun neteyecesinde iki balık cinsinin soyutken de ve aralarında kambur kefalin ve yer aldığı iki balık cinsi tehlike altına girdi"
+    },
+    {
+      "id": "10272545259067985824",
+      "ref": "Piramit ses ve ışık gösterisi, çocuklar için bölgedeki en ilginç şeylerden biridir.",
+      "hyp": "Pijemet, ses felişik gösterecek, çocukta bir şimdeki en elikin şeylerden bilir.",
+      "duration_s": 6.78,
+      "latency_s": 2.1762,
+      "ref_norm": "piramit ses ve ışık gösterisi çocuklar için bölgedeki en ilginç şeylerden biridir",
+      "hyp_norm": "pijemet ses felişik gösterecek çocukta bir şimdeki en elikin şeylerden bilir"
+    },
+    {
+      "id": "10394858340231356520",
+      "ref": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "hyp": "Bu bazı fiygiler ve nesler arasında ayrım yapmadan göremli bir yoldur.",
+      "duration_s": 5.52,
+      "latency_s": 0.3906,
+      "ref_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur",
+      "hyp_norm": "bu bazı fiygiler ve nesler arasında ayrım yapmadan göremli bir yoldur"
+    },
+    {
+      "id": "10397909750877235311",
+      "ref": "Eserleri öylesine saygın kalite ve detaya sahiptir ki, filatelistler arasında çok az sayıdaki \"ünlü\" kişiden biridir. Bazı kişilerin tek uzmanlık alanı onun eserlerini toplamaktır.",
+      "hyp": "Eserleri, övlüsüne saygın kalite ve detay'a sayptir ki Pilatilisler arasında çok as sayıdaki ünmü kişiden biridir. Bazı kişilerin tekuzmanını kalanı, onun eserlerini toplamaktır.",
+      "duration_s": 13.32,
+      "latency_s": 0.6847,
+      "ref_norm": "eserleri öylesine saygın kalite ve detaya sahiptir ki filatelistler arasında çok az sayıdaki ünlü kişiden biridir bazı kişilerin tek uzmanlık alanı onun eserlerini toplamaktır",
+      "hyp_norm": "eserleri övlüsüne saygın kalite ve detaya sayptir ki pilatilisler arasında çok as sayıdaki ünmü kişiden biridir bazı kişilerin tekuzmanını kalanı onun eserlerini toplamaktır"
+    },
+    {
+      "id": "10399654856513535403",
+      "ref": "Aynı ay, başka bir yolcu uçağı Meşhed'deki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "hyp": "Aynı ay başka bir yolculuğu çövmeş etteki bir pist aşarak bir duvar açarttı ve on yedi kişinin ölümüne neden oldu.",
+      "duration_s": 10.2,
+      "latency_s": 0.4781,
+      "ref_norm": "aynı ay başka bir yolcu uçağı meşheddeki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu",
+      "hyp_norm": "aynı ay başka bir yolculuğu çövmeş etteki bir pist aşarak bir duvar açarttı ve on yedi kişinin ölümüne neden oldu"
+    },
+    {
+      "id": "10406878871118112918",
+      "ref": "Bir örgütün işlevsel departmanlarında mümkün olan tüm kaynaklar etkin biçimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir.",
+      "hyp": "Biri örgütün işleysen depatmanların mümkür olan tüm kaynaklar etkin bir çimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir.",
+      "duration_s": 9.3,
+      "latency_s": 0.5378,
+      "ref_norm": "bir örgütün işlevsel departmanlarında mümkün olan tüm kaynaklar etkin biçimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir",
+      "hyp_norm": "biri örgütün işleysen depatmanların mümkür olan tüm kaynaklar etkin bir çimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir"
+    },
+    {
+      "id": "10411678016280931424",
+      "ref": "Piramit ses ve ışık gösterisi, çocuklar için bölgedeki en ilginç şeylerden biridir.",
+      "hyp": "Piremit ses ve ışık gösterirse çocuklar için böyledeki en ilgin şeylerden biridir.",
+      "duration_s": 6.54,
+      "latency_s": 0.4,
+      "ref_norm": "piramit ses ve ışık gösterisi çocuklar için bölgedeki en ilginç şeylerden biridir",
+      "hyp_norm": "piremit ses ve ışık gösterirse çocuklar için böyledeki en ilgin şeylerden biridir"
+    },
+    {
+      "id": "10434128772254756539",
+      "ref": "Hastane, diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi.",
+      "hyp": "Hastane diğer insanların muhtemelen peksiyonunu önlemek için hastayı diğerlerinden teycut etmeyip içerem bir infekisyon kontrol protokolı izledi.",
+      "duration_s": 13.08,
+      "latency_s": 0.5507,
+      "ref_norm": "hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi",
+      "hyp_norm": "hastane diğer insanların muhtemelen peksiyonunu önlemek için hastayı diğerlerinden teycut etmeyip içerem bir infekisyon kontrol protokolı izledi"
+    },
+    {
+      "id": "10442981480105409939",
+      "ref": "Kabuk daha ince olduğundan yan tarafta daha çok maria olabilir. Lav için yer yüzüne çıkmak daha kolaydı.",
+      "hyp": "Kavuk daha ince olduğundan yan tarafta daha çok mariye olabilir. Lav için yar yüzüne çıkmak daha kolaydı.",
+      "duration_s": 9.9,
+      "latency_s": 0.4294,
+      "ref_norm": "kabuk daha ince olduğundan yan tarafta daha çok maria olabilir lav için yer yüzüne çıkmak daha kolaydı",
+      "hyp_norm": "kavuk daha ince olduğundan yan tarafta daha çok mariye olabilir lav için yar yüzüne çıkmak daha kolaydı"
+    },
+    {
+      "id": "10453371514313949242",
+      "ref": "Eğlence haberleri web sitesi TMZ'ye göre fotoğrafçı aracını Sepulveda Bulvarı'nın öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış, daha sonra yolun karşısına geçip devam ederek Kaliforniya Otoyol Devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur.",
+      "hyp": "Eğlence haberleri ve pistesi temenzeye göre fotoğrafçık aracını sepul ve da bulvarının öteki tarafından durdurmuş ve polis tibirmesinin fotoğraflarını çekmeye çalışmış. Daha sonra yolun karşısına geçip devam ederek kalifornia, otoya ol devriye polismeye murnum trafiye durdurup, ona iki kez geliye dommesini emletmesine neden olmuştur.",
+      "duration_s": 23.58,
+      "latency_s": 0.9437,
+      "ref_norm": "eğlence haberleri web sitesi tmzye göre fotoğrafçı aracını sepulveda bulvarının öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur",
+      "hyp_norm": "eğlence haberleri ve pistesi temenzeye göre fotoğrafçık aracını sepul ve da bulvarının öteki tarafından durdurmuş ve polis tibirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kalifornia otoya ol devriye polismeye murnum trafiye durdurup ona iki kez geliye dommesini emletmesine neden olmuştur"
+    },
+    {
+      "id": "10463484270271750239",
+      "ref": "Mesela, dünyadaki en yaygın hareketsiz görüntü fotoğrafçılığı biçimi, analog film çağının bitiminde baskın film boyutu olan 35 mm'dir.",
+      "hyp": "Mesela dünyadaki en yaygın hareketiz görüntü fotoğraçlığı biçimi anılık film çağının bitiminde, baskın film boyutu olan otuz biç millimetredir.",
+      "duration_s": 14.4,
+      "latency_s": 0.5508,
+      "ref_norm": "mesela dünyadaki en yaygın hareketsiz görüntü fotoğrafçılığı biçimi analog film çağının bitiminde baskın film boyutu olan 35 mmdir",
+      "hyp_norm": "mesela dünyadaki en yaygın hareketiz görüntü fotoğraçlığı biçimi anılık film çağının bitiminde baskın film boyutu olan otuz biç millimetredir"
+    },
+    {
+      "id": "10477007908892261743",
+      "ref": "Saint Petersburg gemi seyahatleri, şehirde zaman geçirmeyi de içerir. Turistik gemi yolcuları vize gereksinimlerinden muaftır (şartları kontrol edin).",
+      "hyp": "Seyit, Petarsburg, gemi sayahakileri şehirde zaman geçirmeyi de içirir. Turistik gemi yolcuları, vize gereksinimlerinden muhafter, parantiz içinde şartları kontrol edin.",
+      "duration_s": 16.56,
+      "latency_s": 0.6323,
+      "ref_norm": "saint petersburg gemi seyahatleri şehirde zaman geçirmeyi de içerir turistik gemi yolcuları vize gereksinimlerinden muaftır şartları kontrol edin",
+      "hyp_norm": "seyit petarsburg gemi sayahakileri şehirde zaman geçirmeyi de içirir turistik gemi yolcuları vize gereksinimlerinden muhafter parantiz içinde şartları kontrol edin"
+    },
+    {
+      "id": "10535511649972840884",
+      "ref": "Bir gözlemci, sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla Bişkek'in bir \"anarşi\" durumuna saplandığını söyledi.",
+      "hyp": "Bir gözlenece sokaklarında çetelerinin dolaşarak mazaları yağmalaması ile bir kişikin bir an aşı durumuna saplandığımız söyledi.",
+      "duration_s": 12.12,
+      "latency_s": 0.5218,
+      "ref_norm": "bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla bişkekin bir anarşi durumuna saplandığını söyledi",
+      "hyp_norm": "bir gözlenece sokaklarında çetelerinin dolaşarak mazaları yağmalaması ile bir kişikin bir an aşı durumuna saplandığımız söyledi"
+    },
+    {
+      "id": "10553789323222308394",
+      "ref": "Sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti. Mendoza vuruldu.",
+      "hyp": "Sonrasında fotoğrafçılar, tuvalete gitmesi gereken yaşlı bir kadının yerine geçti. Mendoza vuruldu.",
+      "duration_s": 10.68,
+      "latency_s": 0.4663,
+      "ref_norm": "sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti mendoza vuruldu",
+      "hyp_norm": "sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti mendoza vuruldu"
+    },
+    {
+      "id": "10555026931768074821",
+      "ref": "Hong Kong siluetini meydana getiren binalar, Victoria Limanı’ndaki sularla daha da ön plana çıkan, parlayan bir sütunlu grafiğe benzetilir.",
+      "hyp": "Hong Kong silületini meydeme getiren bine alar vektor yalimanındaki Sularla daha da ön planı çıkan parlayan bir sütlunu grafiye benzetilir.",
+      "duration_s": 16.14,
+      "latency_s": 0.5479,
+      "ref_norm": "hong kong siluetini meydana getiren binalar victoria limanındaki sularla daha da ön plana çıkan parlayan bir sütunlu grafiğe benzetilir",
+      "hyp_norm": "hong kong silületini meydeme getiren bine alar vektor yalimanındaki sularla daha da ön planı çıkan parlayan bir sütlunu grafiye benzetilir"
+    },
+    {
+      "id": "10586596331450835487",
+      "ref": "Misafirleri iyi bir ruh halinde tutmak ve hoşnut etmek için genellikle özel olarak hazırlanan yiyecek, içecek ve eğlence ikramları olur.",
+      "hyp": "misafirleri iyi bir ruh halinde tutmak ve hoşunu tepmek için genellikle özel olarak hazırlanan yiyecek, içecek ve eğlenci ekranları olur.",
+      "duration_s": 15.12,
+      "latency_s": 0.5237,
+      "ref_norm": "misafirleri iyi bir ruh halinde tutmak ve hoşnut etmek için genellikle özel olarak hazırlanan yiyecek içecek ve eğlence ikramları olur",
+      "hyp_norm": "misafirleri iyi bir ruh halinde tutmak ve hoşunu tepmek için genellikle özel olarak hazırlanan yiyecek içecek ve eğlenci ekranları olur"
+    },
+    {
+      "id": "10609789664954157038",
+      "ref": "Köprünün altındaki dikey açıklık 15 metredir. İnşaat 2011 yılı Ağustos ayında tamamlandı, Mart 2017'ye kadar trafiğe açılmadı.",
+      "hyp": "Köprünün altındaki bir kaya çıktık 15 metredir. İnşaat 2.1 yılı avustus ayında tamamlandı, Mart 2.1 yılı yediye kadar tırafıya açılmadı.",
+      "duration_s": 13.32,
+      "latency_s": 0.5934,
+      "ref_norm": "köprünün altındaki dikey açıklık 15 metredir inşaat 2011 yılı ağustos ayında tamamlandı mart 2017ye kadar trafiğe açılmadı",
+      "hyp_norm": "köprünün altındaki bir kaya çıktık 15 metredir inşaat 2 1 yılı avustus ayında tamamlandı mart 2 1 yılı yediye kadar tırafıya açılmadı"
+    },
+    {
+      "id": "10612660122923021939",
+      "ref": "Çocuklar, ihmalden istismara ve hatta gaspa kadar çok çeşitli sebeplerden dolayı Koruyucu Bakım'a yerleştirilir.",
+      "hyp": "Çocuklar, İsmail'den istismara ve hatta gaspakalar, çok çocuklar da randıla yikorucu bakıma yerleştirilir.",
+      "duration_s": 7.92,
+      "latency_s": 0.5097,
+      "ref_norm": "çocuklar ihmalden istismara ve hatta gaspa kadar çok çeşitli sebeplerden dolayı koruyucu bakıma yerleştirilir",
+      "hyp_norm": "çocuklar ismailden istismara ve hatta gaspakalar çok çocuklar da randıla yikorucu bakıma yerleştirilir"
+    },
+    {
+      "id": "10624291443218471784",
+      "ref": "Moldova'nın başkenti Kişinev'dir. Ülkenin yerel dili Rumencedir, fakat yaygın olarak Rusça kullanılmaktadır.",
+      "hyp": "Moldovanın maşkantik işin evdir, ülkenin yeradığını rümancıdır. Fakat yaydın olarak Rusça kullanılmaktadır.",
+      "duration_s": 11.64,
+      "latency_s": 0.5007,
+      "ref_norm": "moldovanın başkenti kişinevdir ülkenin yerel dili rumencedir fakat yaygın olarak rusça kullanılmaktadır",
+      "hyp_norm": "moldovanın maşkantik işin evdir ülkenin yeradığını rümancıdır fakat yaydın olarak rusça kullanılmaktadır"
+    },
+    {
+      "id": "10650678428420499578",
+      "ref": "İnternette yapılan 'Düşman çevre rotası' araması muhtemelen yerel bir şirketin adresini sağlayacaktır.",
+      "hyp": "İnternetli yapılan düşman çevirir otası aramasın muhtemelen yerel bir şirketin adresini sağlayacaktır.",
+      "duration_s": 11.22,
+      "latency_s": 0.4614,
+      "ref_norm": "internette yapılan düşman çevre rotası araması muhtemelen yerel bir şirketin adresini sağlayacaktır",
+      "hyp_norm": "internetli yapılan düşman çevirir otası aramasın muhtemelen yerel bir şirketin adresini sağlayacaktır"
+    },
+    {
+      "id": "10657798416573898692",
+      "ref": "Gianarlo Fisichella arabasının kontrolünü kaybetti ve starttan çok kısa bir süre sonra yarışı bitirdi.",
+      "hyp": "Cihanna'r lofici herla arabasının kontrolünü kaybetti ve startan çok sabir su resona yarışı bitirdi.",
+      "duration_s": 9.42,
+      "latency_s": 0.4474,
+      "ref_norm": "gianarlo fisichella arabasının kontrolünü kaybetti ve starttan çok kısa bir süre sonra yarışı bitirdi",
+      "hyp_norm": "cihannar lofici herla arabasının kontrolünü kaybetti ve startan çok sabir su resona yarışı bitirdi"
+    },
+    {
+      "id": "10660750621675264830",
+      "ref": "Tibet meditasyonunun merkezi Tanrı Yogası'dır. Çeşitli tanrıların görselleştirilmesiyle enerji kanalları temizlenir, çakralar aktif hale getirilir ve aydınlanma bilinci oluşturulur.",
+      "hyp": "Tübet Meditasyonunun merkezi tarı yokasıdır. Çişitli tarıların gorsalleştirilmesi ile enerji kamalları temizlenir. Çakralar, aktif hale getirdir ve aydınlanma bedinci oluşturulur.",
+      "duration_s": 18.24,
+      "latency_s": 0.691,
+      "ref_norm": "tibet meditasyonunun merkezi tanrı yogasıdır çeşitli tanrıların görselleştirilmesiyle enerji kanalları temizlenir çakralar aktif hale getirilir ve aydınlanma bilinci oluşturulur",
+      "hyp_norm": "tübet meditasyonunun merkezi tarı yokasıdır çişitli tarıların gorsalleştirilmesi ile enerji kamalları temizlenir çakralar aktif hale getirdir ve aydınlanma bedinci oluşturulur"
+    },
+    {
+      "id": "10672808331401656242",
+      "ref": "Savaş sona erdikten sonra iki yıl geçmesiyle birlikte, eski müttefikler artık düşmandı ve Soğuk Savaş başladı.",
+      "hyp": "Sabah sonu erikten sonra iki yıl geçmesiyle birlikte eski mütefikler artık düşmanı ve soğuk sabah başladı.",
+      "duration_s": 9.96,
+      "latency_s": 0.4598,
+      "ref_norm": "savaş sona erdikten sonra iki yıl geçmesiyle birlikte eski müttefikler artık düşmandı ve soğuk savaş başladı",
+      "hyp_norm": "sabah sonu erikten sonra iki yıl geçmesiyle birlikte eski mütefikler artık düşmanı ve soğuk sabah başladı"
+    },
+    {
+      "id": "10691448504216512855",
+      "ref": "Hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri, 100 yıldan eski malları antika olarak tanımlıyor.",
+      "hyp": "Hangi yönetilmiş nesselerin antik olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri yüz yıldan eski malların antik olarak tanımlıyor.",
+      "duration_s": 9.54,
+      "latency_s": 0.5595,
+      "ref_norm": "hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri 100 yıldan eski malları antika olarak tanımlıyor",
+      "hyp_norm": "hangi yönetilmiş nesselerin antik olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri yüz yıldan eski malların antik olarak tanımlıyor"
+    },
+    {
+      "id": "10693256384443357560",
+      "ref": "Moldova'nın başkenti Kişinev'dir. Ülkenin yerel dili Rumencedir, fakat yaygın olarak Rusça kullanılmaktadır.",
+      "hyp": "Moldovanın başkenti kişilerdir, ülkenin yerel dilir umancidir, fakat yaygın olarak tutçak kullanılmaktadır.",
+      "duration_s": 7.62,
+      "latency_s": 0.472,
+      "ref_norm": "moldovanın başkenti kişinevdir ülkenin yerel dili rumencedir fakat yaygın olarak rusça kullanılmaktadır",
+      "hyp_norm": "moldovanın başkenti kişilerdir ülkenin yerel dilir umancidir fakat yaygın olarak tutçak kullanılmaktadır"
+    },
+    {
+      "id": "10716458928761617534",
+      "ref": "Sızdırılan belgenin, Filistin'in, 1967'de gerçekleşen Arap-İsrail Savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir.",
+      "hyp": "Sızdırılan belgenin filistinin Bindokuz'u afmış yedide gerçekteşen Arab İsrail savaşından Önceki sınırlara dönülmesini talip ettiği Sınır anlaşmazlığından bahsettiği İtta edilmektedir.",
+      "duration_s": 19.2,
+      "latency_s": 0.762,
+      "ref_norm": "sızdırılan belgenin filistinin 1967de gerçekleşen arap israil savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir",
+      "hyp_norm": "sızdırılan belgenin filistinin bindokuzu afmış yedide gerçekteşen arab israil savaşından önceki sınırlara dönülmesini talip ettiği sınır anlaşmazlığından bahsettiği itta edilmektedir"
+    },
+    {
+      "id": "10760091089267409199",
+      "ref": "Sahneler piramitlerin üzerine yansıtılır ve farklı piramitler aydınlatılır.",
+      "hyp": "Sağ neler piramiklerin üzerine yansıtılır ve farklı piramikler aydınlatılır.",
+      "duration_s": 10.2,
+      "latency_s": 0.3947,
+      "ref_norm": "sahneler piramitlerin üzerine yansıtılır ve farklı piramitler aydınlatılır",
+      "hyp_norm": "sağ neler piramiklerin üzerine yansıtılır ve farklı piramikler aydınlatılır"
+    },
+    {
+      "id": "10770402786745665462",
+      "ref": "Televizyon haberleri santralden yükselen beyaz dumanı gösteriyor.",
+      "hyp": "Televizyon haberleri santralden yükselen beyaz domanı gösteriyor.",
+      "duration_s": 8.04,
+      "latency_s": 0.3681,
+      "ref_norm": "televizyon haberleri santralden yükselen beyaz dumanı gösteriyor",
+      "hyp_norm": "televizyon haberleri santralden yükselen beyaz domanı gösteriyor"
+    },
+    {
+      "id": "10799180210491213091",
+      "ref": "15 Ağustos 1940 tarihinde Müttefikler güney Fransa'yı işgal etti, işgal için \"Dragoon Operasyonu\" ismi kullanıldı.",
+      "hyp": "15 astoz bin 90 kık tarihinde müttefikler güney fransayı işgal etti, işgal için dragon operasyonu ismi kullanıldır.",
+      "duration_s": 12.12,
+      "latency_s": 0.473,
+      "ref_norm": "15 ağustos 1940 tarihinde müttefikler güney fransayı işgal etti işgal için dragoon operasyonu ismi kullanıldı",
+      "hyp_norm": "15 astoz bin 90 kık tarihinde müttefikler güney fransayı işgal etti işgal için dragon operasyonu ismi kullanıldır"
+    },
+    {
+      "id": "10811797645973652250",
+      "ref": "Dr. Malar Malasubramanian, 29, Cincinnati'nin yaklaşık 15 mil kuzeyindeki bir banliyö olan Blue Ash, Ohio'da, yol kenarında üzerinde bir tişört ve iç çamaşırıyla, ağır ilaç etkisi altında görünür biçimde yatarken bulundu.",
+      "hyp": "Doktor, malar, malasuk, raman, yirmi dokuz, sinsin laatinin yaklaşık 15 milik güzeyindeki bir banyi olan bulu ulaş, o hayoda, yol kenarında üzerinde bir tışırtı, ilk çamaşırıyla ağır ilanç etkisi altında görünür biçimde yatarken bulunu.",
+      "duration_s": 22.68,
+      "latency_s": 0.7974,
+      "ref_norm": "dr malar malasubramanian 29 cincinnatinin yaklaşık 15 mil kuzeyindeki bir banliyö olan blue ash ohioda yol kenarında üzerinde bir tişört ve iç çamaşırıyla ağır ilaç etkisi altında görünür biçimde yatarken bulundu",
+      "hyp_norm": "doktor malar malasuk raman yirmi dokuz sinsin laatinin yaklaşık 15 milik güzeyindeki bir banyi olan bulu ulaş o hayoda yol kenarında üzerinde bir tışırtı ilk çamaşırıyla ağır ilanç etkisi altında görünür biçimde yatarken bulunu"
+    },
+    {
+      "id": "10849374568647159699",
+      "ref": "Sızdırılan belgenin, Filistin'in, 1967'de gerçekleşen Arap-İsrail Savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir.",
+      "hyp": "Sızırlan belinin filistinin binde okuyuzatmış yedide gerçekleşen Arab İsra'yı sağoluşundan önceki sınırlara dönülmesini talip ettiği sınır anlaşmazlığından bahsettiği itta edilmektedir.",
+      "duration_s": 15.84,
+      "latency_s": 0.6723,
+      "ref_norm": "sızdırılan belgenin filistinin 1967de gerçekleşen arap israil savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir",
+      "hyp_norm": "sızırlan belinin filistinin binde okuyuzatmış yedide gerçekleşen arab israyı sağoluşundan önceki sınırlara dönülmesini talip ettiği sınır anlaşmazlığından bahsettiği itta edilmektedir"
+    },
+    {
+      "id": "10863226628485399557",
+      "ref": "Söylentileri \"siyasi gevezelik ve aptallık\" olarak değerlendirdi.",
+      "hyp": "Söylencileri siyasi gevezelik ve aptalık olarak değerlendirdi.",
+      "duration_s": 5.22,
+      "latency_s": 0.3831,
+      "ref_norm": "söylentileri siyasi gevezelik ve aptallık olarak değerlendirdi",
+      "hyp_norm": "söylencileri siyasi gevezelik ve aptalık olarak değerlendirdi"
+    },
+    {
+      "id": "10865804320068913800",
+      "ref": "Ulaşılması en kolay olan bitki kaynakları, yapraklardan ve baklagillerden elde edilen proteinler olabilirdi, ancak bitkilerin bizim gibi primatlar tarafından pişirilmeden sindirilmesi pek mümkün değildir.",
+      "hyp": "Ulaşılması en kolay olan bitki kaynakları yapaklardan ve bakırgilerden elde edin. Proteinler olabildirde. Ancak bitkilerin bizim gibi bir mal tarafından pişirmeden sildirilmesi pek mümkün değildir.",
+      "duration_s": 13.92,
+      "latency_s": 0.7053,
+      "ref_norm": "ulaşılması en kolay olan bitki kaynakları yapraklardan ve baklagillerden elde edilen proteinler olabilirdi ancak bitkilerin bizim gibi primatlar tarafından pişirilmeden sindirilmesi pek mümkün değildir",
+      "hyp_norm": "ulaşılması en kolay olan bitki kaynakları yapaklardan ve bakırgilerden elde edin proteinler olabildirde ancak bitkilerin bizim gibi bir mal tarafından pişirmeden sildirilmesi pek mümkün değildir"
+    },
+    {
+      "id": "10897040023819169605",
+      "ref": "Hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri, 100 yıldan eski malları antika olarak tanımlıyor.",
+      "hyp": "Hangi üretirmiş neselerin antika olduğunu dair, kapsamlı bir tanım yoktur. Bazı vergi daileri, yüz yıllan eski malları antik olarak tanımlıyor.",
+      "duration_s": 13.5,
+      "latency_s": 0.5575,
+      "ref_norm": "hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri 100 yıldan eski malları antika olarak tanımlıyor",
+      "hyp_norm": "hangi üretirmiş neselerin antika olduğunu dair kapsamlı bir tanım yoktur bazı vergi daileri yüz yıllan eski malları antik olarak tanımlıyor"
+    },
+    {
+      "id": "10904323644119083565",
+      "ref": "Hastane, diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi.",
+      "hyp": "Hastane et diğer insanların, muhtemelen fixlunun önlemek için hastayı diğerlerinden tecid etmeyi içerem bir renpeksiyon kontrol politoklu izledir.",
+      "duration_s": 9.72,
+      "latency_s": 0.5232,
+      "ref_norm": "hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi",
+      "hyp_norm": "hastane et diğer insanların muhtemelen fixlunun önlemek için hastayı diğerlerinden tecid etmeyi içerem bir renpeksiyon kontrol politoklu izledir"
+    },
+    {
+      "id": "10904414206534229939",
+      "ref": "MS; beyin, omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır.",
+      "hyp": "Emes, Bey'in omur ilik ve oklik sınırdan oluşan, merkezi sınır sistemini etkelerin bir hastalıktır.",
+      "duration_s": 12.18,
+      "latency_s": 0.4832,
+      "ref_norm": "ms beyin omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır",
+      "hyp_norm": "emes beyin omur ilik ve oklik sınırdan oluşan merkezi sınır sistemini etkelerin bir hastalıktır"
+    },
+    {
+      "id": "10921957992542400504",
+      "ref": "Bir gözlemci, sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla Bişkek'in bir \"anarşi\" durumuna saplandığını söyledi.",
+      "hyp": "Bir gözlâmca sokaklarını da çetelerinin balaşarak mazaları yağmalaması ile bir şekilde bir anaerşi durumuna saplandığını söyledi.",
+      "duration_s": 8.28,
+      "latency_s": 0.515,
+      "ref_norm": "bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla bişkekin bir anarşi durumuna saplandığını söyledi",
+      "hyp_norm": "bir gözlamca sokaklarını da çetelerinin balaşarak mazaları yağmalaması ile bir şekilde bir anaerşi durumuna saplandığını söyledi"
+    },
+    {
+      "id": "10931851117268547234",
+      "ref": "Siz anlamına gelen Sie ile birlikte tüm isimler her zaman, cümle ortasında dahi, büyük harfle başlar.",
+      "hyp": "Siz anlamına gelen siyile birlikte, tüm isimler her zaman cümle ortasında daha iyi büyük hafile başlar.",
+      "duration_s": 11.28,
+      "latency_s": 0.4319,
+      "ref_norm": "siz anlamına gelen sie ile birlikte tüm isimler her zaman cümle ortasında dahi büyük harfle başlar",
+      "hyp_norm": "siz anlamına gelen siyile birlikte tüm isimler her zaman cümle ortasında daha iyi büyük hafile başlar"
+    },
+    {
+      "id": "10966715397848724045",
+      "ref": "Bu kuşatma, geçen iki asırda pek çok uluslararası sözleşmede genel kanunlar olarak kabul görmüş uluslararası hukuku ihlal ediyor olmasına rağmen stratejik olarak etkili oldu ve hayati önem taşıyan askeri ve sivil malzemelerin ulaştırılmasına engel oldu.",
+      "hyp": "Bu şatma geçen ikini sırada pek çok uluslar ve su sözleşmedi, gelen kanunlar olarak kabul görmüş, uluslar ve sukoku ihlale ediyor olmasına rağmen sütleteşik olarak etkili oldu. Ve hayatı önemtaşayan askeri ve civil mazemelerin ulaştırılmasına engele oldu.",
+      "duration_s": 22.62,
+      "latency_s": 0.8058,
+      "ref_norm": "bu kuşatma geçen iki asırda pek çok uluslararası sözleşmede genel kanunlar olarak kabul görmüş uluslararası hukuku ihlal ediyor olmasına rağmen stratejik olarak etkili oldu ve hayati önem taşıyan askeri ve sivil malzemelerin ulaştırılmasına engel oldu",
+      "hyp_norm": "bu şatma geçen ikini sırada pek çok uluslar ve su sözleşmedi gelen kanunlar olarak kabul görmüş uluslar ve sukoku ihlale ediyor olmasına rağmen sütleteşik olarak etkili oldu ve hayatı önemtaşayan askeri ve civil mazemelerin ulaştırılmasına engele oldu"
+    },
+    {
+      "id": "10980745716384053795",
+      "ref": "Benzer sayılır ama genellikle alp tarzı kayak turu veya dağcılıktan biraz farklıdır. Bu sporlar dik arazide yapılır ve çok daha sert kayaklar ve botlar gerektirir.",
+      "hyp": "Benzer sayılır ama genellikle alt tarzı kayak turu veya daacılık da biraz farkladır. Bu sporlar, gikarazı yapılır ve çok daha sert kayaklar ve botlar gerektirir.",
+      "duration_s": 14.88,
+      "latency_s": 0.6065,
+      "ref_norm": "benzer sayılır ama genellikle alp tarzı kayak turu veya dağcılıktan biraz farklıdır bu sporlar dik arazide yapılır ve çok daha sert kayaklar ve botlar gerektirir",
+      "hyp_norm": "benzer sayılır ama genellikle alt tarzı kayak turu veya daacılık da biraz farkladır bu sporlar gikarazı yapılır ve çok daha sert kayaklar ve botlar gerektirir"
+    },
+    {
+      "id": "10992781483321611691",
+      "ref": "Avrupa tarihinin bu dönemi sırasında, zengin ve güçlü hale gelmiş olan Katolik Kilisesi denetim altına alınmıştır.",
+      "hyp": "Avrupa Tarihinin bu dönemiz sırasında zengin ve güçlü hale gelmiş olan katolik kerisesi denetim altına alınmıştır.",
+      "duration_s": 13.26,
+      "latency_s": 0.4605,
+      "ref_norm": "avrupa tarihinin bu dönemi sırasında zengin ve güçlü hale gelmiş olan katolik kilisesi denetim altına alınmıştır",
+      "hyp_norm": "avrupa tarihinin bu dönemiz sırasında zengin ve güçlü hale gelmiş olan katolik kerisesi denetim altına alınmıştır"
+    },
+    {
+      "id": "10993118482905394005",
+      "ref": "Aerosmith, turnesindeki geriye kalan konserleri iptal etti.",
+      "hyp": "Ayrus himiz, turnesindeki gereği kalan konserleri italette.",
+      "duration_s": 7.2,
+      "latency_s": 0.3682,
+      "ref_norm": "aerosmith turnesindeki geriye kalan konserleri iptal etti",
+      "hyp_norm": "ayrus himiz turnesindeki gereği kalan konserleri italette"
+    },
+    {
+      "id": "11165592905124176052",
+      "ref": "Bu kuşatma, geçen iki asırda pek çok uluslararası sözleşmede genel kanunlar olarak kabul görmüş uluslararası hukuku ihlal ediyor olmasına rağmen stratejik olarak etkili oldu ve hayati önem taşıyan askeri ve sivil malzemelerin ulaştırılmasına engel oldu.",
+      "hyp": "Bu kuşatma, geçen iki asada pek çok uluslar özürüz işmene genel kalınlar olarak kabır görmüş. Uluslar asıl bu kukuk ilgale diyor olmasa rağmen satıcı olarak etkili oldu. Ve hayatı enem taşıyan askeri ve civilimi ağzımendirin ulaştırılmasına en ger oldu.",
+      "duration_s": 19.62,
+      "latency_s": 0.8692,
+      "ref_norm": "bu kuşatma geçen iki asırda pek çok uluslararası sözleşmede genel kanunlar olarak kabul görmüş uluslararası hukuku ihlal ediyor olmasına rağmen stratejik olarak etkili oldu ve hayati önem taşıyan askeri ve sivil malzemelerin ulaştırılmasına engel oldu",
+      "hyp_norm": "bu kuşatma geçen iki asada pek çok uluslar özürüz işmene genel kalınlar olarak kabır görmüş uluslar asıl bu kukuk ilgale diyor olmasa rağmen satıcı olarak etkili oldu ve hayatı enem taşıyan askeri ve civilimi ağzımendirin ulaştırılmasına en ger oldu"
+    },
+    {
+      "id": "11168518841627448183",
+      "ref": "Çok yönlü bir atlet olan kaplan tırmanabilir (iyi olmasa da), yüzebilir, büyük mesafeler atlayabilir ve güçlü bir insanın beş katı kuvvetle çekebilir.",
+      "hyp": "Çok yöndü bir atlet olan kaplan, tırmanabilir, iyi olmasa da güzel bilir, büyük mesafeler atlayabilir ve güçlü bir insanın 5 katı kuvvetli çekebilir.",
+      "duration_s": 11.7,
+      "latency_s": 0.5333,
+      "ref_norm": "çok yönlü bir atlet olan kaplan tırmanabilir iyi olmasa da yüzebilir büyük mesafeler atlayabilir ve güçlü bir insanın beş katı kuvvetle çekebilir",
+      "hyp_norm": "çok yöndü bir atlet olan kaplan tırmanabilir iyi olmasa da güzel bilir büyük mesafeler atlayabilir ve güçlü bir insanın 5 katı kuvvetli çekebilir"
+    },
+    {
+      "id": "112126310265890741",
+      "ref": "MS; beyin, omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır.",
+      "hyp": "Emez Bey'in omurillik ve optik sinirden oluşan merkeziği sinir sistemine etkileyen bir hastalıktır.",
+      "duration_s": 11.16,
+      "latency_s": 0.4536,
+      "ref_norm": "ms beyin omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır",
+      "hyp_norm": "emez beyin omurillik ve optik sinirden oluşan merkeziği sinir sistemine etkileyen bir hastalıktır"
+    },
+    {
+      "id": "11216162222982744010",
+      "ref": "Bu çiftler bebekleri için bir evlat edinme planı yapmayı seçebilirler.",
+      "hyp": "Bu çiftler bebekleri için bir evlat edin mi planı yapmayı seçebildirler.",
+      "duration_s": 5.28,
+      "latency_s": 0.3808,
+      "ref_norm": "bu çiftler bebekleri için bir evlat edinme planı yapmayı seçebilirler",
+      "hyp_norm": "bu çiftler bebekleri için bir evlat edin mi planı yapmayı seçebildirler"
+    },
+    {
+      "id": "11224330324001827126",
+      "ref": "Maria'nın altında daha ince, dağlık bölgelerde daha kalındır.",
+      "hyp": "Maria'nın altında daha önce dahalık bölgelerde daha kalındır.",
+      "duration_s": 8.34,
+      "latency_s": 0.3577,
+      "ref_norm": "marianın altında daha ince dağlık bölgelerde daha kalındır",
+      "hyp_norm": "marianın altında daha önce dahalık bölgelerde daha kalındır"
+    },
+    {
+      "id": "11363348557539306549",
+      "ref": "Şehir, Afrika'dan çok Arap havasının esmesi nedeniyle ülkenin diğer şehirleriyle tam bir tezat oluşturuyor.",
+      "hyp": "Şehir Afrika'dan çok araba havasının esmesini nedeni ile ülkenin diğer şehirli ile tam bir tezat oluşturuyor.",
+      "duration_s": 12.12,
+      "latency_s": 0.4716,
+      "ref_norm": "şehir afrikadan çok arap havasının esmesi nedeniyle ülkenin diğer şehirleriyle tam bir tezat oluşturuyor",
+      "hyp_norm": "şehir afrikadan çok araba havasının esmesini nedeni ile ülkenin diğer şehirli ile tam bir tezat oluşturuyor"
+    },
+    {
+      "id": "11364817779695076542",
+      "ref": "Harekete yakın olmayı arzu ediyorsanız, müziğe yakın bir kamp alanı kapmak için önceden gitmeniz lazım.",
+      "hyp": "Herkete yakın olmayı arzu ediyorsanız müziğe yakın bir kampalanı kapmak için önceden gitmeniz lazım.",
+      "duration_s": 11.76,
+      "latency_s": 0.4343,
+      "ref_norm": "harekete yakın olmayı arzu ediyorsanız müziğe yakın bir kamp alanı kapmak için önceden gitmeniz lazım",
+      "hyp_norm": "herkete yakın olmayı arzu ediyorsanız müziğe yakın bir kampalanı kapmak için önceden gitmeniz lazım"
+    },
+    {
+      "id": "11374237581290468450",
+      "ref": "Bazı insanlar onun haklı olduğunu düşündü ama birçok insan aksine; Güneş (ve hatta diğer yıldızlar) dahil Güneş Sisteminin, dünyanın etrafında hareket ettiğine inandı.",
+      "hyp": "Bazı insanlar onun haklı olduğunun düşündü. Ama birçok insanaksine, güneş ve hatta diğer yıldızada ayn, güneş senin dünyanın etrafında hareket ettiğini yandı.",
+      "duration_s": 13.32,
+      "latency_s": 0.5742,
+      "ref_norm": "bazı insanlar onun haklı olduğunu düşündü ama birçok insan aksine güneş ve hatta diğer yıldızlar dahil güneş sisteminin dünyanın etrafında hareket ettiğine inandı",
+      "hyp_norm": "bazı insanlar onun haklı olduğunun düşündü ama birçok insanaksine güneş ve hatta diğer yıldızada ayn güneş senin dünyanın etrafında hareket ettiğini yandı"
+    },
+    {
+      "id": "11384756811375772398",
+      "ref": "Halkın töreni izlemesini sağlamak için Roma'nın çeşitli yerlerine birkaç büyük televizyon ekranı kuruldu.",
+      "hyp": "Halkın torunyi izlemesini sağlamak için romanın çeşitli yerlerine birkaç büyük televizyon ekranı kuruldu.",
+      "duration_s": 10.68,
+      "latency_s": 0.4622,
+      "ref_norm": "halkın töreni izlemesini sağlamak için romanın çeşitli yerlerine birkaç büyük televizyon ekranı kuruldu",
+      "hyp_norm": "halkın torunyi izlemesini sağlamak için romanın çeşitli yerlerine birkaç büyük televizyon ekranı kuruldu"
+    },
+    {
+      "id": "11416018937786444583",
+      "ref": "Aristoteles'in ruh bilimi dahil tüm bilim konuları hakkındaki kanıları kabul gördü.",
+      "hyp": "Aristotelesin Ruf Bilimi daha iyi, tüm bilim konulları hakkındaki kanaları kabul gördü.",
+      "duration_s": 9.18,
+      "latency_s": 0.4132,
+      "ref_norm": "aristotelesin ruh bilimi dahil tüm bilim konuları hakkındaki kanıları kabul gördü",
+      "hyp_norm": "aristotelesin ruf bilimi daha iyi tüm bilim konulları hakkındaki kanaları kabul gördü"
+    },
+    {
+      "id": "11440322736201606416",
+      "ref": "Bitkiler insanların soluduğu oksijeni üretir ve insanların çıkardığı (yani soluk verdiği) karbondioksiti alır.",
+      "hyp": "Bittikiler insanlarının solduğu oksijeni üretir ve insanların çıkardığı yani foluk verdiği carbon diyoksi te alır.",
+      "duration_s": 12.0,
+      "latency_s": 0.4625,
+      "ref_norm": "bitkiler insanların soluduğu oksijeni üretir ve insanların çıkardığı yani soluk verdiği karbondioksiti alır",
+      "hyp_norm": "bittikiler insanlarının solduğu oksijeni üretir ve insanların çıkardığı yani foluk verdiği carbon diyoksi te alır"
+    },
+    {
+      "id": "11446785038892875951",
+      "ref": "Lakkha Singh, şarkıcı Raju Khandelwal’ın eşliğinde chhappan bhog bhajan'ı söyledi.",
+      "hyp": "Lakası ying şarkıcı, reşu, kanlar vubun eşliğinde çapban vuk başını söyledi.",
+      "duration_s": 10.14,
+      "latency_s": 0.4336,
+      "ref_norm": "lakkha singh şarkıcı raju khandelwalın eşliğinde chhappan bhog bhajanı söyledi",
+      "hyp_norm": "lakası ying şarkıcı reşu kanlar vubun eşliğinde çapban vuk başını söyledi"
+    },
+    {
+      "id": "11483814926924348915",
+      "ref": "Kısacası, kurşun kalem, ilk çıktığında pek çok insan için iyi bir arkadaş oldu.",
+      "hyp": "Kısacesi kursun kalan ilk çıktığında pek çok insan için iyi bir arkadaş oldu.",
+      "duration_s": 9.6,
+      "latency_s": 0.3812,
+      "ref_norm": "kısacası kurşun kalem ilk çıktığında pek çok insan için iyi bir arkadaş oldu",
+      "hyp_norm": "kısacesi kursun kalan ilk çıktığında pek çok insan için iyi bir arkadaş oldu"
+    },
+    {
+      "id": "11583039059297980443",
+      "ref": "Köri, et veya sebzenin yanı sıra kuru otlar ve baharatlar içeren bir yemektir.",
+      "hyp": "Kürü, et ve alse birini yanı sıra, kuru otlar ve bu haratlar içerden bir yemekler.",
+      "duration_s": 7.14,
+      "latency_s": 0.4343,
+      "ref_norm": "köri et veya sebzenin yanı sıra kuru otlar ve baharatlar içeren bir yemektir",
+      "hyp_norm": "kürü et ve alse birini yanı sıra kuru otlar ve bu haratlar içerden bir yemekler"
+    },
+    {
+      "id": "11594938667960524728",
+      "ref": "Duyuru, Trump'ın Türkiye Cumhurbaşkanı Recep Tayyip Erdoğan ile yaptığı telefon görüşmesinden sonra yapıldı.",
+      "hyp": "Duyuru, trampın Türkiye Cumhurbaşkanı teri bir sahip Erdoğan'ı yaptığı telefon görüşmesine soru yapıldı.",
+      "duration_s": 8.28,
+      "latency_s": 0.4609,
+      "ref_norm": "duyuru trumpın türkiye cumhurbaşkanı recep tayyip erdoğan ile yaptığı telefon görüşmesinden sonra yapıldı",
+      "hyp_norm": "duyuru trampın türkiye cumhurbaşkanı teri bir sahip erdoğanı yaptığı telefon görüşmesine soru yapıldı"
+    },
+    {
+      "id": "11650272369358715695",
+      "ref": "Aynı şekilde, erkeklerin dizleri kapatan pantolonlar giymesi gerekir.",
+      "hyp": "Aynı şekilde erkeklerin dizleri kapatan pantolonlar giymesi gerekir.",
+      "duration_s": 7.92,
+      "latency_s": 0.3498,
+      "ref_norm": "aynı şekilde erkeklerin dizleri kapatan pantolonlar giymesi gerekir",
+      "hyp_norm": "aynı şekilde erkeklerin dizleri kapatan pantolonlar giymesi gerekir"
+    },
+    {
+      "id": "11704766969832438740",
+      "ref": "Ağır vergilendirmeye tabi ülkelere seyahat eden yolcular özellikle alkollü içeceklerden ve tütün mamullerinden bazen önemli ölçüde tasarruf edebilir.",
+      "hyp": "Oğur vergilendirmeye tabi ülkedele, seyahat eden yolcular, özellikle alkolli içliklerden, betutü müamillerinden bazen önemli ölçüne tasaruf edebilir.",
+      "duration_s": 11.82,
+      "latency_s": 0.577,
+      "ref_norm": "ağır vergilendirmeye tabi ülkelere seyahat eden yolcular özellikle alkollü içeceklerden ve tütün mamullerinden bazen önemli ölçüde tasarruf edebilir",
+      "hyp_norm": "oğur vergilendirmeye tabi ülkedele seyahat eden yolcular özellikle alkolli içliklerden betutü müamillerinden bazen önemli ölçüne tasaruf edebilir"
+    },
+    {
+      "id": "11725220502151423992",
+      "ref": "Yirminci yüzyılda gerçekleştirilen araştırmalar, iki farklı genetik varyasyon havuzu olduğunu göstermiştir: gizli ve dışa vurulan",
+      "hyp": "Yirmi yüzyılda gerçekleştirilen araştırmalar, iki farklı genetik variasyon havuzu olduğunu göstermiştir, gizli ve dışa vurulan.",
+      "duration_s": 12.0,
+      "latency_s": 0.4886,
+      "ref_norm": "yirminci yüzyılda gerçekleştirilen araştırmalar iki farklı genetik varyasyon havuzu olduğunu göstermiştir gizli ve dışa vurulan",
+      "hyp_norm": "yirmi yüzyılda gerçekleştirilen araştırmalar iki farklı genetik variasyon havuzu olduğunu göstermiştir gizli ve dışa vurulan"
+    },
+    {
+      "id": "1176708093787815365",
+      "ref": "Aslında varlığı bilinse dahi bulmak hiç kolay değildir. Mağaranın içinde tamamen bir yalıtılmışlık söz konusudur.",
+      "hyp": "Aslında varlığı bilinse dahi bulmak hiç kolay değildir. Maran'ın içinde tamamen bir yalıtılmışlık söz konusudur.",
+      "duration_s": 12.6,
+      "latency_s": 0.4683,
+      "ref_norm": "aslında varlığı bilinse dahi bulmak hiç kolay değildir mağaranın içinde tamamen bir yalıtılmışlık söz konusudur",
+      "hyp_norm": "aslında varlığı bilinse dahi bulmak hiç kolay değildir maranın içinde tamamen bir yalıtılmışlık söz konusudur"
+    },
+    {
+      "id": "11811044246709563420",
+      "ref": "Ay'ın yüzeyi kayalardan ve tozdan oluşur. Ay'ın dış katmanına kabuk ismi verilir.",
+      "hyp": "ayın yüzeyi kayalardan ve tozdan oluşur. ayın dış katmanına kabuk ismi verilir.",
+      "duration_s": 7.5,
+      "latency_s": 0.4239,
+      "ref_norm": "ayın yüzeyi kayalardan ve tozdan oluşur ayın dış katmanına kabuk ismi verilir",
+      "hyp_norm": "ayın yüzeyi kayalardan ve tozdan oluşur ayın dış katmanına kabuk ismi verilir"
+    },
+    {
+      "id": "11832895795546081738",
+      "ref": "Martelly dün, dokuz üyeden oluşan yeni Geçici Seçim Konseyi (CEP) huzurunda and içti.",
+      "hyp": "Martelli dün 9 yeranoğsan yeni geçici seçim konseyi siyip huzurunda and ijti.",
+      "duration_s": 11.82,
+      "latency_s": 0.4133,
+      "ref_norm": "martelly dün dokuz üyeden oluşan yeni geçici seçim konseyi cep huzurunda and içti",
+      "hyp_norm": "martelli dün 9 yeranoğsan yeni geçici seçim konseyi siyip huzurunda and ijti"
+    },
+    {
+      "id": "11833987045770304589",
+      "ref": "15 Ağustos 1940 tarihinde Müttefikler güney Fransa'yı işgal etti, işgal için \"Dragoon Operasyonu\" ismi kullanıldı.",
+      "hyp": "15-20 sos bin dokuz yüz kök tarihinde müttefiklar günej pransayı işgal etti. İçka için dragon operasyonu ismi kullanıldı.",
+      "duration_s": 12.72,
+      "latency_s": 0.5089,
+      "ref_norm": "15 ağustos 1940 tarihinde müttefikler güney fransayı işgal etti işgal için dragoon operasyonu ismi kullanıldı",
+      "hyp_norm": "15 20 sos bin dokuz yüz kök tarihinde müttefiklar günej pransayı işgal etti içka için dragon operasyonu ismi kullanıldı"
+    },
+    {
+      "id": "1184980191999088061",
+      "ref": "Ayrıca bloglar, öğrencilerin yazımını geliştirmeye yardımcı olabilir. Öğrenciler blog deneyimlerine genellikle özensiz dilbilgisi ve yazım hatalarıyla başlarken bir okuyucu kitlenin varlığı, genellikle bunu değiştirir.",
+      "hyp": "Ayrıca bu loklar öğrencilerin yazımını geliştirmeyi yarıncı olabilir. Öğrenciler, blok, DNA'yı nelerine, genelte ocağın sizdir birisi ve yazım hataları ile başarken bir okuydu kitlenin varlığı, genelte bunun değiştirir.",
+      "duration_s": 16.62,
+      "latency_s": 0.7351,
+      "ref_norm": "ayrıca bloglar öğrencilerin yazımını geliştirmeye yardımcı olabilir öğrenciler blog deneyimlerine genellikle özensiz dilbilgisi ve yazım hatalarıyla başlarken bir okuyucu kitlenin varlığı genellikle bunu değiştirir",
+      "hyp_norm": "ayrıca bu loklar öğrencilerin yazımını geliştirmeyi yarıncı olabilir öğrenciler blok dnayı nelerine genelte ocağın sizdir birisi ve yazım hataları ile başarken bir okuydu kitlenin varlığı genelte bunun değiştirir"
+    },
+    {
+      "id": "11860238956573012850",
+      "ref": "Yapılan iş genelde teorikti, fakat program Sagittarius galaksisine yönelik gözlemleri taklit etmek için yazılmıştı.",
+      "hyp": "Yapılan iş genelde teorekti fakat program sanki tarif ska laxisine yönelik gözlemleri takip etmek için yazılmıştı.",
+      "duration_s": 8.28,
+      "latency_s": 0.4719,
+      "ref_norm": "yapılan iş genelde teorikti fakat program sagittarius galaksisine yönelik gözlemleri taklit etmek için yazılmıştı",
+      "hyp_norm": "yapılan iş genelde teorekti fakat program sanki tarif ska laxisine yönelik gözlemleri takip etmek için yazılmıştı"
+    },
+    {
+      "id": "11883372540911099968",
+      "ref": "Hala hayatta olan, buradan sağ çıkmayı başarabilmiş pek çok erkek ve kadın var. Çok sayıda kişinin sevdikleri, hem Yahudiler hem de Yahudi olmayanlar, burada katledildi veya ölümüne çalıştırıldı.",
+      "hyp": "Hala hayatta olan Buradan sağ çıkmayı başarabilmiş, pek çok erkek ve kadın var. Çok sayıda kişinin sevdikleri, hem yavudiler, hem de yavudu olmayanlar, Burada kat dediğinde veya önümüne çalıştırıldı.",
+      "duration_s": 20.16,
+      "latency_s": 0.6628,
+      "ref_norm": "hala hayatta olan buradan sağ çıkmayı başarabilmiş pek çok erkek ve kadın var çok sayıda kişinin sevdikleri hem yahudiler hem de yahudi olmayanlar burada katledildi veya ölümüne çalıştırıldı",
+      "hyp_norm": "hala hayatta olan buradan sağ çıkmayı başarabilmiş pek çok erkek ve kadın var çok sayıda kişinin sevdikleri hem yavudiler hem de yavudu olmayanlar burada kat dediğinde veya önümüne çalıştırıldı"
+    },
+    {
+      "id": "11928701483349240",
+      "ref": "Kırsal bölgelerde araba kullanmaya aşina değilseniz gözünüzü dört açın. Dik eğimler, dar şeritler ve keskin virajlar sizi bekliyor.",
+      "hyp": "Kırsal bölgelerde araba kullanmaya aşina değilseniz gözünüzü dört açın. Dikeyimler, darşelitler ve keskin miranclar sizi bekliyor.",
+      "duration_s": 13.32,
+      "latency_s": 0.5428,
+      "ref_norm": "kırsal bölgelerde araba kullanmaya aşina değilseniz gözünüzü dört açın dik eğimler dar şeritler ve keskin virajlar sizi bekliyor",
+      "hyp_norm": "kırsal bölgelerde araba kullanmaya aşina değilseniz gözünüzü dört açın dikeyimler darşelitler ve keskin miranclar sizi bekliyor"
+    },
+    {
+      "id": "1196161239118671886",
+      "ref": "Orta Doğu'nun sıcak ikliminde ev o kadar da önemli değildi.",
+      "hyp": "Orta doğunu sıcak iktiminde ev o kadar da önemli değilli.",
+      "duration_s": 6.0,
+      "latency_s": 0.342,
+      "ref_norm": "orta doğunun sıcak ikliminde ev o kadar da önemli değildi",
+      "hyp_norm": "orta doğunu sıcak iktiminde ev o kadar da önemli değilli"
+    },
+    {
+      "id": "12009541597302521253",
+      "ref": "Orta Çağ'ın sonlarına doğru Batı Avrupa kendi tarzını oluşturmaya başladı. Haçlı seferlerinin son bulmasıyla dönemin en büyük ilerlemelerinden biri halkın kıyafetlerini iliklemek için düğme kullanmaya başlamasıydı.",
+      "hyp": "Orta çağın sonlarına doğru batı Avrupa kendi tarzını oluşturmaya başladı. Haçlı seferlerini son bulması ile dönemin en büyük ilerlemelerinden biri halkın kıyafetlerini iliklemek için düğüne kullanmaya başlamasıydı.",
+      "duration_s": 17.94,
+      "latency_s": 0.6965,
+      "ref_norm": "orta çağın sonlarına doğru batı avrupa kendi tarzını oluşturmaya başladı haçlı seferlerinin son bulmasıyla dönemin en büyük ilerlemelerinden biri halkın kıyafetlerini iliklemek için düğme kullanmaya başlamasıydı",
+      "hyp_norm": "orta çağın sonlarına doğru batı avrupa kendi tarzını oluşturmaya başladı haçlı seferlerini son bulması ile dönemin en büyük ilerlemelerinden biri halkın kıyafetlerini iliklemek için düğüne kullanmaya başlamasıydı"
+    },
+    {
+      "id": "12027768157528536575",
+      "ref": "Çocuklar, ihmalden istismara ve hatta gaspa kadar çok çeşitli sebeplerden dolayı Koruyucu Bakım'a yerleştirilir.",
+      "hyp": "Çocuklar imalan istismara ve hattal gaspakada çok çeşitize aran dolayı koruycubakımı yerleştirdik.",
+      "duration_s": 9.42,
+      "latency_s": 0.4828,
+      "ref_norm": "çocuklar ihmalden istismara ve hatta gaspa kadar çok çeşitli sebeplerden dolayı koruyucu bakıma yerleştirilir",
+      "hyp_norm": "çocuklar imalan istismara ve hattal gaspakada çok çeşitize aran dolayı koruycubakımı yerleştirdik"
+    },
+    {
+      "id": "12037088367168976932",
+      "ref": "Orta Çağ'ın sonlarına doğru Batı Avrupa kendi tarzını oluşturmaya başladı. Haçlı seferlerinin son bulmasıyla dönemin en büyük ilerlemelerinden biri halkın kıyafetlerini iliklemek için düğme kullanmaya başlamasıydı.",
+      "hyp": "Orta Çan'ın sonlarına doğru batı Avrupa kendi tarzını oluşturmaya başladı. Haşlı seferlerinin son bulması ile dönemin en büyük ilerlemelerinden biri halkın kıyaf ettiğini iliklemek için düğüne kullanmaya başlamasıydı.",
+      "duration_s": 16.56,
+      "latency_s": 0.6896,
+      "ref_norm": "orta çağın sonlarına doğru batı avrupa kendi tarzını oluşturmaya başladı haçlı seferlerinin son bulmasıyla dönemin en büyük ilerlemelerinden biri halkın kıyafetlerini iliklemek için düğme kullanmaya başlamasıydı",
+      "hyp_norm": "orta çanın sonlarına doğru batı avrupa kendi tarzını oluşturmaya başladı haşlı seferlerinin son bulması ile dönemin en büyük ilerlemelerinden biri halkın kıyaf ettiğini iliklemek için düğüne kullanmaya başlamasıydı"
+    },
+    {
+      "id": "12039175985148478212",
+      "ref": "Uzak adalarda kredi kartları muhtemelen kabul edilmeyecektir ancak Sterlin ve ABD Doları kullanılıyor olabilir. Kabul edilen ödeme yöntemini belirlemek için önceden mekan sahipleriyle görüşün.",
+      "hyp": "Uzak adalarda kredi kartları muhtemelen kabul edilmeyecektir. Ancak isterliğim ve A.B.D. dolanarı kullanılıyor olabilir. Kabul edilen ödemiyorum temini belirlenmek için önceden mekan sahipleriyle görsün.",
+      "duration_s": 16.44,
+      "latency_s": 0.6876,
+      "ref_norm": "uzak adalarda kredi kartları muhtemelen kabul edilmeyecektir ancak sterlin ve abd doları kullanılıyor olabilir kabul edilen ödeme yöntemini belirlemek için önceden mekan sahipleriyle görüşün",
+      "hyp_norm": "uzak adalarda kredi kartları muhtemelen kabul edilmeyecektir ancak isterliğim ve a b d dolanarı kullanılıyor olabilir kabul edilen ödemiyorum temini belirlenmek için önceden mekan sahipleriyle görsün"
+    },
+    {
+      "id": "12041096017046775815",
+      "ref": "İktidar partisi Güneybatı Afrika Halk Örgütü (SWAPO) de parlamento seçimlerinde çoğunluğunu korumayı başardı.",
+      "hyp": "İktidar partisi güneybatı Afrika halk örgütü, sıvapı ve parlamento seçimlerinde çoğunluğunu korumayı başardı.",
+      "duration_s": 12.42,
+      "latency_s": 0.5056,
+      "ref_norm": "iktidar partisi güneybatı afrika halk örgütü swapo de parlamento seçimlerinde çoğunluğunu korumayı başardı",
+      "hyp_norm": "iktidar partisi güneybatı afrika halk örgütü sıvapı ve parlamento seçimlerinde çoğunluğunu korumayı başardı"
+    },
+    {
+      "id": "12045423256816168323",
+      "ref": "Tüm unsurlar dikkate alındığında atalarımızın \"protein sorunlarını\" bugün savandaki şempanzelerle benzer şekilde çözmeleri bizi şaşırtmamalı.",
+      "hyp": "Tüm unsurlar dikkati alındığında atalarımızın proteğin sorunlarını bugün savandaki şampanzenerle benzer şekilde çözmeleri bizi şaşırtmamalı.",
+      "duration_s": 16.62,
+      "latency_s": 0.5318,
+      "ref_norm": "tüm unsurlar dikkate alındığında atalarımızın protein sorunlarını bugün savandaki şempanzelerle benzer şekilde çözmeleri bizi şaşırtmamalı",
+      "hyp_norm": "tüm unsurlar dikkati alındığında atalarımızın proteğin sorunlarını bugün savandaki şampanzenerle benzer şekilde çözmeleri bizi şaşırtmamalı"
+    },
+    {
+      "id": "12060641819085786168",
+      "ref": "Fakat bu doğru değil. Belgenin arka yüzünde yazılı bir şey bulunmasına rağmen bu bir hazine haritası değildir.",
+      "hyp": "Fakat bu doğru değil, Belgin'in arkı yüzünde yazılı bir şey bulunmasına rağmen bu bir hazine haritası değildir.",
+      "duration_s": 11.16,
+      "latency_s": 0.4434,
+      "ref_norm": "fakat bu doğru değil belgenin arka yüzünde yazılı bir şey bulunmasına rağmen bu bir hazine haritası değildir",
+      "hyp_norm": "fakat bu doğru değil belginin arkı yüzünde yazılı bir şey bulunmasına rağmen bu bir hazine haritası değildir"
+    },
+    {
+      "id": "12062570989434946935",
+      "ref": "Rossby sayısı ne kadar küçükse, yıldız manyetik tersinimlere nazaran o kadar az aktiftir.",
+      "hyp": "Roğuz bir sayısını kadar küçükse yıldız manitik tersininlere nazaran o kadar azaktiftir.",
+      "duration_s": 9.84,
+      "latency_s": 0.4214,
+      "ref_norm": "rossby sayısı ne kadar küçükse yıldız manyetik tersinimlere nazaran o kadar az aktiftir",
+      "hyp_norm": "roğuz bir sayısını kadar küçükse yıldız manitik tersininlere nazaran o kadar azaktiftir"
+    },
+    {
+      "id": "12074613235060050857",
+      "ref": "Askerlerin gelmesinden önce Haiti 1800'lerden beri hastalıkla ilgili sorunlarla karşılaşmamıştı.",
+      "hyp": "Askerlerin gelmesine önce hayiti, bi sekizlerden beri, hastalıklarla ilgili sorunlarla karşılaşmamıştı.",
+      "duration_s": 8.28,
+      "latency_s": 0.4552,
+      "ref_norm": "askerlerin gelmesinden önce haiti 1800lerden beri hastalıkla ilgili sorunlarla karşılaşmamıştı",
+      "hyp_norm": "askerlerin gelmesine önce hayiti bi sekizlerden beri hastalıklarla ilgili sorunlarla karşılaşmamıştı"
+    },
+    {
+      "id": "12120364371442384660",
+      "ref": "Hidrojen iyonları, elektronları kendilerinden sıyrılan protonlardır. Çünkü Hidrojen atomları bir proton ve bir elektrondan oluşur.",
+      "hyp": "Hidroca yonları elektronları kendilerinden sayırılan Protonlardır. Çünkü Hidroca'nın Atonları bir Proton ve bir elektronla oluşur.",
+      "duration_s": 15.06,
+      "latency_s": 0.5179,
+      "ref_norm": "hidrojen iyonları elektronları kendilerinden sıyrılan protonlardır çünkü hidrojen atomları bir proton ve bir elektrondan oluşur",
+      "hyp_norm": "hidroca yonları elektronları kendilerinden sayırılan protonlardır çünkü hidrocanın atonları bir proton ve bir elektronla oluşur"
+    },
+    {
+      "id": "12178176026184310828",
+      "ref": "Bazı atomların kararsız çekirdekleri vardır, yani küçük bir müdahaleyle ya da hiç müdahale olmadan parçalanabilirler.",
+      "hyp": "Bazı Atomların kararsız çikirdekleri vardır yani küçük bir müdahaleyle ya da hiç müdahale olmadan parçalana bilirler.",
+      "duration_s": 12.36,
+      "latency_s": 0.4626,
+      "ref_norm": "bazı atomların kararsız çekirdekleri vardır yani küçük bir müdahaleyle ya da hiç müdahale olmadan parçalanabilirler",
+      "hyp_norm": "bazı atomların kararsız çikirdekleri vardır yani küçük bir müdahaleyle ya da hiç müdahale olmadan parçalana bilirler"
+    },
+    {
+      "id": "1221021733640032996",
+      "ref": "Mekke'nin kuzeyindeki dağların birinin tepesinde yer alan mağara, dünyanın geri kalanından tamamen izoledir.",
+      "hyp": "Mekkenin kuzeyindeki dağların birini tepesinde yer alan mağara dünyanın geri kalanından tamamen izolidir.",
+      "duration_s": 7.86,
+      "latency_s": 0.4663,
+      "ref_norm": "mekkenin kuzeyindeki dağların birinin tepesinde yer alan mağara dünyanın geri kalanından tamamen izoledir",
+      "hyp_norm": "mekkenin kuzeyindeki dağların birini tepesinde yer alan mağara dünyanın geri kalanından tamamen izolidir"
+    },
+    {
+      "id": "12246809574094945376",
+      "ref": "Uzun çeneleri, ağzının üst kısmında fazladan bir grup diş ile birlikte 70'ten fazla jilet keskinliğinde diş ile doluydu. Bu da yolunun kesiştiği hiçbir şey için kaçış olmadığı anlamına geliyordu.",
+      "hyp": "Uzun tenezeri, ağzının üst kısmında fazladan bir grup diş ile birlikte gitmişten fazlacıyla keskinliğinde diş ile doluydu. Bu da yollun kesiştiği hiçbir şey için kaçış olmadığı anlamına geliyordu.",
+      "duration_s": 15.12,
+      "latency_s": 0.6704,
+      "ref_norm": "uzun çeneleri ağzının üst kısmında fazladan bir grup diş ile birlikte 70ten fazla jilet keskinliğinde diş ile doluydu bu da yolunun kesiştiği hiçbir şey için kaçış olmadığı anlamına geliyordu",
+      "hyp_norm": "uzun tenezeri ağzının üst kısmında fazladan bir grup diş ile birlikte gitmişten fazlacıyla keskinliğinde diş ile doluydu bu da yollun kesiştiği hiçbir şey için kaçış olmadığı anlamına geliyordu"
+    },
+    {
+      "id": "12268353232675450526",
+      "ref": "Blog yazma, işbirliğine kapı aralayan ve öğrencilerin öğrenmeyi, geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir araçtır.",
+      "hyp": "Bu lok yazma, işbirliğine kapı arlayan ve öğrencilerin öğrenmeyi geleneksel okul müfredadığın çok ötüsüne taşımaya teşvik eden bir araştır.",
+      "duration_s": 11.52,
+      "latency_s": 0.5397,
+      "ref_norm": "blog yazma işbirliğine kapı aralayan ve öğrencilerin öğrenmeyi geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir araçtır",
+      "hyp_norm": "bu lok yazma işbirliğine kapı arlayan ve öğrencilerin öğrenmeyi geleneksel okul müfredadığın çok ötüsüne taşımaya teşvik eden bir araştır"
+    },
+    {
+      "id": "1228876447420012394",
+      "ref": "İnternette yapılan 'Düşman çevre rotası' araması muhtemelen yerel bir şirketin adresini sağlayacaktır.",
+      "hyp": "İnternetli yapılan düşman çevre rotası araması muhtemelen yeren bir şirketin adresini sağlayacaktır.",
+      "duration_s": 13.08,
+      "latency_s": 0.4525,
+      "ref_norm": "internette yapılan düşman çevre rotası araması muhtemelen yerel bir şirketin adresini sağlayacaktır",
+      "hyp_norm": "internetli yapılan düşman çevre rotası araması muhtemelen yeren bir şirketin adresini sağlayacaktır"
+    },
+    {
+      "id": "12308336075461359139",
+      "ref": "Aslan sürüleri, davranış olarak şaşırtıcı bir şekilde aslanlara (fakat diğer büyük kedilere değil) benzeyen hayvanlar olan kurt veya köpek sürülerine çok benzer hareket eder ve ayrıca avlarına karşı çok ölümcüldürler.",
+      "hyp": "Aslan sürüleri davranış olarak şaşırtıcı bir şekilde aslanlara fakat diğer büyüklirleri değil bence en hayvanlırılan kurt veya küpek sürülerine çok benzer hareket eder ve ayrıca alarına karşı çok ölümcürdüğüller.",
+      "duration_s": 16.44,
+      "latency_s": 0.6463,
+      "ref_norm": "aslan sürüleri davranış olarak şaşırtıcı bir şekilde aslanlara fakat diğer büyük kedilere değil benzeyen hayvanlar olan kurt veya köpek sürülerine çok benzer hareket eder ve ayrıca avlarına karşı çok ölümcüldürler",
+      "hyp_norm": "aslan sürüleri davranış olarak şaşırtıcı bir şekilde aslanlara fakat diğer büyüklirleri değil bence en hayvanlırılan kurt veya küpek sürülerine çok benzer hareket eder ve ayrıca alarına karşı çok ölümcürdüğüller"
+    },
+    {
+      "id": "12312644598280865685",
+      "ref": "Afrika'daki en ucuz Dağ Gorili izleme yollarından bazılarına sahip olan şehir, Nyiragongo volkanına tırmanmak isteyenler için de bir üs konumundadır.",
+      "hyp": "Afrika'daki en ucuz daha goreli izlemeyi ollarından bazılarına sahip olan şehir Nira Gongo, Volkanı'na tırmanmak isteyenler için de bir üst konumundadır.",
+      "duration_s": 16.38,
+      "latency_s": 0.5729,
+      "ref_norm": "afrikadaki en ucuz dağ gorili izleme yollarından bazılarına sahip olan şehir nyiragongo volkanına tırmanmak isteyenler için de bir üs konumundadır",
+      "hyp_norm": "afrikadaki en ucuz daha goreli izlemeyi ollarından bazılarına sahip olan şehir nira gongo volkanına tırmanmak isteyenler için de bir üst konumundadır"
+    },
+    {
+      "id": "12312905215339655022",
+      "ref": "Bize treni, arabayı ve daha birçok ulaşım aracını getirdi.",
+      "hyp": "Bize tireni araba'yı ve daha büyük çok ulaşım aracını getirdi.",
+      "duration_s": 6.36,
+      "latency_s": 0.3874,
+      "ref_norm": "bize treni arabayı ve daha birçok ulaşım aracını getirdi",
+      "hyp_norm": "bize tireni arabayı ve daha büyük çok ulaşım aracını getirdi"
+    },
+    {
+      "id": "12332158054154488030",
+      "ref": "Aynı şekilde, Schengen vizesine sahip olarak, her bir Schengen üye ülkesine ayrıca vize başvurusunda bulunmanıza gerek kalmaz, böylece zaman, para ve evrak işlemlerinden tasarruf sağlarsınız.",
+      "hyp": "Aynı şekilde şengen bircesine sahip olarak her bir şengen büyüğünü ülkesine ayrıca vizle başvursunla bulunmamıza gerek kalmaz. Böylece zaman, para ve evrak işlemlerinden tasarruv sağlarsınız.",
+      "duration_s": 15.78,
+      "latency_s": 0.6505,
+      "ref_norm": "aynı şekilde schengen vizesine sahip olarak her bir schengen üye ülkesine ayrıca vize başvurusunda bulunmanıza gerek kalmaz böylece zaman para ve evrak işlemlerinden tasarruf sağlarsınız",
+      "hyp_norm": "aynı şekilde şengen bircesine sahip olarak her bir şengen büyüğünü ülkesine ayrıca vizle başvursunla bulunmamıza gerek kalmaz böylece zaman para ve evrak işlemlerinden tasarruv sağlarsınız"
+    },
+    {
+      "id": "12373932502826208215",
+      "ref": "Görüntünün ilk beş dakikasında bir rüzgar esmeye başlıyor, yaklaşık bir dakika sonra rüzgar saatte 70 km'ye ulaşıyor... daha sonra yağmur geliyor ama o kadar sert ve büyük ki cildinize bir iğne gibi çarpıyor, daha sonra gökten dolu yağıyor, insanlar panik halinde bağırmaya ve birbirlerinin üstüne çıkmaya başlıyorlar.",
+      "hyp": "Gündünün ilk beş dakika sıkıntı, ilk yürüzgâr esmeye başıyor. Yaklaşık bir dakika sonra müziyar saatte yetmiş kilometre yulaşıyor. Daha sonra yağmur geliyor, ama o kadar sert ve büyük ki, gildinizde bir yine gibi çağırpıyor. Daha sonra gökten dolu yarıyor, insanlar panik halinde bağırmaya ve bir verilerinin üstüne çıkmaya başlıyorlar.",
+      "duration_s": 27.72,
+      "latency_s": 0.9484,
+      "ref_norm": "görüntünün ilk beş dakikasında bir rüzgar esmeye başlıyor yaklaşık bir dakika sonra rüzgar saatte 70 kmye ulaşıyor daha sonra yağmur geliyor ama o kadar sert ve büyük ki cildinize bir iğne gibi çarpıyor daha sonra gökten dolu yağıyor insanlar panik halinde bağırmaya ve birbirlerinin üstüne çıkmaya başlıyorlar",
+      "hyp_norm": "gündünün ilk beş dakika sıkıntı ilk yürüzgar esmeye başıyor yaklaşık bir dakika sonra müziyar saatte yetmiş kilometre yulaşıyor daha sonra yağmur geliyor ama o kadar sert ve büyük ki gildinizde bir yine gibi çağırpıyor daha sonra gökten dolu yarıyor insanlar panik halinde bağırmaya ve bir verilerinin üstüne çıkmaya başlıyorlar"
+    },
+    {
+      "id": "12386070057721875715",
+      "ref": "Sonuç olarak, bir engelin üstesinden gelmek için beraber çalışılan bir kuruluşun süreci, müşterilerin gereksinimlerine hizmet edecek yeni bir yenilikçi sürece öncü olabilir.",
+      "hyp": "Sonuç olarak bir engellim üstesinden gelmek için beraber çalışılan bir kuruluşun süreci müşteriilerin gereksinimlerine hizmet edecek yeni bir genelikçi sürece önce olabilir.",
+      "duration_s": 11.64,
+      "latency_s": 0.5933,
+      "ref_norm": "sonuç olarak bir engelin üstesinden gelmek için beraber çalışılan bir kuruluşun süreci müşterilerin gereksinimlerine hizmet edecek yeni bir yenilikçi sürece öncü olabilir",
+      "hyp_norm": "sonuç olarak bir engellim üstesinden gelmek için beraber çalışılan bir kuruluşun süreci müşteriilerin gereksinimlerine hizmet edecek yeni bir genelikçi sürece önce olabilir"
+    },
+    {
+      "id": "12432056523393010952",
+      "ref": "Bu geleneğe dair Hristiyanlık dininin açıklamaları da var tabii ki ancak Hristiyanlık öncesinde baharı ve doğurganlığı simgeleyen bir ritüel olma olasılığı var.",
+      "hyp": "Bu gülüne edeyir Rusya'nın dinle açıklamadığı da var tabii ki. Ancak, Rusya'nın göndesinde, baharı ve doğrkanlığın simgiliyen bir rüter, olma olasılığı var.",
+      "duration_s": 11.58,
+      "latency_s": 0.6171,
+      "ref_norm": "bu geleneğe dair hristiyanlık dininin açıklamaları da var tabii ki ancak hristiyanlık öncesinde baharı ve doğurganlığı simgeleyen bir ritüel olma olasılığı var",
+      "hyp_norm": "bu gülüne edeyir rusyanın dinle açıklamadığı da var tabii ki ancak rusyanın göndesinde baharı ve doğrkanlığın simgiliyen bir rüter olma olasılığı var"
+    },
+    {
+      "id": "12445369903381754233",
+      "ref": "NextGen, FAA'nın uçakların daha kısa güzergahlarda uçuş yapmalarına, her sene milyonlarca galon yakıt tasarruf edilmesine ve karbon emisyonlarını düşürülmesine olanak tanıyacağını ileri sürdüğü bir sistemdir.",
+      "hyp": "Neçgen ve A'nın uçakların daha kısa güzel yaglardı uçuş yapmalarına. Her sene milyonlarca Galon'u yakıt tasarif edilmesine ve carbon emisyonlarını düşürülmesine olanaktan yiyeceğine ileriz furduğu bir sistemdir.",
+      "duration_s": 13.8,
+      "latency_s": 0.7241,
+      "ref_norm": "nextgen faanın uçakların daha kısa güzergahlarda uçuş yapmalarına her sene milyonlarca galon yakıt tasarruf edilmesine ve karbon emisyonlarını düşürülmesine olanak tanıyacağını ileri sürdüğü bir sistemdir",
+      "hyp_norm": "neçgen ve anın uçakların daha kısa güzel yaglardı uçuş yapmalarına her sene milyonlarca galonu yakıt tasarif edilmesine ve carbon emisyonlarını düşürülmesine olanaktan yiyeceğine ileriz furduğu bir sistemdir"
+    },
+    {
+      "id": "12450073905085325972",
+      "ref": "Belgenin en eski kopyaları, hala var olduğu bilinen 25 Dunlap broşürdür. Geriye hiç orijinal el yazısı versiyonu kalmamıştır.",
+      "hyp": "Belginin en eski kopyaları hala var olduğu bilinen 25.Dumla buraşırdır.Geriye hiç ojinal elensi versiyonu kalmamıştır.",
+      "duration_s": 16.26,
+      "latency_s": 0.5185,
+      "ref_norm": "belgenin en eski kopyaları hala var olduğu bilinen 25 dunlap broşürdür geriye hiç orijinal el yazısı versiyonu kalmamıştır",
+      "hyp_norm": "belginin en eski kopyaları hala var olduğu bilinen 25 dumla buraşırdır geriye hiç ojinal elensi versiyonu kalmamıştır"
+    },
+    {
+      "id": "124690985607407826",
+      "ref": "Ana sahnelerde müzik bitmiş olsa bile festivalin gece geç saatlere kadar müzik çalmaya devam edecek olan kısımları olabileceğini unutmayın.",
+      "hyp": "Anlasan herhalde muzik bitmiş olsa bile Fesivalin gece geç saatlere kadar muzik camaya devam edecek olan kısımlarını olabileceğini unutmayın",
+      "duration_s": 12.0,
+      "latency_s": 0.5326,
+      "ref_norm": "ana sahnelerde müzik bitmiş olsa bile festivalin gece geç saatlere kadar müzik çalmaya devam edecek olan kısımları olabileceğini unutmayın",
+      "hyp_norm": "anlasan herhalde muzik bitmiş olsa bile fesivalin gece geç saatlere kadar muzik camaya devam edecek olan kısımlarını olabileceğini unutmayın"
+    },
+    {
+      "id": "12479599340143078572",
+      "ref": "Kayak rotasını, yürüyüş rotasının bir benzeri olarak düşünün.",
+      "hyp": "Kayak rota zınağı yürü şotasının bir benzeri olarak düşünün.",
+      "duration_s": 5.16,
+      "latency_s": 0.3586,
+      "ref_norm": "kayak rotasını yürüyüş rotasının bir benzeri olarak düşünün",
+      "hyp_norm": "kayak rota zınağı yürü şotasının bir benzeri olarak düşünün"
+    },
+    {
+      "id": "12516486774912818910",
+      "ref": "Yeniden giriş şoku kültür şokundan daha erken etkisini gösterir. Balayı süresi daha azdır. Daha uzun sürer ve daha şiddetli olabilir.",
+      "hyp": "Yeni den giriş sokup kültür şokundan daha erkenet kesini gösterir, balayı süresi daha azdır, daha uzun sürer ve daha şiddetli olabilir.",
+      "duration_s": 13.32,
+      "latency_s": 0.53,
+      "ref_norm": "yeniden giriş şoku kültür şokundan daha erken etkisini gösterir balayı süresi daha azdır daha uzun sürer ve daha şiddetli olabilir",
+      "hyp_norm": "yeni den giriş sokup kültür şokundan daha erkenet kesini gösterir balayı süresi daha azdır daha uzun sürer ve daha şiddetli olabilir"
+    },
+    {
+      "id": "12591128854342607344",
+      "ref": "Kitle halinde otomobil sahipliği aynı zamanda yollarda daha fazla kaza yaşanmasına sebep olur, bu da yaralanan bedenlerin onarılması için sağlık sektöründe yeni tekniklerin bulunmasına yol açar.",
+      "hyp": "Kitli halinde otomobil sahipliği aynı zamanda yollarda daha fazla kazan yaşanmasına sebep olur. Bu da yer alan bedenlerin olabilmesi için sağlık sektöründe yeni tekniklerin bululmasına yol açar.",
+      "duration_s": 15.36,
+      "latency_s": 0.6026,
+      "ref_norm": "kitle halinde otomobil sahipliği aynı zamanda yollarda daha fazla kaza yaşanmasına sebep olur bu da yaralanan bedenlerin onarılması için sağlık sektöründe yeni tekniklerin bulunmasına yol açar",
+      "hyp_norm": "kitli halinde otomobil sahipliği aynı zamanda yollarda daha fazla kazan yaşanmasına sebep olur bu da yer alan bedenlerin olabilmesi için sağlık sektöründe yeni tekniklerin bululmasına yol açar"
+    },
+    {
+      "id": "12610628424955165283",
+      "ref": "İnsanlar, ülkeye dönen yolculara karşı sabırlı ve anlayışlı olmaları gerektiğini öngöremeyebilir.",
+      "hyp": "İnsanlar ülkeye dönüyoruzlara karşı sabırlığı ve anlayışlı olmaları gerektiğini ön göremeyebilir.",
+      "duration_s": 11.46,
+      "latency_s": 0.4343,
+      "ref_norm": "insanlar ülkeye dönen yolculara karşı sabırlı ve anlayışlı olmaları gerektiğini öngöremeyebilir",
+      "hyp_norm": "insanlar ülkeye dönüyoruzlara karşı sabırlığı ve anlayışlı olmaları gerektiğini ön göremeyebilir"
+    },
+    {
+      "id": "12688407818050096286",
+      "ref": "Kilisenin merkezi otoritesi bin yılı aşkın süredir Roma'da bulunuyordu. Güç ve paranın burada yoğunlaşması birçok kişinin bu ilkeye uygun davranılıp davranılmadığını sorgulamasına neden oldu.",
+      "hyp": "Keli senin verkezi otaritesi bin yalı aşkın süredir, Roma'da bulunuyordu. Güç ve paranın, Burada yoğunlaşması birçok kişinin bu ikiye uygun davranılıp davranılmadığını soruylamasının eden oldu.",
+      "duration_s": 16.68,
+      "latency_s": 0.6838,
+      "ref_norm": "kilisenin merkezi otoritesi bin yılı aşkın süredir romada bulunuyordu güç ve paranın burada yoğunlaşması birçok kişinin bu ilkeye uygun davranılıp davranılmadığını sorgulamasına neden oldu",
+      "hyp_norm": "keli senin verkezi otaritesi bin yalı aşkın süredir romada bulunuyordu güç ve paranın burada yoğunlaşması birçok kişinin bu ikiye uygun davranılıp davranılmadığını soruylamasının eden oldu"
+    },
+    {
+      "id": "12730590869719225025",
+      "ref": "Haiti Adalet ve Demokrasi Enstitüsü, Nepal BM barışı koruma birliğinin, hastalığı farkına varmadan Haiti'ye taşıdığını ileri süren bağımsız çalışmalara gönderme yaptı.",
+      "hyp": "Hayeti, adal et ve demokrasi estitytüsü, Nepal, birleşmiş milletler, barışı koruma birleyinin, hastalığın farkına varmadan, hayetiye taşıdığını ileri süren, bağımsız çalışmalara gönderme yaptı.",
+      "duration_s": 19.62,
+      "latency_s": 0.69,
+      "ref_norm": "haiti adalet ve demokrasi enstitüsü nepal bm barışı koruma birliğinin hastalığı farkına varmadan haitiye taşıdığını ileri süren bağımsız çalışmalara gönderme yaptı",
+      "hyp_norm": "hayeti adal et ve demokrasi estitytüsü nepal birleşmiş milletler barışı koruma birleyinin hastalığın farkına varmadan hayetiye taşıdığını ileri süren bağımsız çalışmalara gönderme yaptı"
+    },
+    {
+      "id": "12740399713315447197",
+      "ref": "Evrendeki her şey maddeden oluşur. Her madde atomlar denilen küçük parçacıklardan oluşur.",
+      "hyp": "Eğrendik her şeyi maddedir onlaşır, her madde atonlar delilerin küçük parçları kadar alışır.",
+      "duration_s": 7.44,
+      "latency_s": 0.4259,
+      "ref_norm": "evrendeki her şey maddeden oluşur her madde atomlar denilen küçük parçacıklardan oluşur",
+      "hyp_norm": "eğrendik her şeyi maddedir onlaşır her madde atonlar delilerin küçük parçları kadar alışır"
+    },
+    {
+      "id": "12783538013527114529",
+      "ref": "Blog yazma, işbirliğine kapı aralayan ve öğrencilerin öğrenmeyi, geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir araçtır.",
+      "hyp": "Biliok yazma işbirliğine kapa aralayan ve öğrencilerin öğrenmeyi genel ekser okul müfredatının çok ötüsüne taşıma etişli gelen bir araştır.",
+      "duration_s": 9.36,
+      "latency_s": 0.5669,
+      "ref_norm": "blog yazma işbirliğine kapı aralayan ve öğrencilerin öğrenmeyi geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir araçtır",
+      "hyp_norm": "biliok yazma işbirliğine kapa aralayan ve öğrencilerin öğrenmeyi genel ekser okul müfredatının çok ötüsüne taşıma etişli gelen bir araştır"
+    },
+    {
+      "id": "12806793864526178804",
+      "ref": "Keçilerin ilk kez yaklaşık 10.000 yıl önce İran'ın Zagros Dağları'nda evcilleştirildikleri tahmin edilmektedir.",
+      "hyp": "Keçilerin ilk de ilk kez yaklaşık 10 bin yıl önce, İranın zavroslu alırında ezilleştiriliklerini tahmin edirmek ediyoruz.",
+      "duration_s": 11.52,
+      "latency_s": 0.509,
+      "ref_norm": "keçilerin ilk kez yaklaşık 10 000 yıl önce iranın zagros dağlarında evcilleştirildikleri tahmin edilmektedir",
+      "hyp_norm": "keçilerin ilk de ilk kez yaklaşık 10 bin yıl önce iranın zavroslu alırında ezilleştiriliklerini tahmin edirmek ediyoruz"
+    },
+    {
+      "id": "12826167175455270913",
+      "ref": "İtalya'nın diğer pek çok kentinde ve dünyanın geri kalan kısmında, özellikle Polonya'da, Roma'dakilere benzeyen ve çok sayıda kişi tarafından izlenen dev ekranlar kuruldu.",
+      "hyp": "İtalya'nın diğer pek çok kentinde videonya'nın geri kalan kısmında özellikle polonya'da Roma da kilere benzeyen ve çok sayıda kişit tarafından izlenen devve ekranlar kuruldum.",
+      "duration_s": 12.12,
+      "latency_s": 0.6114,
+      "ref_norm": "italyanın diğer pek çok kentinde ve dünyanın geri kalan kısmında özellikle polonyada romadakilere benzeyen ve çok sayıda kişi tarafından izlenen dev ekranlar kuruldu",
+      "hyp_norm": "italyanın diğer pek çok kentinde videonyanın geri kalan kısmında özellikle polonyada roma da kilere benzeyen ve çok sayıda kişit tarafından izlenen devve ekranlar kuruldum"
+    },
+    {
+      "id": "12843040333783900911",
+      "ref": "Aristoteles'in ruh bilimi dahil tüm bilim konuları hakkındaki kanıları kabul gördü.",
+      "hyp": "Aristata elisin rucht birime dayı, cüm bilim konular hakkında kalları kavul gördü.",
+      "duration_s": 7.08,
+      "latency_s": 0.4228,
+      "ref_norm": "aristotelesin ruh bilimi dahil tüm bilim konuları hakkındaki kanıları kabul gördü",
+      "hyp_norm": "aristata elisin rucht birime dayı cüm bilim konular hakkında kalları kavul gördü"
+    },
+    {
+      "id": "12931572517742175810",
+      "ref": "Kundalini Yoga, Yoga pozları, nefes egzersizleri, mantralar ve görselleştirmelerle Kundalini enerjisini (aydınlanma enerjisi) uyandırır.",
+      "hyp": "Kundalini yoga yoga pozları nefese güzelsizleri mantralar ve görselleştirmelerle kundalini enerjisini abdından main enerjisi uyandırır.",
+      "duration_s": 12.66,
+      "latency_s": 0.5179,
+      "ref_norm": "kundalini yoga yoga pozları nefes egzersizleri mantralar ve görselleştirmelerle kundalini enerjisini aydınlanma enerjisi uyandırır",
+      "hyp_norm": "kundalini yoga yoga pozları nefese güzelsizleri mantralar ve görselleştirmelerle kundalini enerjisini abdından main enerjisi uyandırır"
+    },
+    {
+      "id": "12931696451415757770",
+      "ref": "Aslan sürüleri otuz civarında dişi ve yavruyla birlikte bir ila üç arasında değişen yetişkin akraba erkekten oluşur.",
+      "hyp": "Aslan sürüleri otuz civarında deşire yavruyla birlikte bir ila üç arasında değişen yetişkin akrabaha erkekten oluşur.",
+      "duration_s": 10.26,
+      "latency_s": 0.474,
+      "ref_norm": "aslan sürüleri otuz civarında dişi ve yavruyla birlikte bir ila üç arasında değişen yetişkin akraba erkekten oluşur",
+      "hyp_norm": "aslan sürüleri otuz civarında deşire yavruyla birlikte bir ila üç arasında değişen yetişkin akrabaha erkekten oluşur"
+    },
+    {
+      "id": "12946549039640390869",
+      "ref": "Kanada'nın büyüleyici çift dilli başkenti Ottawa, Kanada'nın geçmişini ve bugününü gözler önüne seren birçok sanat galerisi ve müzeye sahiptir.",
+      "hyp": "Kanadanın büyüleyici çift dille başkanı ottaa kanadanın geçmişini ve bu gününü gözler önünde seren birçok sanat kalirisi ve müzeye sahiptir.",
+      "duration_s": 16.32,
+      "latency_s": 0.5413,
+      "ref_norm": "kanadanın büyüleyici çift dilli başkenti ottawa kanadanın geçmişini ve bugününü gözler önüne seren birçok sanat galerisi ve müzeye sahiptir",
+      "hyp_norm": "kanadanın büyüleyici çift dille başkanı ottaa kanadanın geçmişini ve bu gününü gözler önünde seren birçok sanat kalirisi ve müzeye sahiptir"
+    },
+    {
+      "id": "13022592980702923391",
+      "ref": "Daha yeni bir şey çıktığında klavyenin kullanımına ne olacağını kim bilebilir?",
+      "hyp": "Daha yeni bir şeye çıktığında, klawenin kullarımına ne ocağına kim bilebilir?",
+      "duration_s": 6.6,
+      "latency_s": 0.3956,
+      "ref_norm": "daha yeni bir şey çıktığında klavyenin kullanımına ne olacağını kim bilebilir",
+      "hyp_norm": "daha yeni bir şeye çıktığında klawenin kullarımına ne ocağına kim bilebilir"
+    },
+    {
+      "id": "1303391343496487263",
+      "ref": "İtalyanca, eyalette çalışanların çoğu tarafından konuşulan günlük dildir, Latince ise genellikle dini törenlerde kullanılır.",
+      "hyp": "İtalyancı eyaletli çalışanların çoğu tarafından konuşulan günlük değildir. Latinca ise genelikteceğini toranlardık kullanılır.",
+      "duration_s": 11.58,
+      "latency_s": 0.5216,
+      "ref_norm": "italyanca eyalette çalışanların çoğu tarafından konuşulan günlük dildir latince ise genellikle dini törenlerde kullanılır",
+      "hyp_norm": "italyancı eyaletli çalışanların çoğu tarafından konuşulan günlük değildir latinca ise genelikteceğini toranlardık kullanılır"
+    },
+    {
+      "id": "13045298291023361800",
+      "ref": "Gerilim ne kadar az olursa, mevcut yaşam gücü de o kadar pozitif olur. Her insanın mutlak huzur ve memnuniyeti bulma potansiyeli vardır.",
+      "hyp": "Gelilim ne kadar az olursa mevcut eşem gücüde o kadar pırstif olur. Her insanın mutlak huzur ve memnunun yeti bulma potanseri vardır.",
+      "duration_s": 10.44,
+      "latency_s": 0.5173,
+      "ref_norm": "gerilim ne kadar az olursa mevcut yaşam gücü de o kadar pozitif olur her insanın mutlak huzur ve memnuniyeti bulma potansiyeli vardır",
+      "hyp_norm": "gelilim ne kadar az olursa mevcut eşem gücüde o kadar pırstif olur her insanın mutlak huzur ve memnunun yeti bulma potanseri vardır"
+    },
+    {
+      "id": "13109685829991010735",
+      "ref": "Goma'da gezinmek için boda-boda (motosiklet taksi) kullanabilirsiniz. Normal (yerel) fiyat, kısa mesafe için yaklaşık 500 Kongo Frangı'dır.",
+      "hyp": "Goma'da gezinmek için bu da bu da, motosiklete taksi kullanabilirsiniz. Normal, yerel, fiyat kısa mesafe için yaklaşık 500 kongofrangıdır.",
+      "duration_s": 14.76,
+      "latency_s": 0.5488,
+      "ref_norm": "gomada gezinmek için boda boda motosiklet taksi kullanabilirsiniz normal yerel fiyat kısa mesafe için yaklaşık 500 kongo frangıdır",
+      "hyp_norm": "gomada gezinmek için bu da bu da motosiklete taksi kullanabilirsiniz normal yerel fiyat kısa mesafe için yaklaşık 500 kongofrangıdır"
+    },
+    {
+      "id": "13109895642195262468",
+      "ref": "Blog yazma, işbirliğine kapı aralayan ve öğrencilerin öğrenmeyi, geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir araçtır.",
+      "hyp": "Bu lok yazma işbirliğine kapa aralayan ve öğrencilerin öğrenmeyi geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir alaştır.",
+      "duration_s": 11.52,
+      "latency_s": 0.5349,
+      "ref_norm": "blog yazma işbirliğine kapı aralayan ve öğrencilerin öğrenmeyi geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir araçtır",
+      "hyp_norm": "bu lok yazma işbirliğine kapa aralayan ve öğrencilerin öğrenmeyi geleneksel okul müfredatının çok ötesine taşımaya teşvik eden bir alaştır"
+    },
+    {
+      "id": "13113236516604223085",
+      "ref": "Oliver Sacks, The President's Speech olarak adlandırılan makalesinde, beyin hasarı sebebi ile konuşmayı düzgün bir biçimde algılamakta problem yaşayan insanların bu soruna rağmen samimiyeti doğru bir şekilde değerlendirebildiğini belirtti.",
+      "hyp": "Olur, saks, depresdins, sipi hiç olarak atlandırılan bakalesinde, beyin hasari sebebi ile konuşmaya düzgün bir biçimde âgılamaktan, problem yaşayan insanların, bu sorun arayan samimi yeti doğru bir şekilde değerlendirebildiğini belirtti.",
+      "duration_s": 20.04,
+      "latency_s": 0.723,
+      "ref_norm": "oliver sacks the presidents speech olarak adlandırılan makalesinde beyin hasarı sebebi ile konuşmayı düzgün bir biçimde algılamakta problem yaşayan insanların bu soruna rağmen samimiyeti doğru bir şekilde değerlendirebildiğini belirtti",
+      "hyp_norm": "olur saks depresdins sipi hiç olarak atlandırılan bakalesinde beyin hasari sebebi ile konuşmaya düzgün bir biçimde agılamaktan problem yaşayan insanların bu sorun arayan samimi yeti doğru bir şekilde değerlendirebildiğini belirtti"
+    },
+    {
+      "id": "13116911230705699135",
+      "ref": "Bu genellikle yanlış bir basmakalıp inançtan ibaret olsa da, hâlâ Paris'te sorun yaşamamanın en iyi yolu, \"bien élevé\" (iyi yetiştirilmiş) biri gibi saygın bir şekilde hareket etmektir. Bu, sayede sorun yaşamamak oldukça kolaylaştıracaktır.",
+      "hyp": "Bu genellikle yanlış bir basmak alıp inançtan ibaret olsa da hala parisi de sorun yaşamamanın en iyi yolu, biyan elvi, haratil içinde iyi yetiştirilmiş, biri gibi saygın bir şekilde hareket etmektir. Bu sayede sorun yaşamamak oldukça kolaylaştıracaktır.",
+      "duration_s": 24.18,
+      "latency_s": 0.7868,
+      "ref_norm": "bu genellikle yanlış bir basmakalıp inançtan ibaret olsa da hala pariste sorun yaşamamanın en iyi yolu bien élevé iyi yetiştirilmiş biri gibi saygın bir şekilde hareket etmektir bu sayede sorun yaşamamak oldukça kolaylaştıracaktır",
+      "hyp_norm": "bu genellikle yanlış bir basmak alıp inançtan ibaret olsa da hala parisi de sorun yaşamamanın en iyi yolu biyan elvi haratil içinde iyi yetiştirilmiş biri gibi saygın bir şekilde hareket etmektir bu sayede sorun yaşamamak oldukça kolaylaştıracaktır"
+    },
+    {
+      "id": "13130578112627586594",
+      "ref": "Uzun çeneleri, ağzının üst kısmında fazladan bir grup diş ile birlikte 70'ten fazla jilet keskinliğinde diş ile doluydu. Bu da yolunun kesiştiği hiçbir şey için kaçış olmadığı anlamına geliyordu.",
+      "hyp": "Uzun çeneleri ağzın üst kısmında fazla dam bir grup diş ile birlikte yetmişten fazla cilet kesginiğinde diş ile doluydu. Bu da yolunun kesiştiği hiçbir şey için kaçış olmadı anlamına geliyordu.",
+      "duration_s": 16.14,
+      "latency_s": 0.616,
+      "ref_norm": "uzun çeneleri ağzının üst kısmında fazladan bir grup diş ile birlikte 70ten fazla jilet keskinliğinde diş ile doluydu bu da yolunun kesiştiği hiçbir şey için kaçış olmadığı anlamına geliyordu",
+      "hyp_norm": "uzun çeneleri ağzın üst kısmında fazla dam bir grup diş ile birlikte yetmişten fazla cilet kesginiğinde diş ile doluydu bu da yolunun kesiştiği hiçbir şey için kaçış olmadı anlamına geliyordu"
+    },
+    {
+      "id": "13133259101189535650",
+      "ref": "Evrendeki her şey maddeden oluşur. Her madde atomlar denilen küçük parçacıklardan oluşur.",
+      "hyp": "Evrendeki her şeyi maddeden alır. Her madde atomlar dinlen küçük parçacıklardan alır.",
+      "duration_s": 10.2,
+      "latency_s": 0.4002,
+      "ref_norm": "evrendeki her şey maddeden oluşur her madde atomlar denilen küçük parçacıklardan oluşur",
+      "hyp_norm": "evrendeki her şeyi maddeden alır her madde atomlar dinlen küçük parçacıklardan alır"
+    },
+    {
+      "id": "13175578265572316058",
+      "ref": "MS 400 dolaylarında lüksün merkezi olarak ün kazandı ve bu şöhreti yaklaşık MS 1100 yılına kadar sürdürdü.",
+      "hyp": "Milattan sonra dört yüz olaylarında lüksin merkeze olarak yın kazandı ve bu şöhreti yaklaşık Milattan sonra bin yüz yılına kadar sürdürdü.",
+      "duration_s": 12.6,
+      "latency_s": 0.535,
+      "ref_norm": "ms 400 dolaylarında lüksün merkezi olarak ün kazandı ve bu şöhreti yaklaşık ms 1100 yılına kadar sürdürdü",
+      "hyp_norm": "milattan sonra dört yüz olaylarında lüksin merkeze olarak yın kazandı ve bu şöhreti yaklaşık milattan sonra bin yüz yılına kadar sürdürdü"
+    },
+    {
+      "id": "1318102906873613554",
+      "ref": "Yine Devrim'den sonra meslekler, en hırslı ve başarılı olanın kazanmasını sağlayacak şekilde tüm erkek adaylara açıktı.",
+      "hyp": "Yine deyrimden sonra mestetler en hırslı ve başarılı olanın kazanmasını sağlayacak şekilde tüm erkek adaylara açıktı.",
+      "duration_s": 13.2,
+      "latency_s": 0.4717,
+      "ref_norm": "yine devrimden sonra meslekler en hırslı ve başarılı olanın kazanmasını sağlayacak şekilde tüm erkek adaylara açıktı",
+      "hyp_norm": "yine deyrimden sonra mestetler en hırslı ve başarılı olanın kazanmasını sağlayacak şekilde tüm erkek adaylara açıktı"
+    },
+    {
+      "id": "13192594714929687875",
+      "ref": "Gezegenin nehirlerinden okyanuslara dökülen suyun tam yüzde 20'si Amazon'dan geliyor.",
+      "hyp": "Gezeginin ne yerlerinden okyanuslara döklensiyon tam güzde girmesi ama zondan geliyor.",
+      "duration_s": 10.2,
+      "latency_s": 0.4335,
+      "ref_norm": "gezegenin nehirlerinden okyanuslara dökülen suyun tam yüzde 20si amazondan geliyor",
+      "hyp_norm": "gezeginin ne yerlerinden okyanuslara döklensiyon tam güzde girmesi ama zondan geliyor"
+    },
+    {
+      "id": "13193459968117591951",
+      "ref": "Aslan sürüleri otuz civarında dişi ve yavruyla birlikte bir ila üç arasında değişen yetişkin akraba erkekten oluşur.",
+      "hyp": "Aslan sürüleri otuz civarında dişi ve yavruyla birlikte bir ilah üç arasında değişen yetişkin akrabaha erkekten oluşur.",
+      "duration_s": 12.72,
+      "latency_s": 0.4703,
+      "ref_norm": "aslan sürüleri otuz civarında dişi ve yavruyla birlikte bir ila üç arasında değişen yetişkin akraba erkekten oluşur",
+      "hyp_norm": "aslan sürüleri otuz civarında dişi ve yavruyla birlikte bir ilah üç arasında değişen yetişkin akrabaha erkekten oluşur"
+    },
+    {
+      "id": "13200922870284139850",
+      "ref": "İlk olarak, Great Yarmouth'daki James Paget Hastanesi'ne kaldırıldı.",
+      "hyp": "İlk olarak, gret, yarmotlaki, camis peygot hastanesine kaldırıldır.",
+      "duration_s": 6.36,
+      "latency_s": 0.3941,
+      "ref_norm": "ilk olarak great yarmouthdaki james paget hastanesine kaldırıldı",
+      "hyp_norm": "ilk olarak gret yarmotlaki camis peygot hastanesine kaldırıldır"
+    },
+    {
+      "id": "13201771079219919847",
+      "ref": "1920'lerde, çoğu vatandaş ve ulusun egemen tavrı barışçılık ve izolasyondu.",
+      "hyp": "bin dokuz yüz girmelerde çoğu vatandaş ve ulusun egemen tavrı varışçılık ve izolasyondu.",
+      "duration_s": 10.74,
+      "latency_s": 0.4717,
+      "ref_norm": "1920lerde çoğu vatandaş ve ulusun egemen tavrı barışçılık ve izolasyondu",
+      "hyp_norm": "bin dokuz yüz girmelerde çoğu vatandaş ve ulusun egemen tavrı varışçılık ve izolasyondu"
+    },
+    {
+      "id": "13213290455858218904",
+      "ref": "Yüksek enlemlerde veya dağ geçitlerinde araç kullanacak olan herhangi bir kimse kar, buz veya donma ihtimalini göz önünde bulundurmalıdır.",
+      "hyp": "Yüksek enlemlerde veya daha geçütlerinde araç kuzlanacak olan herhangi bir kimseye kar buz veya dolma itim halinde göz önünde bulundurmalıdır.",
+      "duration_s": 12.48,
+      "latency_s": 0.5185,
+      "ref_norm": "yüksek enlemlerde veya dağ geçitlerinde araç kullanacak olan herhangi bir kimse kar buz veya donma ihtimalini göz önünde bulundurmalıdır",
+      "hyp_norm": "yüksek enlemlerde veya daha geçütlerinde araç kuzlanacak olan herhangi bir kimseye kar buz veya dolma itim halinde göz önünde bulundurmalıdır"
+    },
+    {
+      "id": "132403207182880752",
+      "ref": "Valilik binasının dışında bir bomba patladı.",
+      "hyp": "Bu halik binasının dışında bir bombap atlıyorum.",
+      "duration_s": 4.2,
+      "latency_s": 0.3204,
+      "ref_norm": "valilik binasının dışında bir bomba patladı",
+      "hyp_norm": "bu halik binasının dışında bir bombap atlıyorum"
+    },
+    {
+      "id": "13258651770337870582",
+      "ref": "Atlantik Kasırga Mevsimi'nin isim verilen onuncu fırtınası olan Jerry Alt Tropik Fırtınası, bugün Atlantik Okyanusu'nda ortaya çıktı.",
+      "hyp": "Atlantik kasırga meysiminin isim verilen onuncu fırtına soğlan ciri alt, trafik fırtına sıvı, bugün atlantik okyanosunda ortaya çıktı.",
+      "duration_s": 14.52,
+      "latency_s": 0.5501,
+      "ref_norm": "atlantik kasırga mevsiminin isim verilen onuncu fırtınası olan jerry alt tropik fırtınası bugün atlantik okyanusunda ortaya çıktı",
+      "hyp_norm": "atlantik kasırga meysiminin isim verilen onuncu fırtına soğlan ciri alt trafik fırtına sıvı bugün atlantik okyanosunda ortaya çıktı"
+    },
+    {
+      "id": "13282170367886037426",
+      "ref": "Vahşi çocuklar terk edilmeden veya kaçmadan önce ciddi çocuk istismarına veya travmalara maruz kalmış olabilirler.",
+      "hyp": "Vahyi çocuklar, terk edilmeden veya kaçmadan önce ciddi çocuk estismarına ve atıralmalara mağrus kalmış olabilirler.",
+      "duration_s": 12.48,
+      "latency_s": 0.4747,
+      "ref_norm": "vahşi çocuklar terk edilmeden veya kaçmadan önce ciddi çocuk istismarına veya travmalara maruz kalmış olabilirler",
+      "hyp_norm": "vahyi çocuklar terk edilmeden veya kaçmadan önce ciddi çocuk estismarına ve atıralmalara mağrus kalmış olabilirler"
+    },
+    {
+      "id": "13285007217461040791",
+      "ref": "Ancak, tüberkülozlu insanlar grubunun tamamındaki XDR-TB oranı hala düşük düzeyde. Toplam 330.000 kişiden 6.000'ine Güney Afrika'da belirli bir zamanda bulaştı.",
+      "hyp": "Ancak 14 kilo uzun insanlar grubunun tamamındaki 2.5 tb, oranı hala düşük düzehide toplam 3. otur bin kişiden altı binini günü yavrika da bilirdi bir zamanda bulaştı.",
+      "duration_s": 12.84,
+      "latency_s": 0.5941,
+      "ref_norm": "ancak tüberkülozlu insanlar grubunun tamamındaki xdr tb oranı hala düşük düzeyde toplam 330 000 kişiden 6 000ine güney afrikada belirli bir zamanda bulaştı",
+      "hyp_norm": "ancak 14 kilo uzun insanlar grubunun tamamındaki 2 5 tb oranı hala düşük düzehide toplam 3 otur bin kişiden altı binini günü yavrika da bilirdi bir zamanda bulaştı"
+    },
+    {
+      "id": "13291792867840517320",
+      "ref": "Haiti Adalet ve Demokrasi Enstitüsü, Nepal BM barışı koruma birliğinin, hastalığı farkına varmadan Haiti'ye taşıdığını ileri süren bağımsız çalışmalara gönderme yaptı.",
+      "hyp": "Hayit'i adalet ve demoprasi enstütse, Nepal, BME, barışı koruma birleyinin hastalığı farkına varmadan Hayit'i taşıdığını ileri süren bağımsız çalışmalara göndermeyi yaptı.",
+      "duration_s": 15.6,
+      "latency_s": 0.6373,
+      "ref_norm": "haiti adalet ve demokrasi enstitüsü nepal bm barışı koruma birliğinin hastalığı farkına varmadan haitiye taşıdığını ileri süren bağımsız çalışmalara gönderme yaptı",
+      "hyp_norm": "hayiti adalet ve demoprasi enstütse nepal bme barışı koruma birleyinin hastalığı farkına varmadan hayiti taşıdığını ileri süren bağımsız çalışmalara göndermeyi yaptı"
+    },
+    {
+      "id": "13299534738415912806",
+      "ref": "53 yaşındaki Cuomo valiliğe bu yılın başında başladı ve geçtiiğimiz ay eşcinsel bireylerin evliliğini yasal hale getiren bir kanuna imza attı.",
+      "hyp": "50 çeşimdeki koğumu valli'e bu yılın başında başladı ve geçtiğimiz ay eştinsel bir eğilerin evliliğini yasalali getiren bir kanla imzahattı.",
+      "duration_s": 13.26,
+      "latency_s": 0.571,
+      "ref_norm": "53 yaşındaki cuomo valiliğe bu yılın başında başladı ve geçtiiğimiz ay eşcinsel bireylerin evliliğini yasal hale getiren bir kanuna imza attı",
+      "hyp_norm": "50 çeşimdeki koğumu vallie bu yılın başında başladı ve geçtiğimiz ay eştinsel bir eğilerin evliliğini yasalali getiren bir kanla imzahattı"
+    },
+    {
+      "id": "13306942636636224192",
+      "ref": "Layton, başbakan ile toplantı sırasında muhafazakarların çevre kanun teklifinde değişiklikler talep ederek Muhafazakar partinin çevre kanun teklifinin \"kapsamlı ve bütüncül bir şekilde yeniden yazımını\" istedi.",
+      "hyp": "Leytin başbakan ile toplantı sırasında muhafaza kârların çevre kanun teknifinde değişiklikler, talin ederek muhafaza karpartının çevre kanun teknifinin kapsamını ve bütüncü bir şekilde yeniden yazımını istedir.",
+      "duration_s": 17.64,
+      "latency_s": 0.6946,
+      "ref_norm": "layton başbakan ile toplantı sırasında muhafazakarların çevre kanun teklifinde değişiklikler talep ederek muhafazakar partinin çevre kanun teklifinin kapsamlı ve bütüncül bir şekilde yeniden yazımını istedi",
+      "hyp_norm": "leytin başbakan ile toplantı sırasında muhafaza karların çevre kanun teknifinde değişiklikler talin ederek muhafaza karpartının çevre kanun teknifinin kapsamını ve bütüncü bir şekilde yeniden yazımını istedir"
+    },
+    {
+      "id": "13329516515408935834",
+      "ref": "Dinozor tüylerinde, kuş tüyü sapı adı verilen iyi gelişmiş bir sap olmadığı fakat çengeller ve çengelcikler gibi diğer tüy özellikleri bulunduğundan araştırmacılar, kuş tüyü sapının muhtemelen bu özelliklerden daha sonra ortaya çıkan bir evrimsel gelişme olduğu sonucuna vardı.",
+      "hyp": "Dinoz ortaliyelerinde kuştuyu sapı adı verilen iyi geleşmiş bir sap olmadı fakat çengenler ve çengelcikler gibi diğer tuy özellikleri bulunduğundan araştırmajılar kuştuyu sapının muhtemelen bu özelliklerle daha sonra ortaya çıkan bir evrünsel geleşmi olduğu sonucuna vardı.",
+      "duration_s": 23.64,
+      "latency_s": 0.8852,
+      "ref_norm": "dinozor tüylerinde kuş tüyü sapı adı verilen iyi gelişmiş bir sap olmadığı fakat çengeller ve çengelcikler gibi diğer tüy özellikleri bulunduğundan araştırmacılar kuş tüyü sapının muhtemelen bu özelliklerden daha sonra ortaya çıkan bir evrimsel gelişme olduğu sonucuna vardı",
+      "hyp_norm": "dinoz ortaliyelerinde kuştuyu sapı adı verilen iyi geleşmiş bir sap olmadı fakat çengenler ve çengelcikler gibi diğer tuy özellikleri bulunduğundan araştırmajılar kuştuyu sapının muhtemelen bu özelliklerle daha sonra ortaya çıkan bir evrünsel geleşmi olduğu sonucuna vardı"
+    },
+    {
+      "id": "13334775018800649093",
+      "ref": "Özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor.",
+      "hyp": "Özellikle mikro-ifadilderi doğru bir şekilde yorumlama yöntemiyle, bir kişinin yalan sayıp söylemediğinin anlaşılabileceği önesi rülüyor.",
+      "duration_s": 9.78,
+      "latency_s": 0.5111,
+      "ref_norm": "özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor",
+      "hyp_norm": "özellikle mikro ifadilderi doğru bir şekilde yorumlama yöntemiyle bir kişinin yalan sayıp söylemediğinin anlaşılabileceği önesi rülüyor"
+    },
+    {
+      "id": "13382958389650366687",
+      "ref": "Pek çok Alman hamur işi ayrıca badem, fındık ve diğer ağaç yemişlerini içerir. Çok talep gören kekler genel olarak bir fincan şekersiz sade kahve ile özellikle iyi bir ikili oluşturur.",
+      "hyp": "Pek çok alman hamur işi ayrıca bağiden fındık ve diğer ağat yemişlerini içerir. Çok tedep görenkekler genel olarak bir fincan şekersiz, sade kahveyle özellikle yibir ikili oluşturur.",
+      "duration_s": 17.94,
+      "latency_s": 0.6338,
+      "ref_norm": "pek çok alman hamur işi ayrıca badem fındık ve diğer ağaç yemişlerini içerir çok talep gören kekler genel olarak bir fincan şekersiz sade kahve ile özellikle iyi bir ikili oluşturur",
+      "hyp_norm": "pek çok alman hamur işi ayrıca bağiden fındık ve diğer ağat yemişlerini içerir çok tedep görenkekler genel olarak bir fincan şekersiz sade kahveyle özellikle yibir ikili oluşturur"
+    },
+    {
+      "id": "13398498411270506547",
+      "ref": "Giza'daki Büyük Piramit, bugün hala ayakta olan yedi dünya harikasından sadece biridir.",
+      "hyp": "Gizledeki büyük kremit, bugün hala ayakta olan vedi dünya harikasında sadece biridir.",
+      "duration_s": 8.82,
+      "latency_s": 0.3998,
+      "ref_norm": "gizadaki büyük piramit bugün hala ayakta olan yedi dünya harikasından sadece biridir",
+      "hyp_norm": "gizledeki büyük kremit bugün hala ayakta olan vedi dünya harikasında sadece biridir"
+    },
+    {
+      "id": "1340785726592350568",
+      "ref": "Takımadalarda ve göllerde bir yat olmazsa olmazınız değildir.",
+      "hyp": "Takımadalarda ve göllerde bir get olmasa olmasınız değildir.",
+      "duration_s": 10.02,
+      "latency_s": 0.35,
+      "ref_norm": "takımadalarda ve göllerde bir yat olmazsa olmazınız değildir",
+      "hyp_norm": "takımadalarda ve göllerde bir get olmasa olmasınız değildir"
+    },
+    {
+      "id": "13482708715020153123",
+      "ref": "Yerkabuğu yakın tarafta yaklaşık 70 km, uzak tarafta ise 100 km kalınlığındadır.",
+      "hyp": "Yarkabuğu yakın tarafta yaklaşık 7-6 km, uzak tarafta ise 10 km kanınlığındadır.",
+      "duration_s": 11.4,
+      "latency_s": 0.4192,
+      "ref_norm": "yerkabuğu yakın tarafta yaklaşık 70 km uzak tarafta ise 100 km kalınlığındadır",
+      "hyp_norm": "yarkabuğu yakın tarafta yaklaşık 7 6 km uzak tarafta ise 10 km kanınlığındadır"
+    },
+    {
+      "id": "13499471250520679377",
+      "ref": "Kanada'nın büyüleyici çift dilli başkenti Ottawa, Kanada'nın geçmişini ve bugününü gözler önüne seren birçok sanat galerisi ve müzeye sahiptir.",
+      "hyp": "Kanada'nın büyüleyici çift dilli başkenti, otta vak Kanada'nın geçmişini ve bugününü gözer ünleseren bir çok sanat kalirisi ve müzeye sahiptir.",
+      "duration_s": 13.56,
+      "latency_s": 0.558,
+      "ref_norm": "kanadanın büyüleyici çift dilli başkenti ottawa kanadanın geçmişini ve bugününü gözler önüne seren birçok sanat galerisi ve müzeye sahiptir",
+      "hyp_norm": "kanadanın büyüleyici çift dilli başkenti otta vak kanadanın geçmişini ve bugününü gözer ünleseren bir çok sanat kalirisi ve müzeye sahiptir"
+    },
+    {
+      "id": "13546200710839842268",
+      "ref": "Kendi hükümetiniz dışındaki hükümetlerin tavsiyelerine de danışabilirsiniz, ancak onların tavsiyeleri kendi vatandaşlarına yöneliktir.",
+      "hyp": "Kendi hükümetiniz dışındaki hükümetlerin tavsiyelerine de danışabilirsiniz. Ancak onların tavsiyeleri kendi vatandaşlarına yöneliktir.",
+      "duration_s": 12.54,
+      "latency_s": 0.5299,
+      "ref_norm": "kendi hükümetiniz dışındaki hükümetlerin tavsiyelerine de danışabilirsiniz ancak onların tavsiyeleri kendi vatandaşlarına yöneliktir",
+      "hyp_norm": "kendi hükümetiniz dışındaki hükümetlerin tavsiyelerine de danışabilirsiniz ancak onların tavsiyeleri kendi vatandaşlarına yöneliktir"
+    },
+    {
+      "id": "13548399760281604839",
+      "ref": "Şov, başlangıçta sadece, konuşma radyosuna odaklanan ve uzun süredir yayına devam eden bir internet radyo sitesi olan TogiNet Radio'da yayınlandı.",
+      "hyp": "Sov başlangıçta sadece konuşmaladıyorsun o daklanan ve uzun süredir yanına devam eden bir internet radyüstesi olan togın et radyoda yayınlandı.",
+      "duration_s": 13.26,
+      "latency_s": 0.5185,
+      "ref_norm": "şov başlangıçta sadece konuşma radyosuna odaklanan ve uzun süredir yayına devam eden bir internet radyo sitesi olan toginet radioda yayınlandı",
+      "hyp_norm": "sov başlangıçta sadece konuşmaladıyorsun o daklanan ve uzun süredir yanına devam eden bir internet radyüstesi olan togın et radyoda yayınlandı"
+    },
+    {
+      "id": "13571602028893975397",
+      "ref": "Metro'da düzenli anonslar yalnızca Katalanca yapılır. Ancak planlanmamış aksaklıklar otomatik bir sistem tarafından İspanyolca, İngilizce, Fransızca, Arapça ve Japonca dahil olmak üzere çok çeşitli dillerde duyurulur.",
+      "hyp": "Mertluluğu düzenli anoslar yalnızca katalanca yapılır. Ancak planlanmamış, akzaklıklar, otomatik bir sistem tarafından espan olacağı, İngilizce, Fransızca, Arabçe ve Japonce dahil olmak üzere çok teşekkürlerle duyulur.",
+      "duration_s": 16.02,
+      "latency_s": 0.7485,
+      "ref_norm": "metroda düzenli anonslar yalnızca katalanca yapılır ancak planlanmamış aksaklıklar otomatik bir sistem tarafından ispanyolca ingilizce fransızca arapça ve japonca dahil olmak üzere çok çeşitli dillerde duyurulur",
+      "hyp_norm": "mertluluğu düzenli anoslar yalnızca katalanca yapılır ancak planlanmamış akzaklıklar otomatik bir sistem tarafından espan olacağı ingilizce fransızca arabçe ve japonce dahil olmak üzere çok teşekkürlerle duyulur"
+    },
+    {
+      "id": "1361927968651204305",
+      "ref": "Halkın töreni izlemesini sağlamak için Roma'nın çeşitli yerlerine birkaç büyük televizyon ekranı kuruldu.",
+      "hyp": "halkın töreni izlemesinin sağlamak için Roma'nın çeşitli yerlerine birkaç büyüteyeceğim ekranın kuruldu.",
+      "duration_s": 6.72,
+      "latency_s": 0.4737,
+      "ref_norm": "halkın töreni izlemesini sağlamak için romanın çeşitli yerlerine birkaç büyük televizyon ekranı kuruldu",
+      "hyp_norm": "halkın töreni izlemesinin sağlamak için romanın çeşitli yerlerine birkaç büyüteyeceğim ekranın kuruldu"
+    },
+    {
+      "id": "13629184715377568163",
+      "ref": "Otobüsler gün boyunca (nehrin karşısında bulunan) bölgelerarası otobüs durağından kalkar, fakat çoğunlukla, özellikle doğuya ve Jakar/Bumthang'e gidenler 06:30 ile 07:30 arası kalkar.",
+      "hyp": "Otobüsler gün boyunca nehrin karşısında bulunan bölgeler arası otobüs durağından kalkar fakat çoğunlukla özellikle douya vecakar bu m'tenge gidenler sıfıralta otuz ile sıfır yedi otuz arası kalkar",
+      "duration_s": 17.7,
+      "latency_s": 0.6864,
+      "ref_norm": "otobüsler gün boyunca nehrin karşısında bulunan bölgelerarası otobüs durağından kalkar fakat çoğunlukla özellikle doğuya ve jakar bumthange gidenler 06 30 ile 07 30 arası kalkar",
+      "hyp_norm": "otobüsler gün boyunca nehrin karşısında bulunan bölgeler arası otobüs durağından kalkar fakat çoğunlukla özellikle douya vecakar bu mtenge gidenler sıfıralta otuz ile sıfır yedi otuz arası kalkar"
+    },
+    {
+      "id": "13654797116929973172",
+      "ref": "Ellerinizdeki nemin dış katmanlar ile reaksiyona girmesi size eğlenceli bir his verecek ve elinizde bir çeşit kabuk oluşturacak.",
+      "hyp": "Ellerinizi zekinlemin, dış katmanlar ile reaksörün girmesi, size eğlenceli bir şey söyleyecek ve elinizde bir çeşit kabuk oluşturacak.",
+      "duration_s": 11.34,
+      "latency_s": 0.5041,
+      "ref_norm": "ellerinizdeki nemin dış katmanlar ile reaksiyona girmesi size eğlenceli bir his verecek ve elinizde bir çeşit kabuk oluşturacak",
+      "hyp_norm": "ellerinizi zekinlemin dış katmanlar ile reaksörün girmesi size eğlenceli bir şey söyleyecek ve elinizde bir çeşit kabuk oluşturacak"
+    },
+    {
+      "id": "13657639357855143720",
+      "ref": "Singapur Başbakan Yardımcısı Wong Kan Seng tarafından karşılandı ve Singapur Başbakanı Lee Hsien Loong ile ticaret ve terörizm konularını görüştü.",
+      "hyp": "Singapur başbakan yardımlısı long kan sen tarafından karşılandı ve singapur başbakanın leysi en long ile ticaret ve turizin konularını görüştü.",
+      "duration_s": 13.92,
+      "latency_s": 0.5356,
+      "ref_norm": "singapur başbakan yardımcısı wong kan seng tarafından karşılandı ve singapur başbakanı lee hsien loong ile ticaret ve terörizm konularını görüştü",
+      "hyp_norm": "singapur başbakan yardımlısı long kan sen tarafından karşılandı ve singapur başbakanın leysi en long ile ticaret ve turizin konularını görüştü"
+    },
+    {
+      "id": "13724142377934316254",
+      "ref": "1963'te barajın inşa edilmesi sayesinde nehir boyunca çökelti bırakan mevsimsel seller engellendi.",
+      "hyp": "bin dokuz uzatmış işte barajın inşa acilmesi sahesinde ne her boğunca çökerte bırakan meysimsel sallar engerlendi.",
+      "duration_s": 10.26,
+      "latency_s": 0.5,
+      "ref_norm": "1963te barajın inşa edilmesi sayesinde nehir boyunca çökelti bırakan mevsimsel seller engellendi",
+      "hyp_norm": "bin dokuz uzatmış işte barajın inşa acilmesi sahesinde ne her boğunca çökerte bırakan meysimsel sallar engerlendi"
+    },
+    {
+      "id": "1372740923431926080",
+      "ref": "Sualtı topolojisi nedeniyle, geri dönüş akışı birkaç derin kısımda yoğunlaşır ve burada derin suya doğru hızlı bir akıntı meydana gelebilir.",
+      "hyp": "Soğaltı topolucu sene deneyle geri dönüş akışı, birkaç derin kasında yoğunlaşır ve burada derin suya doğru kızlı bir akıntı meydana gelebilir.",
+      "duration_s": 12.84,
+      "latency_s": 0.5758,
+      "ref_norm": "sualtı topolojisi nedeniyle geri dönüş akışı birkaç derin kısımda yoğunlaşır ve burada derin suya doğru hızlı bir akıntı meydana gelebilir",
+      "hyp_norm": "soğaltı topolucu sene deneyle geri dönüş akışı birkaç derin kasında yoğunlaşır ve burada derin suya doğru kızlı bir akıntı meydana gelebilir"
+    },
+    {
+      "id": "13740560530852581406",
+      "ref": "Erkekleri reddederken katı olun ve istemediğinizi belirtmekten korkmayın (kültürel farklılıklar olsa da olmasa da davranışın doğru olduğu anlamına gelmez!).",
+      "hyp": "Erkekleri reddilerken katolu ve istemediğimizi beklen korkmayın. Kulturar farklıklıklar olsa da olmasa da darlaşın doğru olduğunu anlamına gelmez.",
+      "duration_s": 12.48,
+      "latency_s": 0.5101,
+      "ref_norm": "erkekleri reddederken katı olun ve istemediğinizi belirtmekten korkmayın kültürel farklılıklar olsa da olmasa da davranışın doğru olduğu anlamına gelmez",
+      "hyp_norm": "erkekleri reddilerken katolu ve istemediğimizi beklen korkmayın kulturar farklıklıklar olsa da olmasa da darlaşın doğru olduğunu anlamına gelmez"
+    },
+    {
+      "id": "13753461523904002080",
+      "ref": "Yine Devrim'den sonra meslekler, en hırslı ve başarılı olanın kazanmasını sağlayacak şekilde tüm erkek adaylara açıktı.",
+      "hyp": "Yine devrimden sonra meslekler, en hırstlı ve başarılı olamın kazanmasını sağlayacak şekilde cüm erkek adaylara açıktı.",
+      "duration_s": 12.84,
+      "latency_s": 0.5474,
+      "ref_norm": "yine devrimden sonra meslekler en hırslı ve başarılı olanın kazanmasını sağlayacak şekilde tüm erkek adaylara açıktı",
+      "hyp_norm": "yine devrimden sonra meslekler en hırstlı ve başarılı olamın kazanmasını sağlayacak şekilde cüm erkek adaylara açıktı"
+    },
+    {
+      "id": "13755592434651477154",
+      "ref": "Bu teoriler, bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir.",
+      "hyp": "Bu teoriler bazı insanları yaptıkları şeyleri arzuat medrimine sebevvet veren şeylere ve çevirindir ki şeylerin onlara belirli şeyleri yabuk yapamasına sebevbalen şeyleri ile iyi gelinir.",
+      "duration_s": 12.84,
+      "latency_s": 0.5929,
+      "ref_norm": "bu teoriler bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir",
+      "hyp_norm": "bu teoriler bazı insanları yaptıkları şeyleri arzuat medrimine sebevvet veren şeylere ve çevirindir ki şeylerin onlara belirli şeyleri yabuk yapamasına sebevbalen şeyleri ile iyi gelinir"
+    },
+    {
+      "id": "13762628285743049742",
+      "ref": "Milattan önce üçüncü yüzyılda Mısırlılar tarafından inşa edilen Büyük Piramit, ölen Firavunları onurlandırmak için inşa edilen birçok büyük piramitten biridir.",
+      "hyp": "Millattan önce üçüncü yüz yılda mısırlar tarafından inşa edilen büyük kremit. Ölermiravunları onurlandırmak için inşa edilen bir çok büyük kremitten biridir.",
+      "duration_s": 15.24,
+      "latency_s": 0.5568,
+      "ref_norm": "milattan önce üçüncü yüzyılda mısırlılar tarafından inşa edilen büyük piramit ölen firavunları onurlandırmak için inşa edilen birçok büyük piramitten biridir",
+      "hyp_norm": "millattan önce üçüncü yüz yılda mısırlar tarafından inşa edilen büyük kremit ölermiravunları onurlandırmak için inşa edilen bir çok büyük kremitten biridir"
+    },
+    {
+      "id": "13770063171876313516",
+      "ref": "Carpanedo, çarşamba günkü etkinliğin yanı sıra şampiyonluk turnuvasında iki farklı yarışta yer aldı.",
+      "hyp": "Karpenedo çaşama günkü etkinliğin yanısına şampiyonutlu numasında iki farklı yeri iste yaraldı.",
+      "duration_s": 8.46,
+      "latency_s": 0.4304,
+      "ref_norm": "carpanedo çarşamba günkü etkinliğin yanı sıra şampiyonluk turnuvasında iki farklı yarışta yer aldı",
+      "hyp_norm": "karpenedo çaşama günkü etkinliğin yanısına şampiyonutlu numasında iki farklı yeri iste yaraldı"
+    },
+    {
+      "id": "13826839314108534898",
+      "ref": "Liggins, hastanede çalışmaktayken, işten arta kalan zamanda prematüre doğumu incelemeye başladı.",
+      "hyp": "3 gün hastanedi çalışmaktayken işten artakalan zamanda pirematüre doğumu indelimeye başladı.",
+      "duration_s": 11.28,
+      "latency_s": 0.434,
+      "ref_norm": "liggins hastanede çalışmaktayken işten arta kalan zamanda prematüre doğumu incelemeye başladı",
+      "hyp_norm": "3 gün hastanedi çalışmaktayken işten artakalan zamanda pirematüre doğumu indelimeye başladı"
+    },
+    {
+      "id": "13841368562780925730",
+      "ref": "Neredeyse tamamı güvenle yüzülebilen kumlu plajlardır ve çoğunda pohutukawa ağacı tarafından sağlanan gölgelikler vardır.",
+      "hyp": "Nereye değse tamamı güvenle yüzlebilen kumlu plajlardır ve çolunda pohutukaba acı tarafından sağlanan gölgülükler vardır.",
+      "duration_s": 12.48,
+      "latency_s": 0.5557,
+      "ref_norm": "neredeyse tamamı güvenle yüzülebilen kumlu plajlardır ve çoğunda pohutukawa ağacı tarafından sağlanan gölgelikler vardır",
+      "hyp_norm": "nereye değse tamamı güvenle yüzlebilen kumlu plajlardır ve çolunda pohutukaba acı tarafından sağlanan gölgülükler vardır"
+    },
+    {
+      "id": "13849271034880356090",
+      "ref": "Muhammed, bu sıradan yaşamın ötesindeki konularla derinden ilgilenmekteydi. Düşüncülere dalmak için sık sık “Nur” (Işık) Dağı'nda bulunan ve sonradan “Hira” olarak adlandırılan bir mağaraya giderdi.",
+      "hyp": "Muhammed, bu sıradan yaşamın ötesindeki konularla derinden yiyemekliydi. Düzünceleri dalmak için kısık sık, nur, ışık döndan, burdan ve soradan hiri olarak Allah'dımdan bir madreye giderdi.",
+      "duration_s": 17.04,
+      "latency_s": 0.727,
+      "ref_norm": "muhammed bu sıradan yaşamın ötesindeki konularla derinden ilgilenmekteydi düşüncülere dalmak için sık sık nur ışık dağında bulunan ve sonradan hira olarak adlandırılan bir mağaraya giderdi",
+      "hyp_norm": "muhammed bu sıradan yaşamın ötesindeki konularla derinden yiyemekliydi düzünceleri dalmak için kısık sık nur ışık döndan burdan ve soradan hiri olarak allahdımdan bir madreye giderdi"
+    },
+    {
+      "id": "13851197125592317952",
+      "ref": "Birleşik Devletler'deki Princeton Üniversitesi ve İsveç'teki Uppsala Üniversitesi'nden araştırmacılar türlerin yalnızca iki nesilde evrimleştiğini bildirdi. Halbuki bu sürecin, endemik bir Darwin ispinozu, Geospiza fortes, ve göçmen kaktüs ispinozu, Geospiza conirostris, arasındaki üreme nedeniyle çok daha uzun sürdüğüne inanılıyordu.",
+      "hyp": "Birleşip devetlerdeki pirinistin üniversitesi ve İsveşdeki upsala üniversitesinden araştırmajılar, türlü ve yalnızca ikinesi de evrimleştiğine bildirdi. Halbuki bu süredin endemik bir darbini ispinozu, geos pizaf ortes ve göçmen kaktis ispinozu, geos pizaf koneros piz arasındaki yüremine deyini ve çok daha uzun sürdüğünü inanılıyordu.",
+      "duration_s": 25.92,
+      "latency_s": 1.4115,
+      "ref_norm": "birleşik devletlerdeki princeton üniversitesi ve isveçteki uppsala üniversitesinden araştırmacılar türlerin yalnızca iki nesilde evrimleştiğini bildirdi halbuki bu sürecin endemik bir darwin ispinozu geospiza fortes ve göçmen kaktüs ispinozu geospiza conirostris arasındaki üreme nedeniyle çok daha uzun sürdüğüne inanılıyordu",
+      "hyp_norm": "birleşip devetlerdeki pirinistin üniversitesi ve isveşdeki upsala üniversitesinden araştırmajılar türlü ve yalnızca ikinesi de evrimleştiğine bildirdi halbuki bu süredin endemik bir darbini ispinozu geos pizaf ortes ve göçmen kaktis ispinozu geos pizaf koneros piz arasındaki yüremine deyini ve çok daha uzun sürdüğünü inanılıyordu"
+    },
+    {
+      "id": "1386923258902346082",
+      "ref": "Kuzeydeki geniş alanlar oldukça az nüfusa sahiptir ve bazıları neredeyse ıssız bir vahşi doğadan oluşmaktadır.",
+      "hyp": "Kuzeydeki geniş alanlar oldukça az bir fursa sahiptir ve bazıların heri değilsin ısız bir bahşi doğadan oluşmak tadır.",
+      "duration_s": 13.8,
+      "latency_s": 0.5056,
+      "ref_norm": "kuzeydeki geniş alanlar oldukça az nüfusa sahiptir ve bazıları neredeyse ıssız bir vahşi doğadan oluşmaktadır",
+      "hyp_norm": "kuzeydeki geniş alanlar oldukça az bir fursa sahiptir ve bazıların heri değilsin ısız bir bahşi doğadan oluşmak tadır"
+    },
+    {
+      "id": "13869861730353276392",
+      "ref": "Deneysel aşılardan birinin Ebola'nın öldürücülüğünü azalttığı görülse de, şu ana dek hiçbir ilacın var olan enfeksiyonu tedavi etmeye uygun olduğu açıkça kanıtlanamamıştır.",
+      "hyp": "Deneyse laşılardan birinin ebolanın öldürücülüğünü azaltığı görürse de şu an adek hiçbir ilacım var olan efeksiyonun tedavi etmeye uygun olduğu açıkça kanıtlanamamıştır.",
+      "duration_s": 15.6,
+      "latency_s": 0.6009,
+      "ref_norm": "deneysel aşılardan birinin ebolanın öldürücülüğünü azalttığı görülse de şu ana dek hiçbir ilacın var olan enfeksiyonu tedavi etmeye uygun olduğu açıkça kanıtlanamamıştır",
+      "hyp_norm": "deneyse laşılardan birinin ebolanın öldürücülüğünü azaltığı görürse de şu an adek hiçbir ilacım var olan efeksiyonun tedavi etmeye uygun olduğu açıkça kanıtlanamamıştır"
+    },
+    {
+      "id": "13939276617643651975",
+      "ref": "AI, bilim kurgu ile güçlü bir çağrışıma sahip olsa da, AI bir makinede davranış, öğrenme ve akıllı adaptasyonla ilgilenen bilgisayar biliminin çok önemli bir dalı oluşturur.",
+      "hyp": "Eya'yı bilim kurgu ile güçlü bir çağırışıma sahip olsa da Eya'yı bir makine de davranış, öğrenme ve akıllı adaptasyonla ilgilenen bilgisayar biliminin çok önemli bir dalır oluştunuz.",
+      "duration_s": 15.12,
+      "latency_s": 0.6255,
+      "ref_norm": "aı bilim kurgu ile güçlü bir çağrışıma sahip olsa da aı bir makinede davranış öğrenme ve akıllı adaptasyonla ilgilenen bilgisayar biliminin çok önemli bir dalı oluşturur",
+      "hyp_norm": "eyayı bilim kurgu ile güçlü bir çağırışıma sahip olsa da eyayı bir makine de davranış öğrenme ve akıllı adaptasyonla ilgilenen bilgisayar biliminin çok önemli bir dalır oluştunuz"
+    },
+    {
+      "id": "13940972700564682298",
+      "ref": "Arasında çocuk ve yaşlıların da dahil olduğu altı tane rehine de, filipinli fotoğrafçılarla birlikte salıverildi.",
+      "hyp": "Arasında çocuk ve yaşlıların da dahil oldu, aldı tane rehin ede, filipinli fotoğrafçılar ve birlikte samı verildi.",
+      "duration_s": 12.48,
+      "latency_s": 0.4773,
+      "ref_norm": "arasında çocuk ve yaşlıların da dahil olduğu altı tane rehine de filipinli fotoğrafçılarla birlikte salıverildi",
+      "hyp_norm": "arasında çocuk ve yaşlıların da dahil oldu aldı tane rehin ede filipinli fotoğrafçılar ve birlikte samı verildi"
+    },
+    {
+      "id": "13961949332161935654",
+      "ref": "Buna rağmen yetkili makamlara danışın, bütün işaretlere uyun ve güvenlik uyarılarına oldukça dikkat gösterin.",
+      "hyp": "Bunlar almaya yetkeli makamlara dönüşün. Bütün işaretleri uyum ve güvenlik uyarılarına oldukça dikkat göstereyim.",
+      "duration_s": 10.98,
+      "latency_s": 0.4711,
+      "ref_norm": "buna rağmen yetkili makamlara danışın bütün işaretlere uyun ve güvenlik uyarılarına oldukça dikkat gösterin",
+      "hyp_norm": "bunlar almaya yetkeli makamlara dönüşün bütün işaretleri uyum ve güvenlik uyarılarına oldukça dikkat göstereyim"
+    },
+    {
+      "id": "13965833581888568777",
+      "ref": "Finlandiya muhteşem bir tekne gezintisi merkezidir. \"Bin göller ülkesinin\" binlerce adası da vardır. Bunlar daha çok göllerde ve kıyı takımadaları olarak görülürler.",
+      "hyp": "Finan diye yetişen bir tekne gezintesi merkezidir. Bin göller ülkesinin binlerce adası da vardır. Bunlar daha çok göller de ve kıyı takımadaları olarak görülürler.",
+      "duration_s": 16.5,
+      "latency_s": 0.5746,
+      "ref_norm": "finlandiya muhteşem bir tekne gezintisi merkezidir bin göller ülkesinin binlerce adası da vardır bunlar daha çok göllerde ve kıyı takımadaları olarak görülürler",
+      "hyp_norm": "finan diye yetişen bir tekne gezintesi merkezidir bin göller ülkesinin binlerce adası da vardır bunlar daha çok göller de ve kıyı takımadaları olarak görülürler"
+    },
+    {
+      "id": "13992519825080171532",
+      "ref": "Bilim insanları, kuyruklu yıldızların uzun zaman önce Dünya ile çarpışması nedeniyle gezegenlerin, özellikle de Dünya'nın nasıl oluştuğunu anlamayı umuyorlar.",
+      "hyp": "Bili mi insanları, kuyruklu yıldızların uzun zaman önce dünya ile çarpma çıkmasını devi ile gezegenlerin özellikle de düyağının nasıl oluştuğunu anlamayı umuyorlar.",
+      "duration_s": 12.18,
+      "latency_s": 0.5447,
+      "ref_norm": "bilim insanları kuyruklu yıldızların uzun zaman önce dünya ile çarpışması nedeniyle gezegenlerin özellikle de dünyanın nasıl oluştuğunu anlamayı umuyorlar",
+      "hyp_norm": "bili mi insanları kuyruklu yıldızların uzun zaman önce dünya ile çarpma çıkmasını devi ile gezegenlerin özellikle de düyağının nasıl oluştuğunu anlamayı umuyorlar"
+    },
+    {
+      "id": "1400465048286178078",
+      "ref": "İki yetişkin çocukla evli olan Duvall, hikayenin ilişkili olduğu Miller üzerinde büyük bir intiba bırakmadı.",
+      "hyp": "İki yetişkin çolukta evli olan Dom'un hikayenin ilişkili oldu, Miller üzerinde büyük bir intubal bırakmadan.",
+      "duration_s": 10.62,
+      "latency_s": 0.4547,
+      "ref_norm": "iki yetişkin çocukla evli olan duvall hikayenin ilişkili olduğu miller üzerinde büyük bir intiba bırakmadı",
+      "hyp_norm": "iki yetişkin çolukta evli olan domun hikayenin ilişkili oldu miller üzerinde büyük bir intubal bırakmadan"
+    },
+    {
+      "id": "14006741145316934431",
+      "ref": "Bir okul gezisini sanal ortamda paylaşmak, geziyle ilgili düşüncüleri ve deneyimleri diğer sınıflarla paylaşmak için harika bir yöntemdir.",
+      "hyp": "Bir okul gezisini sana ortamda paylaşmak, geziyle ilgili düşünceleri ve deneyimleri diğer sınıflarla paylaşmak için harika bir yöntendir.",
+      "duration_s": 10.02,
+      "latency_s": 0.5117,
+      "ref_norm": "bir okul gezisini sanal ortamda paylaşmak geziyle ilgili düşüncüleri ve deneyimleri diğer sınıflarla paylaşmak için harika bir yöntemdir",
+      "hyp_norm": "bir okul gezisini sana ortamda paylaşmak geziyle ilgili düşünceleri ve deneyimleri diğer sınıflarla paylaşmak için harika bir yöntendir"
+    },
+    {
+      "id": "14022636377670857389",
+      "ref": "Gerilim ne kadar az olursa, mevcut yaşam gücü de o kadar pozitif olur. Her insanın mutlak huzur ve memnuniyeti bulma potansiyeli vardır.",
+      "hyp": "Gerilim ne kadar azı olursa mevcut yaşan gücüde o kadar pozitif olur. Her insanın mutlak huzur ve menonu yeti bulma potansiyeli vardır.",
+      "duration_s": 12.42,
+      "latency_s": 0.5501,
+      "ref_norm": "gerilim ne kadar az olursa mevcut yaşam gücü de o kadar pozitif olur her insanın mutlak huzur ve memnuniyeti bulma potansiyeli vardır",
+      "hyp_norm": "gerilim ne kadar azı olursa mevcut yaşan gücüde o kadar pozitif olur her insanın mutlak huzur ve menonu yeti bulma potansiyeli vardır"
+    },
+    {
+      "id": "14041191328093781947",
+      "ref": "Kendi hükümetiniz dışındaki hükümetlerin tavsiyelerine de danışabilirsiniz, ancak onların tavsiyeleri kendi vatandaşlarına yöneliktir.",
+      "hyp": "Kendi hükümetiniz dışında ki hükümetlerin tasihelerine neden çabilirsiniz. Ancak onların tasiheleri kendi vatandaşlarının yöneliktir.",
+      "duration_s": 13.92,
+      "latency_s": 0.5381,
+      "ref_norm": "kendi hükümetiniz dışındaki hükümetlerin tavsiyelerine de danışabilirsiniz ancak onların tavsiyeleri kendi vatandaşlarına yöneliktir",
+      "hyp_norm": "kendi hükümetiniz dışında ki hükümetlerin tasihelerine neden çabilirsiniz ancak onların tasiheleri kendi vatandaşlarının yöneliktir"
+    },
+    {
+      "id": "14042543954727213661",
+      "ref": "Yirminci yüzyılda gerçekleştirilen araştırmalar, iki farklı genetik varyasyon havuzu olduğunu göstermiştir: gizli ve dışa vurulan",
+      "hyp": "Yirmiinci yüz yolda gerçekleştirilen araştırmalar, iki farklı genetik variasın havuzu olduğunu göstermiştir. Gizli ve dışa vurulan.",
+      "duration_s": 9.0,
+      "latency_s": 0.5102,
+      "ref_norm": "yirminci yüzyılda gerçekleştirilen araştırmalar iki farklı genetik varyasyon havuzu olduğunu göstermiştir gizli ve dışa vurulan",
+      "hyp_norm": "yirmiinci yüz yolda gerçekleştirilen araştırmalar iki farklı genetik variasın havuzu olduğunu göstermiştir gizli ve dışa vurulan"
+    },
+    {
+      "id": "14082619205947773141",
+      "ref": "Hong Kong Adası, Hong Kong bölgesine adını verir ve pek çok ziyaretçinin asıl odak noktası olarak değerlendirdiği yerdir.",
+      "hyp": "Hong Kong adası Hong Kong bölgesini adını verir ve pek çok ziyareçinin asıl odak noktası olarak değerlendirdiği yerdir.",
+      "duration_s": 12.06,
+      "latency_s": 0.4757,
+      "ref_norm": "hong kong adası hong kong bölgesine adını verir ve pek çok ziyaretçinin asıl odak noktası olarak değerlendirdiği yerdir",
+      "hyp_norm": "hong kong adası hong kong bölgesini adını verir ve pek çok ziyareçinin asıl odak noktası olarak değerlendirdiği yerdir"
+    },
+    {
+      "id": "14110536065634837229",
+      "ref": "MS; beyin, omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır.",
+      "hyp": "Emes Bey'in omilirlik ve optik sinirden oluşan merkezini sinir sistemini etikleyen bir hastalıktır.",
+      "duration_s": 10.74,
+      "latency_s": 0.4459,
+      "ref_norm": "ms beyin omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır",
+      "hyp_norm": "emes beyin omilirlik ve optik sinirden oluşan merkezini sinir sistemini etikleyen bir hastalıktır"
+    },
+    {
+      "id": "14133150877927029127",
+      "ref": "Aslanlar en sosyal kedilerdir. Sürü denilen büyük gruplarda yaşarlar.",
+      "hyp": "Aslanlar en sosyal kedilerdir, sürü denilen büyük kuruplarda yaşanlar.",
+      "duration_s": 8.28,
+      "latency_s": 0.3657,
+      "ref_norm": "aslanlar en sosyal kedilerdir sürü denilen büyük gruplarda yaşarlar",
+      "hyp_norm": "aslanlar en sosyal kedilerdir sürü denilen büyük kuruplarda yaşanlar"
+    },
+    {
+      "id": "14141877109820823519",
+      "ref": "Köprünün Brezilya gümrük kontrol noktalarının tamamlanmasının beklendiği Eylül 2017'de tamamen faaliyete geçmesi planlanıyor.",
+      "hyp": "Çoprünün bir ezilya gümrü kontrol noktalarının tamamlanmasının beklerdiği eğilir iki binon yeri de tamamen faleyete geçmesi planlının yoğur.",
+      "duration_s": 14.16,
+      "latency_s": 0.5452,
+      "ref_norm": "köprünün brezilya gümrük kontrol noktalarının tamamlanmasının beklendiği eylül 2017de tamamen faaliyete geçmesi planlanıyor",
+      "hyp_norm": "çoprünün bir ezilya gümrü kontrol noktalarının tamamlanmasının beklerdiği eğilir iki binon yeri de tamamen faleyete geçmesi planlının yoğur"
+    },
+    {
+      "id": "14223149523614047547",
+      "ref": "İki kaşık kuru tozu karıştırın, sonrasında temiz ve ıslak ellerinizle bir top haline getirene kadar şekil verin.",
+      "hyp": "2 kaşığı kuru tozu karıştırın, sonrasında temiz ve ıslak ellerimizde bir top haline getirene kadar şekil verin.",
+      "duration_s": 10.32,
+      "latency_s": 0.4603,
+      "ref_norm": "iki kaşık kuru tozu karıştırın sonrasında temiz ve ıslak ellerinizle bir top haline getirene kadar şekil verin",
+      "hyp_norm": "2 kaşığı kuru tozu karıştırın sonrasında temiz ve ıslak ellerimizde bir top haline getirene kadar şekil verin"
+    },
+    {
+      "id": "14249675619957058472",
+      "ref": "Diğer adaylıklar En İyi Film, Yönetmen, Kostüm Tasarımı, Film düzenleme, Orijinal Müzik, Prodüksiyon Tasarımı, Ses Düzenleme, Ses Miksleme ve Orijinal Senaryoyu içeriyor.",
+      "hyp": "Diğer adaylıklar en iyi film yönetmen kostum tasarımı, film düzenleme, orijinal müzik, prodik son tasarımı, ses düzenleme, ses miksleme ve orijinal senaryoyu içeriyorum.",
+      "duration_s": 18.06,
+      "latency_s": 0.5977,
+      "ref_norm": "diğer adaylıklar en iyi film yönetmen kostüm tasarımı film düzenleme orijinal müzik prodüksiyon tasarımı ses düzenleme ses miksleme ve orijinal senaryoyu içeriyor",
+      "hyp_norm": "diğer adaylıklar en iyi film yönetmen kostum tasarımı film düzenleme orijinal müzik prodik son tasarımı ses düzenleme ses miksleme ve orijinal senaryoyu içeriyorum"
+    },
+    {
+      "id": "14288779125684029521",
+      "ref": "Kundalini Yoga, Yoga pozları, nefes egzersizleri, mantralar ve görselleştirmelerle Kundalini enerjisini (aydınlanma enerjisi) uyandırır.",
+      "hyp": "Kundalini yoga yoga pozları nefes egzersizleri mantralar ve görsarleştirmelerle Kundalini enerjisini parantiz için de aydınlanma enerjisi uyandırır.",
+      "duration_s": 14.1,
+      "latency_s": 0.5455,
+      "ref_norm": "kundalini yoga yoga pozları nefes egzersizleri mantralar ve görselleştirmelerle kundalini enerjisini aydınlanma enerjisi uyandırır",
+      "hyp_norm": "kundalini yoga yoga pozları nefes egzersizleri mantralar ve görsarleştirmelerle kundalini enerjisini parantiz için de aydınlanma enerjisi uyandırır"
+    },
+    {
+      "id": "14322987254642067888",
+      "ref": "Daha geleneksel kiliseler, Paskalya hafta sonu boyunca cumartesi gecesi Paskalya Nöbeti düzenlerler ve cemaatler genellikle Mesih'in dirilişini kutlamak için gece yarısı kutlamalara başlarlar.",
+      "hyp": "Daha geleneksel kirliseler, paskalli hafta sonu boyunca Cumartesi gecesi, paskalli önübeti düzenler ve cemaatler genellikle mesihin derilişini kutlamak için gece yarısı kutlamalara başlarlar.",
+      "duration_s": 17.1,
+      "latency_s": 0.6876,
+      "ref_norm": "daha geleneksel kiliseler paskalya hafta sonu boyunca cumartesi gecesi paskalya nöbeti düzenlerler ve cemaatler genellikle mesihin dirilişini kutlamak için gece yarısı kutlamalara başlarlar",
+      "hyp_norm": "daha geleneksel kirliseler paskalli hafta sonu boyunca cumartesi gecesi paskalli önübeti düzenler ve cemaatler genellikle mesihin derilişini kutlamak için gece yarısı kutlamalara başlarlar"
+    },
+    {
+      "id": "14362634311065283804",
+      "ref": "Kayak rotasını, yürüyüş rotasının bir benzeri olarak düşünün.",
+      "hyp": "Kayak rotasını yürüyüş rotasını bir benzeri olarak düşünün.",
+      "duration_s": 7.8,
+      "latency_s": 0.3477,
+      "ref_norm": "kayak rotasını yürüyüş rotasının bir benzeri olarak düşünün",
+      "hyp_norm": "kayak rotasını yürüyüş rotasını bir benzeri olarak düşünün"
+    },
+    {
+      "id": "14405208746780957074",
+      "ref": "Savaşın başlamasından hemen sonra İngiltere, Almanya'ya deniz ablukası uygulamıştır.",
+      "hyp": "Savaşın başlamasından hemen sonra İngiltere Almanya'ya deniz ablokası uyu bulamıştır.",
+      "duration_s": 10.02,
+      "latency_s": 0.414,
+      "ref_norm": "savaşın başlamasından hemen sonra ingiltere almanyaya deniz ablukası uygulamıştır",
+      "hyp_norm": "savaşın başlamasından hemen sonra ingiltere almanyaya deniz ablokası uyu bulamıştır"
+    },
+    {
+      "id": "14409700024273447909",
+      "ref": "Apia, Samoa'nın başkentidir. Şehir Upolu adasındadır ve 40.000'in biraz altında bir nüfusa sahiptir.",
+      "hyp": "Apeğe Samı An'ın başkentidir, şehir upoğlu adasındadır ve kık bilim biraz altında bir nüfus da sahiptir.",
+      "duration_s": 11.64,
+      "latency_s": 0.488,
+      "ref_norm": "apia samoanın başkentidir şehir upolu adasındadır ve 40 000in biraz altında bir nüfusa sahiptir",
+      "hyp_norm": "apeğe samı anın başkentidir şehir upoğlu adasındadır ve kık bilim biraz altında bir nüfus da sahiptir"
+    },
+    {
+      "id": "1441502824424967550",
+      "ref": "Springboks için, 5 maçlık bir mağlubiyet serisi sona erdi.",
+      "hyp": "Sıpring box için 5 maştık bir maalime etserisi sonra her'de.",
+      "duration_s": 8.58,
+      "latency_s": 0.3624,
+      "ref_norm": "springboks için 5 maçlık bir mağlubiyet serisi sona erdi",
+      "hyp_norm": "sıpring box için 5 maştık bir maalime etserisi sonra herde"
+    },
+    {
+      "id": "14423535327097916678",
+      "ref": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "hyp": "Bu bazı fiyizler ve desteler arasında ayrım yapmanın önemli bir yoludur.",
+      "duration_s": 7.98,
+      "latency_s": 0.3903,
+      "ref_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur",
+      "hyp_norm": "bu bazı fiyizler ve desteler arasında ayrım yapmanın önemli bir yoludur"
+    },
+    {
+      "id": "14443192813797633135",
+      "ref": "Örneğin, Kuzey Carolina'daki Bennet Okulu'ndan öğrenciler her yıl Eyalet Başkenti'ne yaptıkları gezilerle ilgili bir web sitesi tasarlarlar, her yıl web sitesi yeniden düzenlenir, ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur.",
+      "hyp": "Örneğin kuzeyi karolayına da ki ben de çok kulundan öğrenciler, her yıl eyalet başkentine yaptıkları gezilerle ilgili bir ve hepsi tasarlarlar. Her yılı ve hepsi yimden düzenlenir, ancak eski sürümler bir not defteri olarak kullanılmak üzere çevirimi çolarak tutulur.",
+      "duration_s": 16.62,
+      "latency_s": 0.8301,
+      "ref_norm": "örneğin kuzey carolinadaki bennet okulundan öğrenciler her yıl eyalet başkentine yaptıkları gezilerle ilgili bir web sitesi tasarlarlar her yıl web sitesi yeniden düzenlenir ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur",
+      "hyp_norm": "örneğin kuzeyi karolayına da ki ben de çok kulundan öğrenciler her yıl eyalet başkentine yaptıkları gezilerle ilgili bir ve hepsi tasarlarlar her yılı ve hepsi yimden düzenlenir ancak eski sürümler bir not defteri olarak kullanılmak üzere çevirimi çolarak tutulur"
+    },
+    {
+      "id": "14499715025785172231",
+      "ref": "Yirminci yüzyılda gerçekleştirilen araştırmalar, iki farklı genetik varyasyon havuzu olduğunu göstermiştir: gizli ve dışa vurulan",
+      "hyp": "Yirmiinci yüz yüzüldü ayken çekleştirden araştırmalar iki partı genetik var yasun havuzu olduğunu göstermiştir. Gizli ve dışı yavurula.",
+      "duration_s": 9.78,
+      "latency_s": 0.5662,
+      "ref_norm": "yirminci yüzyılda gerçekleştirilen araştırmalar iki farklı genetik varyasyon havuzu olduğunu göstermiştir gizli ve dışa vurulan",
+      "hyp_norm": "yirmiinci yüz yüzüldü ayken çekleştirden araştırmalar iki partı genetik var yasun havuzu olduğunu göstermiştir gizli ve dışı yavurula"
+    },
+    {
+      "id": "14514044215894426516",
+      "ref": "Antik Çin tarihinin en kanlı dönemlerinden biri olan Üç Krallık Dönemi'nde binlerce kişi Xi'an'daki büyük sarayda en yüksek mevkiye erişmek için savaşarak ölmüştür.",
+      "hyp": "Antik için tarihinin en kanlı dönemlerinden biri olan üç kırallık döneminde binlerce kişi şiağındaki büyük sarayda en yüksek melkeye erişmek için savaşarak ölmüştür.",
+      "duration_s": 15.24,
+      "latency_s": 0.5752,
+      "ref_norm": "antik çin tarihinin en kanlı dönemlerinden biri olan üç krallık döneminde binlerce kişi xiandaki büyük sarayda en yüksek mevkiye erişmek için savaşarak ölmüştür",
+      "hyp_norm": "antik için tarihinin en kanlı dönemlerinden biri olan üç kırallık döneminde binlerce kişi şiağındaki büyük sarayda en yüksek melkeye erişmek için savaşarak ölmüştür"
+    },
+    {
+      "id": "14535957378292501574",
+      "ref": "Aynı şekilde, Schengen vizesine sahip olarak, her bir Schengen üye ülkesine ayrıca vize başvurusunda bulunmanıza gerek kalmaz, böylece zaman, para ve evrak işlemlerinden tasarruf sağlarsınız.",
+      "hyp": "Aynı şekilde şengen videsine sahip olarak her bir şengen üye ülkesine ayrıca vize başvurusunda bulunmanıza gerek kalmaz. Böylece zaman, para ve evrak işlemlerinden tasarruf sağlarsınız.",
+      "duration_s": 20.28,
+      "latency_s": 0.6322,
+      "ref_norm": "aynı şekilde schengen vizesine sahip olarak her bir schengen üye ülkesine ayrıca vize başvurusunda bulunmanıza gerek kalmaz böylece zaman para ve evrak işlemlerinden tasarruf sağlarsınız",
+      "hyp_norm": "aynı şekilde şengen videsine sahip olarak her bir şengen üye ülkesine ayrıca vize başvurusunda bulunmanıza gerek kalmaz böylece zaman para ve evrak işlemlerinden tasarruf sağlarsınız"
+    },
+    {
+      "id": "14553352139850292982",
+      "ref": "Bitkiler doğal bir ortamda oldukları zaman en iyi halleriyle görünürler, bu nedenle \"sadece bir\" örneği bile almanın cazibesine direnin.",
+      "hyp": "Bittikiler doğal bir ortamda oldukları zaman en iyi halleriyle görünürler. Bu nedenle sadece bir örneği bile almanın cehazvesine direnin.",
+      "duration_s": 12.96,
+      "latency_s": 0.5376,
+      "ref_norm": "bitkiler doğal bir ortamda oldukları zaman en iyi halleriyle görünürler bu nedenle sadece bir örneği bile almanın cazibesine direnin",
+      "hyp_norm": "bittikiler doğal bir ortamda oldukları zaman en iyi halleriyle görünürler bu nedenle sadece bir örneği bile almanın cehazvesine direnin"
+    },
+    {
+      "id": "14559743666348133988",
+      "ref": "Üniversitedeki araştırmacılar, iki bileşik, böbrek işlevini engelleyebilecek kristaller meydana getirmek için birbiriyle reaksiyona giriyor, dediler.",
+      "hyp": "Üniversite deki araştırmacılar, iki bile şikip oğabey, işlevini engelleyebilecek, kristallen, meydana getirmek için birbiri yıllı reyaksiyona giriyor da edilir.",
+      "duration_s": 12.96,
+      "latency_s": 0.6981,
+      "ref_norm": "üniversitedeki araştırmacılar iki bileşik böbrek işlevini engelleyebilecek kristaller meydana getirmek için birbiriyle reaksiyona giriyor dediler",
+      "hyp_norm": "üniversite deki araştırmacılar iki bile şikip oğabey işlevini engelleyebilecek kristallen meydana getirmek için birbiri yıllı reyaksiyona giriyor da edilir"
+    },
+    {
+      "id": "14629699940852218879",
+      "ref": "Başkomiser Chandra Shekhar Solanki, sanığın mahkemeye yüzünü gizleyerek çıktığını söyledi.",
+      "hyp": "Başkomiser Çandıra Sekhar Solanki Sanığın mahkemeye güzün gizliyerek çıktığını söyledi.",
+      "duration_s": 10.92,
+      "latency_s": 0.4273,
+      "ref_norm": "başkomiser chandra shekhar solanki sanığın mahkemeye yüzünü gizleyerek çıktığını söyledi",
+      "hyp_norm": "başkomiser çandıra sekhar solanki sanığın mahkemeye güzün gizliyerek çıktığını söyledi"
+    }
+  ]
+}
