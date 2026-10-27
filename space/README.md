@@ -1,6 +1,6 @@
 ---
 title: Turkish Speech Bench
-emoji: 🇹🇷
+emoji: 🎙️
 colorFrom: red
 colorTo: gray
 sdk: static
