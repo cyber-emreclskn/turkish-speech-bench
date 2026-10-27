@@ -1,6 +1,7 @@
 name: Deploy leaderboard
 
-# Syncs the Gradio app and result files to the Hugging Face Space.
+# Builds leaderboard.json from results/ and syncs the static leaderboard page to a
+# Hugging Face Space (static Spaces are free; no server code runs).
 # Requires the HF_TOKEN secret (write access). The Space id defaults to
 # <hf-user>/turkish-speech-bench and can be changed with the HF_SPACE variable.
 
@@ -31,11 +32,18 @@ jobs:
         if: env.HF_TOKEN != ''
       - uses: astral-sh/setup-uv@v10.3.2
         if: env.HF_TOKEN != ''
-      - name: Upload app and results
+      - name: Build leaderboard.json
         if: env.HF_TOKEN != ''
         run: |
-          mkdir -p space/results
-          cp -r results/. space/results/ 2>/dev/null || true
+          if compgen -G "results/*/*.json" > /dev/null; then
+            uv run tsb report results --format json > space/leaderboard.json
+          else
+            echo "[]" > space/leaderboard.json
+          fi
+          python -c "import json;print(len(json.load(open('space/leaderboard.json'))), 'rows')"
+      - name: Upload to the Space
+        if: env.HF_TOKEN != ''
+        run: |
           uv run --no-project --with "huggingface_hub>=0.24" python - <<'PY'
           import os, sys
           from huggingface_hub import HfApi
@@ -44,10 +52,10 @@ jobs:
           try:
               user = api.whoami()["name"]
               print(f"::notice::Token belongs to Hugging Face user '{user}'; deploying to {repo}")
-              api.create_repo(repo, repo_type="space", space_sdk="gradio", exist_ok=True)
+              api.create_repo(repo, repo_type="space", space_sdk="static", exist_ok=True)
               api.upload_folder(repo_id=repo, repo_type="space", folder_path="space",
                                 commit_message=f"Sync from GitHub {os.environ['GITHUB_SHA'][:7]}",
-                                delete_patterns=["results/**"])
+                                delete_patterns=["*.py", "requirements.txt", "results/**"])
           except Exception as exc:
               msg = str(exc).replace("\n", " ")[:900]
               print(f"::error title=Space deploy failed::{type(exc).__name__}: {msg}")
