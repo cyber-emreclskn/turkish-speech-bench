@@ -1,0 +1,49 @@
+name: Deploy leaderboard
+
+# Syncs the Gradio app and result files to the Hugging Face Space.
+# Requires the HF_TOKEN secret (write access). The Space id defaults to
+# <hf-user>/turkish-speech-bench and can be changed with the HF_SPACE variable.
+
+on:
+  push:
+    branches: [main]
+    paths: ["results/**", "space/**", ".github/workflows/space.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: space-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_SPACE: ${{ vars.HF_SPACE || 'emreclskn/turkish-speech-bench' }}
+    steps:
+      - name: Skip when HF_TOKEN is not configured
+        if: env.HF_TOKEN == ''
+        run: echo "::notice::HF_TOKEN secret not set; skipping Space deployment."
+      - uses: actions/checkout@v7
+        if: env.HF_TOKEN != ''
+      - uses: astral-sh/setup-uv@v10.3.2
+        if: env.HF_TOKEN != ''
+      - name: Upload app and results
+        if: env.HF_TOKEN != ''
+        run: |
+          mkdir -p space/results
+          cp -r results/. space/results/ 2>/dev/null || true
+          uvx --from "huggingface_hub>=0.24" python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          repo = os.environ["HF_SPACE"]
+          api.create_repo(repo, repo_type="space", space_sdk="gradio", exist_ok=True)
+          api.upload_folder(repo_id=repo, repo_type="space", folder_path="space",
+                            commit_message=f"Sync from GitHub {os.environ['GITHUB_SHA'][:7]}",
+                            delete_patterns=["results/**"])
+          print(f"https://huggingface.co/spaces/{repo}")
+          PY

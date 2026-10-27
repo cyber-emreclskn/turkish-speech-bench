@@ -1,0 +1,96 @@
+name: Benchmark
+
+# Runs real models on a GitHub-hosted CPU runner and opens a pull request with
+# the result files, so every number on the leaderboard is reviewed before it lands.
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Space-separated model specs"
+        default: "faster-whisper:tiny faster-whisper:base faster-whisper:small vosk:vosk-model-small-tr-0.3"
+      dataset:
+        description: "fleurs-tr[:split]"
+        default: "fleurs-tr"
+      limit:
+        description: "First N utterances (empty = full split)"
+        default: "200"
+      threads:
+        description: "CPU threads"
+        default: "4"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: benchmark
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      MODELS: ${{ inputs.models }}
+      DATASET: ${{ inputs.dataset }}
+      LIMIT: ${{ inputs.limit }}
+      THREADS: ${{ inputs.threads }}
+      HF_HUB_DISABLE_PROGRESS_BARS: "1"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.2
+        with:
+          python-version: "3.12"
+
+      - name: Install only the backends we need
+        run: |
+          extras=()
+          [[ "$MODELS" == *faster-whisper:* ]] && extras+=(--extra whisper)
+          [[ "$MODELS" == *vosk:* ]] && extras+=(--extra vosk)
+          if [[ "$MODELS" == *hf-ctc:* ]]; then
+            uv sync --locked --no-dev
+            uv pip install torch --index-url https://download.pytorch.org/whl/cpu
+            uv pip install "transformers>=4.40"
+          fi
+          uv sync --locked --no-dev --inexact "${extras[@]}"
+
+      - name: Cache downloaded models and datasets
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.cache/huggingface
+            ~/.cache/vosk
+          key: hf-${{ inputs.dataset }}-${{ hashFiles('uv.lock') }}-${{ inputs.models }}
+          restore-keys: hf-${{ inputs.dataset }}-
+
+      - name: Run benchmark
+        run: |
+          args=()
+          for m in $MODELS; do args+=(-m "$m"); done
+          [ -n "$LIMIT" ] && args+=(--limit "$LIMIT")
+          uv run --no-sync tsb run "${args[@]}" -d "$DATASET" -t "$THREADS" \
+            --label "GitHub Actions ubuntu-latest (${THREADS} threads)" | tee report.md
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open a pull request with the results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="results/run-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add results
+          git commit -m "chore(results): ${DATASET} on GitHub Actions (run ${GITHUB_RUN_ID})" \
+            -m "Models: ${MODELS}"
+          git push origin "$branch"
+          {
+            echo "Benchmark run [#${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+            echo
+            cat report.md
+          } > body.md
+          gh pr create --base main --head "$branch" \
+            --title "chore(results): ${DATASET} on GitHub Actions" --body-file body.md

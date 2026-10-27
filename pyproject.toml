@@ -1,0 +1,105 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "turkish-speech-bench"
+version = "0.1.0"
+description = "Reproducible CPU benchmark for Turkish speech recognition: accuracy, speed and memory on real hardware"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Emre Çalışkan", email = "osmancalskan7@gmail.com" }]
+requires-python = ">=3.10"
+keywords = ["turkish", "asr", "speech-recognition", "benchmark", "whisper", "cpu", "on-device", "wer"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Natural Language :: Turkish",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+    "numpy>=1.24",
+    "soundfile>=0.12",
+    "soxr>=0.3",
+    "jiwer>=3.0",
+    "psutil>=6.0",
+    "py-cpuinfo>=9.0",
+    "huggingface-hub>=0.24",
+]
+
+[project.optional-dependencies]
+whisper = ["faster-whisper>=1.0"]
+vosk = ["vosk>=0.3.45"]
+ctc = ["transformers>=4.40", "torch>=2.2"]
+all = ["turkish-speech-bench[whisper,vosk,ctc]"]
+
+[project.scripts]
+tsb = "tsbench.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cyber-emreclskn/turkish-speech-bench"
+Repository = "https://github.com/cyber-emreclskn/turkish-speech-bench"
+Issues = "https://github.com/cyber-emreclskn/turkish-speech-bench/issues"
+Changelog = "https://github.com/cyber-emreclskn/turkish-speech-bench/blob/main/CHANGELOG.md"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "pytest-github-actions-annotate-failures>=0.4.2",
+    "ruff>=0.17",
+    "mypy>=1.13",
+    "types-psutil",
+    "pre-commit>=4.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tsbench"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "A", "SIM", "RUF", "PT"]
+ignore = ["E501", "RUF001", "RUF002", "RUF003"]  # Turkish text and typographic quotes are intentional
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["tsbench"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["jiwer.*", "soundfile.*", "soxr.*", "cpuinfo.*", "faster_whisper.*", "vosk.*", "transformers.*", "torch.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-markers"]
+
+[tool.coverage.run]
+source = ["tsbench"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_also = ["if __name__ == .__main__.:", "pragma: no cover", "if TYPE_CHECKING:"]

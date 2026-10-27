@@ -1,0 +1,21 @@
+name: 🧠 Add a model
+description: Suggest a Turkish speech model to benchmark
+labels: [model-request]
+body:
+  - type: input
+    id: spec
+    attributes:
+      label: Model spec
+      description: "backend:name, e.g. hf-ctc:org/model or faster-whisper:org/model-ct2"
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it interesting for CPU / on-device use?
