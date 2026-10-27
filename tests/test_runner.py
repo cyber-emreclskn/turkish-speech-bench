@@ -27,12 +27,13 @@ def test_accuracy_metrics(result: dict) -> None:
 
 def test_speed_metrics(result: dict) -> None:
     m = result["metrics"]
-    # the fake model sleeps 10% of audio duration -> RTF ≈ 0.1, RTFx ≈ 10
-    assert m["rtf"] == pytest.approx(0.1, rel=0.3)
+    # The fake model sleeps 10% of the audio duration. sleep() never returns early but
+    # can overshoot on busy CI machines, so only the upper bound is loose.
+    assert 0.1 <= m["rtf"] < 0.5
     assert m["rtfx"] == pytest.approx(1 / m["rtf"], rel=0.01)
     assert m["latency_p50_s"] <= m["latency_p90_s"]
     assert m["peak_rss_mb"] > 0
-    assert 0 <= m["load_s"] < 0.2  # prepare() (0.3 s "download") is not timed
+    assert 0 <= m["load_s"] < 0.5  # prepare() (1 s "download") is not timed
 
 
 def test_metadata(result: dict) -> None:

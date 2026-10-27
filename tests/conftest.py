@@ -66,7 +66,7 @@ class FakeModel(STTModel):
         self._by_len = {int(d * SAMPLE_RATE): hyp for _ref, hyp, d in SAMPLES.values()}
 
     def prepare(self) -> None:
-        time.sleep(0.3)  # pretend to download; must not show up in load_s
+        time.sleep(1.0)  # pretend to download; must not show up in load_s
 
     def load(self) -> None:
         self.loaded = True
