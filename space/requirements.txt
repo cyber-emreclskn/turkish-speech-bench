@@ -1,2 +1,2 @@
-gradio>=5.0
+gradio>=6.30.0
 turkish-speech-bench @ git+https://github.com/cyber-emreclskn/turkish-speech-bench
