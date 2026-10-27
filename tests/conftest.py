@@ -4,7 +4,7 @@ can be tested without downloading anything."""
 from __future__ import annotations
 
 import json
-import time
+import os
 from collections.abc import Iterator
 from pathlib import Path
 
@@ -12,16 +12,14 @@ import numpy as np
 import pytest
 import soundfile as sf
 
-from tsbench.datasets import SAMPLE_RATE, Audio, ManifestDataset
-from tsbench.models import STTModel, register
+from tsbench.datasets import SAMPLE_RATE, ManifestDataset
 from tsbench.models import base as models_base
 
-# id -> (reference, what the fake model "hears", duration seconds)
-SAMPLES = {
-    "utt1": ("İstanbul'da hava güzel.", "istanbulda hava güzel", 1.0),
-    "utt2": ("Kâğıt kalemi ver.", "kağıt kalem ver", 1.5),  # 1 word error
-    "utt3": ("ISPARTA'ya gidiyoruz", "ıspartaya gidiyoruz", 2.0),
-}
+from .fake_plugin import SAMPLES, FakeModel, install
+
+__all__ = ["SAMPLES", "FakeModel"]
+
+ROOT = Path(__file__).resolve().parent.parent
 
 
 def tone(seconds: float, sr: int = SAMPLE_RATE) -> np.ndarray:
@@ -54,33 +52,12 @@ def dataset(manifest: Path) -> ManifestDataset:
     return ManifestDataset(manifest)
 
 
-class FakeModel(STTModel):
-    """Returns a scripted transcript based on audio length; sleeps 10% of audio time."""
-
-    backend = "fake"
-
-    def __init__(self, name: str, threads: int) -> None:
-        super().__init__(name, threads)
-        self.loaded = False
-        self.calls = 0
-        self._by_len = {int(d * SAMPLE_RATE): hyp for _ref, hyp, d in SAMPLES.values()}
-
-    def prepare(self) -> None:
-        time.sleep(1.0)  # pretend to download; must not show up in load_s
-
-    def load(self) -> None:
-        self.loaded = True
-
-    def transcribe(self, audio: Audio) -> str:
-        assert self.loaded, "transcribe() before load()"
-        assert audio.dtype == np.float32
-        self.calls += 1
-        time.sleep(len(audio) / SAMPLE_RATE * 0.1)
-        return self._by_len[len(audio)]
-
-
 @pytest.fixture(autouse=True)
-def fake_backend() -> Iterator[None]:
-    register("fake", FakeModel)
+def fake_backend(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+    install()
+    # make the fake backends available to isolated child processes too
+    monkeypatch.setenv("TSB_PLUGINS", "tests.fake_plugin")
+    monkeypatch.setenv("PYTHONPATH", str(ROOT), prepend=os.pathsep)
     yield
-    models_base._REGISTRY.pop("fake", None)
+    for name in ("fake", "boom"):
+        models_base._REGISTRY.pop(name, None)

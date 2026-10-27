@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
-import gc
+import importlib
+import json
 import os
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
+from typing import TYPE_CHECKING, Any
 
 import click
 from rich.console import Console
@@ -13,6 +17,9 @@ from rich.progress import BarColumn, MofNCompleteColumn, Progress, TaskID, TimeR
 from rich.table import Table
 
 from . import __version__
+
+if TYPE_CHECKING:
+    from .datasets import Dataset
 
 console = Console(stderr=True)
 
@@ -24,6 +31,9 @@ SUGGESTED = [
     ("vosk:vosk-model-small-tr-0.3", "vosk", "Kaldi, ~35 MB, streaming"),
     ("hf-ctc:mpoyraz/wav2vec2-xls-r-300m-cv7-turkish", "ctc", "300M wav2vec2 fine-tuned on CV7"),
 ]
+
+_RESULT_FILE = "TSB_RESULT_FILE"  # set by the parent when running a model in a child
+_ERROR_FILE = "TSB_ERROR_FILE"
 
 _THREAD_VARS = ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "CT2_NUM_THREADS")
 
@@ -38,6 +48,10 @@ def _pin_threads(threads: int) -> None:
 @click.version_option(__version__, prog_name="turkish-speech-bench")
 def cli() -> None:
     """Benchmark Turkish speech recognition on CPU."""
+    # Third-party backends: TSB_PLUGINS="my_pkg.backends,other" imports modules that
+    # call tsbench.models.register(). Also applies to isolated child processes.
+    for module in filter(None, os.environ.get("TSB_PLUGINS", "").split(",")):
+        importlib.import_module(module.strip())
 
 
 @cli.command("models")
@@ -53,6 +67,82 @@ def models_cmd() -> None:
         table.add_row(spec, f"[{extra}]", notes)
     Console().print(table)
     Console().print(f"Backends: {', '.join(backends())}. Any 'backend:name' works.")
+
+
+def _measure(
+    spec: str,
+    ds: Dataset,
+    *,
+    threads: int,
+    limit: int | None,
+    warmup: int,
+    label: str | None,
+    out: Path,
+    keep_predictions: bool,
+) -> tuple[dict[str, Any] | None, str | None]:
+    """Benchmark one model in this process. Returns (result, error)."""
+    from . import runner
+    from .models import create
+    from .report import save
+
+    console.print(f"[bold]▶ {spec}[/bold] on {ds.name}")
+    try:
+        model = create(spec, threads)
+        with Progress(
+            "[progress.description]{task.description}",
+            BarColumn(),
+            MofNCompleteColumn(),
+            TimeRemainingColumn(),
+            console=console,
+            transient=True,
+        ) as bar:
+            task = bar.add_task(spec, total=None)
+
+            def on_progress(i: int, n: int, task: TaskID = task, bar: Progress = bar) -> None:
+                bar.update(task, completed=i, total=n)
+
+            result = runner.run(
+                model,
+                ds,
+                limit=limit,
+                warmup=warmup,
+                hardware_label=label,
+                keep_predictions=keep_predictions,
+                progress=on_progress,
+            )
+    except Exception as exc:  # one broken model must not lose the others' results
+        error = f"{type(exc).__name__}: {exc}"
+        console.print(f"[red]✗ {spec} failed: {error}[/red]")
+        return None, error
+    path = save(result, out)
+    m = result["metrics"]
+    console.print(
+        f"  WER {m['wer']:.2%} · CER {m['cer']:.2%} · RTFx {m['rtfx']} · "
+        f"peak RAM {m['peak_rss_mb']} MB → [dim]{path}[/dim]"
+    )
+    if os.environ.get(_RESULT_FILE):
+        Path(os.environ[_RESULT_FILE]).write_text(str(path), encoding="utf-8")
+    return result, None
+
+
+def _measure_isolated(spec: str, child_args: list[str]) -> tuple[dict[str, Any] | None, str | None]:
+    """Run one model in a fresh interpreter so memory left behind by the previous
+    model (allocators rarely return it to the OS) can't inflate the next one's RAM."""
+    with tempfile.TemporaryDirectory() as tmp:
+        result_file, error_file = Path(tmp) / "result", Path(tmp) / "error"
+        env = {**os.environ, _RESULT_FILE: str(result_file), _ERROR_FILE: str(error_file)}
+        proc = subprocess.run(
+            [sys.executable, "-m", "tsbench.cli", "run", "-m", spec, *child_args],
+            env=env,
+            stdout=subprocess.DEVNULL,  # child's summary table; the parent prints a combined one
+            check=False,
+        )
+        if result_file.exists():
+            path = Path(result_file.read_text(encoding="utf-8"))
+            return json.loads(path.read_text(encoding="utf-8")), None
+        if error_file.exists():
+            return None, error_file.read_text(encoding="utf-8")
+        return None, f"exited with code {proc.returncode}"
 
 
 @cli.command()
@@ -74,6 +164,12 @@ def models_cmd() -> None:
     "-o", "--out", type=click.Path(path_type=Path), default=Path("results"), show_default=True
 )
 @click.option("--no-predictions", is_flag=True, help="Don't store per-utterance transcripts")
+@click.option(
+    "--isolate/--no-isolate",
+    default=True,
+    show_default=True,
+    help="Run each model in its own process (accurate memory numbers)",
+)
 def run(
     models: tuple[str, ...],
     dataset: str,
@@ -83,72 +179,62 @@ def run(
     label: str | None,
     out: Path,
     no_predictions: bool,
+    isolate: bool,
 ) -> None:
     """Benchmark one or more models."""
     _pin_threads(threads)
-    from . import runner
     from .datasets import get_dataset
-    from .models import MissingBackendError, create
-    from .report import markdown, save
+    from .models import create
+    from .report import markdown
 
+    for spec in models:  # validate every spec before spending time on any of them
+        try:
+            create(spec, threads)
+        except ValueError as exc:
+            raise click.UsageError(str(exc)) from exc
     try:
-        ds = get_dataset(dataset)
+        ds = get_dataset(dataset)  # also downloads it once, before any child starts
     except (ValueError, FileNotFoundError) as exc:
         raise click.UsageError(str(exc)) from exc
 
-    results = []
-    failed = False
+    child_args = ["-d", dataset, "-t", str(threads), "--warmup", str(warmup), "-o", str(out)]
+    child_args += ["--no-isolate"]
+    if limit is not None:
+        child_args += ["-n", str(limit)]
+    if label:
+        child_args += ["--label", label]
+    if no_predictions:
+        child_args += ["--no-predictions"]
+
+    results: list[dict[str, Any]] = []
+    failures: list[tuple[str, str]] = []
     for spec in models:
-        try:
-            model = create(spec, threads)
-        except ValueError as exc:
-            raise click.UsageError(str(exc)) from exc
-        console.print(f"[bold]▶ {spec}[/bold] on {ds.name}")
-        try:
-            with Progress(
-                "[progress.description]{task.description}",
-                BarColumn(),
-                MofNCompleteColumn(),
-                TimeRemainingColumn(),
-                console=console,
-                transient=True,
-            ) as bar:
-                task = bar.add_task(spec, total=None)
-
-                def on_progress(i: int, n: int, task: TaskID = task, bar: Progress = bar) -> None:
-                    bar.update(task, completed=i, total=n)
-
-                result = runner.run(
-                    model,
-                    ds,
-                    limit=limit,
-                    warmup=warmup,
-                    hardware_label=label,
-                    keep_predictions=not no_predictions,
-                    progress=on_progress,
-                )
-        except MissingBackendError as exc:
-            console.print(f"[red]✗ {exc}[/red]")
-            failed = True
-            continue
-        except Exception as exc:  # one broken model must not lose the others' results
-            console.print(f"[red]✗ {spec} failed: {type(exc).__name__}: {exc}[/red]")
-            failed = True
-            continue
-        finally:
-            del model
-            gc.collect()  # free the previous model before measuring the next one
-        path = save(result, out)
-        m = result["metrics"]
-        console.print(
-            f"  WER {m['wer']:.2%} · CER {m['cer']:.2%} · RTFx {m['rtfx']} · "
-            f"peak RAM {m['peak_rss_mb']} MB → [dim]{path}[/dim]"
-        )
-        results.append(result)
+        if isolate and len(models) > 1:
+            result, error = _measure_isolated(spec, child_args)
+        else:
+            result, error = _measure(
+                spec,
+                ds,
+                threads=threads,
+                limit=limit,
+                warmup=warmup,
+                label=label,
+                out=out,
+                keep_predictions=not no_predictions,
+            )
+        if result is not None:
+            results.append(result)
+        else:
+            failures.append((spec, error or "unknown error"))
+            if os.environ.get(_ERROR_FILE):
+                Path(os.environ[_ERROR_FILE]).write_text(error or "", encoding="utf-8")
 
     if results:
         click.echo(markdown(results))
-    if failed:
+    if failures:
+        click.echo("\n**Failed models**\n")
+        for spec, error in failures:
+            click.echo(f"- `{spec}`: {error}")
         sys.exit(1)
 
 

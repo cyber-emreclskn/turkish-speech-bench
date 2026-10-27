@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
 from click.testing import CliRunner
 
 from tsbench.cli import cli
@@ -79,25 +80,33 @@ def test_report_empty(tmp_path: Path) -> None:
     assert "no result files" in result.output
 
 
-def test_failing_model_does_not_lose_other_results(manifest: Path, tmp_path: Path) -> None:
-    from tsbench.models import base, register
-
-    from .conftest import FakeModel
-
-    class Boom(FakeModel):
-        backend = "boom"
-
-        def transcribe(self, audio):  # type: ignore[no-untyped-def]
-            raise RuntimeError("model exploded")
-
-    register("boom", Boom)
-    try:
-        out = tmp_path / "results"
-        result = CliRunner().invoke(
-            cli, ["run", "-m", "boom:x", "-m", "fake:ok", "-d", str(manifest), "-o", str(out)]
-        )
-    finally:
-        base._REGISTRY.pop("boom", None)
+@pytest.mark.parametrize("isolate", ["--isolate", "--no-isolate"])
+def test_failing_model_does_not_lose_other_results(
+    manifest: Path, tmp_path: Path, isolate: str
+) -> None:
+    out = tmp_path / "results"
+    result = CliRunner().invoke(
+        cli, ["run", "-m", "boom:x", "-m", "fake:ok", "-d", str(manifest), "-o", str(out), isolate]
+    )
     assert result.exit_code == 1
-    assert "boom:x failed: RuntimeError: model exploded" in result.output
+    assert "`boom:x`: RuntimeError: model exploded" in result.output  # visible in the PR body
+    assert "| `fake:ok` | 12.5% |" in result.output
     assert [p.name for p in out.rglob("*.json")] == ["manifest-mini__fake-ok__t4__full.json"]
+
+
+def test_isolated_runs_use_separate_processes(manifest: Path, tmp_path: Path) -> None:
+    out = tmp_path / "results"
+    result = CliRunner().invoke(
+        cli, ["run", "-m", "fake:a", "-m", "fake:b", "-d", str(manifest), "-o", str(out)]
+    )
+    assert result.exit_code == 0, result.output
+    peaks = [
+        json.loads(p.read_text())["metrics"]["peak_rss_mb"] for p in sorted(out.rglob("*.json"))
+    ]
+    assert len(peaks) == 2
+
+
+def test_plugins_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("TSB_PLUGINS", "does_not_exist_xyz")
+    result = CliRunner().invoke(cli, ["models"])
+    assert isinstance(result.exception, ModuleNotFoundError)

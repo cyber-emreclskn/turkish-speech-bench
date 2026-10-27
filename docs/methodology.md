@@ -36,6 +36,9 @@ Digits are kept as digits. Try it: `tsb normalize "İSTANBUL'da Kâğıt!"`.
 
 * Audio is decoded and resampled to 16 kHz mono **before** timing, so file I/O
   is excluded.
+* Each model runs in its **own fresh process** (`--isolate`, the default). Native
+  allocators (CTranslate2, PyTorch) rarely return memory to the OS, so running
+  models back-to-back in one process would inflate the next model's peak RAM.
 * `prepare()` (downloads) → `load()` (timed) → one untimed warm-up transcription
   → every utterance transcribed and timed once.
 * Thread count is pinned (`--threads`, default 4) through `OMP_NUM_THREADS` and
