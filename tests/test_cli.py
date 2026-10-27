@@ -77,3 +77,27 @@ def test_report_empty(tmp_path: Path) -> None:
     result = CliRunner().invoke(cli, ["report", str(tmp_path)])
     assert result.exit_code == 1
     assert "no result files" in result.output
+
+
+def test_failing_model_does_not_lose_other_results(manifest: Path, tmp_path: Path) -> None:
+    from tsbench.models import base, register
+
+    from .conftest import FakeModel
+
+    class Boom(FakeModel):
+        backend = "boom"
+
+        def transcribe(self, audio):  # type: ignore[no-untyped-def]
+            raise RuntimeError("model exploded")
+
+    register("boom", Boom)
+    try:
+        out = tmp_path / "results"
+        result = CliRunner().invoke(
+            cli, ["run", "-m", "boom:x", "-m", "fake:ok", "-d", str(manifest), "-o", str(out)]
+        )
+    finally:
+        base._REGISTRY.pop("boom", None)
+    assert result.exit_code == 1
+    assert "boom:x failed: RuntimeError: model exploded" in result.output
+    assert [p.name for p in out.rglob("*.json")] == ["manifest-mini__fake-ok__t4__full.json"]

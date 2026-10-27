@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gc
 import os
 import sys
 from pathlib import Path
@@ -130,6 +131,13 @@ def run(
             console.print(f"[red]✗ {exc}[/red]")
             failed = True
             continue
+        except Exception as exc:  # one broken model must not lose the others' results
+            console.print(f"[red]✗ {spec} failed: {type(exc).__name__}: {exc}[/red]")
+            failed = True
+            continue
+        finally:
+            del model
+            gc.collect()  # free the previous model before measuring the next one
         path = save(result, out)
         m = result["metrics"]
         console.print(

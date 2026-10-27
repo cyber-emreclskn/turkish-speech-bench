@@ -67,15 +67,22 @@ jobs:
           restore-keys: hf-${{ inputs.dataset }}-
 
       - name: Run benchmark
+        id: bench
         run: |
+          set +e
           args=()
           for m in $MODELS; do args+=(-m "$m"); done
           [ -n "$LIMIT" ] && args+=(--limit "$LIMIT")
           uv run --no-sync tsb run "${args[@]}" -d "$DATASET" -t "$THREADS" \
-            --label "GitHub Actions ubuntu-latest (${THREADS} threads)" | tee report.md
+            --label "GitHub Actions ubuntu-latest (${THREADS} threads)" > report.md
+          status=$?
+          cat report.md
           cat report.md >> "$GITHUB_STEP_SUMMARY"
+          echo "status=$status" >> "$GITHUB_OUTPUT"
 
+      # Runs even if some models failed, so finished results are never lost.
       - name: Open a pull request with the results
+        if: always() && hashFiles('results/**/*.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -84,6 +91,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add results
+          if git diff --cached --quiet; then echo "no new results"; exit 0; fi
           git commit -m "chore(results): ${DATASET} on GitHub Actions (run ${GITHUB_RUN_ID})" \
             -m "Models: ${MODELS}"
           git push origin "$branch"
@@ -94,3 +102,9 @@ jobs:
           } > body.md
           gh pr create --base main --head "$branch" \
             --title "chore(results): ${DATASET} on GitHub Actions" --body-file body.md
+
+      - name: Fail if any model failed
+        if: steps.bench.outputs.status != '0'
+        run: |
+          echo "::error::At least one model failed; see the 'Run benchmark' step."
+          exit 1
