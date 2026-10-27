@@ -111,3 +111,14 @@ def test_default_label_names_cpu(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.delenv("GITHUB_ACTIONS")
     assert fingerprint()["label"] == f"{fp['cpu']} ({fp['cores_logical']} threads)"
     assert fingerprint("kiosk")["label"] == "kiosk"
+
+
+def test_environment_falls_back_to_runner_os(monkeypatch: pytest.MonkeyPatch) -> None:
+    from tsbench.system import fingerprint
+
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.delenv("ImageOS", raising=False)
+    monkeypatch.setenv("RUNNER_OS", "Linux")
+    assert fingerprint()["environment"] == "github-actions:Linux"
+    monkeypatch.setenv("ImageOS", "ubuntu24")
+    assert fingerprint()["environment"] == "github-actions:ubuntu24"

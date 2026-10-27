@@ -46,7 +46,8 @@ def _package_versions() -> dict[str, str]:
 
 def _environment() -> str:
     if os.environ.get("GITHUB_ACTIONS") == "true":
-        image = os.environ.get("ImageOS")  # noqa: SIM112 - real variable name or os.environ.get("RUNNER_OS", "unknown")
+        # "ImageOS" is the variable's real (mixed-case) name on GitHub runners.
+        image = os.environ.get("ImageOS") or os.environ.get("RUNNER_OS", "unknown")  # noqa: SIM112
         return f"github-actions:{image}"
     return "local"
 
