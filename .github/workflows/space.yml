@@ -30,7 +30,7 @@ jobs:
         run: echo "::notice::HF_TOKEN secret not set; skipping Space deployment."
       - uses: actions/checkout@v7
         if: env.HF_TOKEN != ''
-      - uses: astral-sh/setup-uv@v10.3.2
+      - uses: astral-sh/setup-uv@v10.3.3
         if: env.HF_TOKEN != ''
       - name: Build leaderboard.json
         if: env.HF_TOKEN != ''
