@@ -10,7 +10,7 @@ on:
         description: "Space-separated model specs"
         default: "faster-whisper:tiny faster-whisper:base faster-whisper:small vosk:vosk-model-small-tr-0.3"
       dataset:
-        description: "fleurs-tr[:split]"
+        description: "fleurs-tr, cv17-tr or mediaspeech-tr, optionally :split"
         default: "fleurs-tr"
       limit:
         description: "First N utterances (empty = full split)"
@@ -51,6 +51,7 @@ jobs:
           [[ "$MODELS" == *faster-whisper:* ]] && extras+=(--extra whisper)
           [[ "$MODELS" == *vosk:* ]] && extras+=(--extra vosk)
           [[ "$MODELS" == *sherpa-onnx:* ]] && extras+=(--extra sherpa)
+          [[ "$DATASET" != fleurs-tr* ]] && extras+=(--extra parquet)
           if [[ "$MODELS" == *hf-ctc:* ]]; then
             uv sync --locked --no-dev
             uv pip install torch --index-url https://download.pytorch.org/whl/cpu
