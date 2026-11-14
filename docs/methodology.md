@@ -67,6 +67,9 @@ Two kinds of hardware are reported:
 | Name | Content | License |
 |---|---|---|
 | `fleurs-tr` | Google FLEURS Turkish, read Wikipedia sentences; `test` split by default. The raw transcription is the reference. | CC-BY-4.0 |
+| `cv17-tr` | Common Voice 17 Turkish ([cleaned splits](https://huggingface.co/datasets/ysdede/commonvoice_17_tr_fixed)), community-recorded read sentences; `test` split by default. Needs the `parquet` extra. | CC0-1.0 |
+| `mediaspeech-tr` | [MediaSpeech](https://huggingface.co/datasets/ymoslem/MediaSpeech) Turkish, 10 hours of broadcast speech from media videos: the closest of the three to real-world audio. Needs the `parquet` extra. | CC-BY-4.0 |
+| `hf:<repo>:<glob>` | Any Hugging Face dataset stored as Parquet with embedded audio and a `sentence`/`text`/`transcription` column. | its own |
 | `*.jsonl` | Your own data: one `{"audio": "...", "text": "..."}` per line. | yours |
 
 `--limit N` always takes the first N utterances sorted by id, so a subset is the
@@ -75,7 +78,8 @@ and shown on the leaderboard.
 
 ## Known limitations
 
-* FLEURS is read speech; spontaneous or noisy speech will score worse.
+* FLEURS and Common Voice are read speech; spontaneous or noisy speech scores worse
+  (compare with `mediaspeech-tr`).
 * A 200-utterance subset gives a usable but noisy WER estimate; full-split runs are
   preferred for close comparisons.
 * GitHub-hosted runners are shared machines, so their speed numbers vary by a few

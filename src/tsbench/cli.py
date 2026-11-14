@@ -155,7 +155,8 @@ def _measure_isolated(spec: str, child_args: list[str]) -> tuple[dict[str, Any] 
     "--dataset",
     default="fleurs-tr",
     show_default=True,
-    help="fleurs-tr[:split] or manifest.jsonl",
+    help="fleurs-tr, cv17-tr or mediaspeech-tr (optionally :split), "
+    "hf:<repo>:<parquet glob> or manifest.jsonl",
 )
 @click.option("-n", "--limit", type=int, help="Only the first N utterances (deterministic)")
 @click.option("-t", "--threads", type=int, default=4, show_default=True)

@@ -42,7 +42,8 @@ tsb models            # suggested models
 tsb normalize "İSTANBUL'da Kâğıt!"   # -> istanbulda kağıt
 ```
 
-Your own data works too: a JSONL manifest with one `{"audio": "clip.wav", "text": "..."}`
+Other built-in datasets: `-d cv17-tr` (Common Voice 17) and `-d mediaspeech-tr` (broadcast
+speech); both need the `parquet` extra. Your own data works too: a JSONL manifest with one `{"audio": "clip.wav", "text": "..."}`
 per line, then `tsb run -m ... -d my_data.jsonl`.
 
 ### Backends
