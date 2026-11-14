@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or its results, please cite it as below."
+title: "turkish-speech-bench: a reproducible CPU benchmark for Turkish speech recognition"
+type: software
+authors:
+  - family-names: Çalışkan
+    given-names: Osman Emre
+repository-code: "https://github.com/cyber-emreclskn/turkish-speech-bench"
+url: "https://huggingface.co/spaces/emreclskn/turkish-speech-bench"
+license: MIT
+keywords:
+  - turkish
+  - speech-recognition
+  - asr
+  - benchmark
+  - cpu
