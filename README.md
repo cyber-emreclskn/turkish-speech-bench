@@ -27,6 +27,8 @@ reproducibly.
 
 👉 **[huggingface.co/spaces/emreclskn/turkish-speech-bench](https://huggingface.co/spaces/emreclskn/turkish-speech-bench)**
 
+The raw numbers are also a dataset: [emreclskn/turkish-speech-bench-results](https://huggingface.co/datasets/emreclskn/turkish-speech-bench-results).
+
 ## Quick start
 
 ```bash
