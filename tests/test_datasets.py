@@ -110,3 +110,79 @@ def test_fleurs_missing_audio(tmp_path: Path) -> None:
     tsv.write_text("1\tmissing.wav\tmetin\n")
     with pytest.raises(FileNotFoundError, match=r"missing\.wav"):
         datasets.FleursTurkish.parse_tsv(tsv, tmp_path)
+
+
+# ---------------------------------------------------------------- Hub parquet
+def _parquet(path: Path, rows: list[tuple[str | None, str | None, float]], text_col: str) -> Path:
+    import io
+
+    pa = pytest.importorskip("pyarrow")
+    import pyarrow.parquet as pq
+    import soundfile as sf
+
+    audio = []
+    for name, _text, seconds in rows:
+        buf = io.BytesIO()
+        sf.write(
+            buf, np.zeros(int(seconds * SAMPLE_RATE), dtype=np.float32), SAMPLE_RATE, format="WAV"
+        )
+        audio.append({"bytes": buf.getvalue(), "path": name})
+    path.parent.mkdir(parents=True, exist_ok=True)
+    pq.write_table(
+        pa.table({"audio": audio, text_col: [r[1] for r in rows], "extra": [0] * len(rows)}), path
+    )
+    return path
+
+
+def _hub(monkeypatch: pytest.MonkeyPatch, root: Path) -> list[tuple[str, list[str]]]:
+    calls: list[tuple[str, list[str]]] = []
+
+    def fake_snapshot(repo_id: str, **kwargs: object) -> str:
+        calls.append((repo_id, kwargs["allow_patterns"]))  # type: ignore[arg-type]
+        return str(root)
+
+    monkeypatch.setattr("huggingface_hub.snapshot_download", fake_snapshot)
+    return calls
+
+
+def test_hub_parquet_named_dataset(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    _parquet(
+        tmp_path / "data" / "test-00000-of-00001.parquet",
+        [("b.mp3", "İkinci cümle", 0.5), ("a.mp3", "Birinci cümle", 0.25), ("c.mp3", None, 0.1)],
+        "sentence",
+    )
+    calls = _hub(monkeypatch, tmp_path)
+
+    ds = get_dataset("cv17-tr")
+    assert calls == [("ysdede/commonvoice_17_tr_fixed", ["data/test-*.parquet"])]
+    assert ds.name == "cv17-tr/test"
+    assert ds.license == "CC0-1.0"
+    assert len(ds) == 2  # the row without a transcript is dropped
+    first = next(iter(ds.utterances(limit=1)))
+    assert (first.id, first.text) == ("a", "Birinci cümle")  # sorted by id
+    assert first.duration == pytest.approx(0.25)
+
+    # A second load reuses the extracted clips instead of reading Parquet again.
+    monkeypatch.setattr("pyarrow.parquet.ParquetFile", None)
+    assert [u.id for u in get_dataset("cv17-tr").utterances()] == ["a", "b"]
+
+
+def test_hub_parquet_generic_spec_and_position_ids(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _parquet(tmp_path / "tr" / "train-0.parquet", [(None, "bir", 0.1), (None, "iki", 0.1)], "text")
+    _hub(monkeypatch, tmp_path)
+    ds = get_dataset("hf:org/data:tr/train-*.parquet")
+    assert ds.name == "hf:org/data"
+    assert [(u.id, u.text) for u in ds.utterances()] == [("00-000000", "bir"), ("00-000001", "iki")]
+
+
+def test_hub_parquet_errors(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    _hub(monkeypatch, tmp_path)
+    with pytest.raises(FileNotFoundError, match="no files matching"):
+        get_dataset("mediaspeech-tr")
+    _parquet(tmp_path / "tr" / "train-0.parquet", [("a.wav", "x", 0.1)], "label")
+    with pytest.raises(ValueError, match="found columns"):
+        get_dataset("mediaspeech-tr")
+    with pytest.raises(ValueError, match="parquet glob"):
+        get_dataset("hf:org/data")
