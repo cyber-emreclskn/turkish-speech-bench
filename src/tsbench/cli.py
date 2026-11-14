@@ -30,6 +30,7 @@ SUGGESTED = [
     ("faster-whisper:large-v3-turbo", "whisper", "809M, best accuracy that is still CPU-usable"),
     ("vosk:vosk-model-small-tr-0.3", "vosk", "Kaldi, ~35 MB, streaming"),
     ("hf-ctc:mpoyraz/wav2vec2-xls-r-300m-cv7-turkish", "ctc", "300M wav2vec2 fine-tuned on CV7"),
+    ("sherpa-onnx:mihuai/turkish-stt-66m-v2", "sherpa", "66M streaming Zipformer, ~68 MB"),
 ]
 
 _RESULT_FILE = "TSB_RESULT_FILE"  # set by the parent when running a model in a child

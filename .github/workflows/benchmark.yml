@@ -50,6 +50,7 @@ jobs:
           extras=()
           [[ "$MODELS" == *faster-whisper:* ]] && extras+=(--extra whisper)
           [[ "$MODELS" == *vosk:* ]] && extras+=(--extra vosk)
+          [[ "$MODELS" == *sherpa-onnx:* ]] && extras+=(--extra sherpa)
           if [[ "$MODELS" == *hf-ctc:* ]]; then
             uv sync --locked --no-dev
             uv pip install torch --index-url https://download.pytorch.org/whl/cpu

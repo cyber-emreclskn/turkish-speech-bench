@@ -45,7 +45,10 @@ Digits are kept as digits. Try it: `tsb normalize "İSTANBUL'da Kâğıt!"`.
   friends plus each backend's own setting.
 * Decoding settings are part of the result (`model.settings`): Whisper runs INT8
   with beam size 5, language forced to Turkish, no VAD, no conditioning on previous
-  text; CTC models use greedy decoding.
+  text; CTC models use greedy decoding. sherpa-onnx transducers use the settings their
+  `config.json` ships (otherwise greedy search); streaming ones get the whole utterance
+  at once plus 0.66 s of trailing silence, so timings are offline throughput, not
+  first-token latency.
 
 ## Hardware
 
