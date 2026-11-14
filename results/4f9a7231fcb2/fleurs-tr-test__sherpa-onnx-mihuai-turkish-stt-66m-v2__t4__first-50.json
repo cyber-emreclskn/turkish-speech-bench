@@ -1,0 +1,510 @@
+{
+  "schema_version": 1,
+  "tsbench_version": "0.1.0",
+  "created_at": "2026-11-14T12:02:41+00:00",
+  "system": {
+    "label": "GitHub Actions · AMD EPYC 9V74 80-Core Processor (4 threads)",
+    "hardware_id": "4f9a7231fcb2",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "cores_physical": 2,
+    "cores_logical": 4,
+    "ram_gb": 15.6,
+    "os": "Linux 7.0.0-1019-azure",
+    "arch": "x86_64",
+    "python": "3.12.16",
+    "environment": "github-actions:ubuntu26",
+    "packages": {
+      "faster-whisper": "1.2.1",
+      "ctranslate2": "4.8.4",
+      "onnxruntime": "1.31.1"
+    }
+  },
+  "dataset": {
+    "name": "fleurs-tr/test",
+    "license": "CC-BY-4.0",
+    "utterances": 50,
+    "subset": "first-50",
+    "audio_seconds": 611.16
+  },
+  "model": {
+    "spec": "sherpa-onnx:mihuai/turkish-stt-66m-v2",
+    "backend": "sherpa-onnx",
+    "name": "mihuai/turkish-stt-66m-v2",
+    "license": "other",
+    "params_millions": 66.0,
+    "settings": {
+      "streaming": true,
+      "decoding_method": "modified_beam_search",
+      "max_active_paths": 4,
+      "quantization": "int8"
+    },
+    "disk_mb": 68.0
+  },
+  "run": {
+    "threads": 4,
+    "warmup": 1
+  },
+  "metrics": {
+    "wer": 0.0669,
+    "cer": 0.0193,
+    "rtf": 0.1483,
+    "rtfx": 6.74,
+    "latency_p50_s": 1.7428,
+    "latency_p90_s": 2.8298,
+    "load_s": 1.51,
+    "model_ram_mb": 124.1,
+    "peak_rss_mb": 274.1
+  },
+  "predictions": [
+    {
+      "id": "10000377651956138413",
+      "ref": "Aynı ay, başka bir yolcu uçağı Meşhed'deki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "hyp": "Aynı ay başka bir yolcu uçağı Meşet'teki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "duration_s": 14.16,
+      "latency_s": 2.4768,
+      "ref_norm": "aynı ay başka bir yolcu uçağı meşheddeki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu",
+      "hyp_norm": "aynı ay başka bir yolcu uçağı meşetteki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu"
+    },
+    {
+      "id": "10002518854052673247",
+      "ref": "Romantizm; Goethe, Fichte ve Schlegel gibi yazarlardan geçen geniş bir kültürel determinizm özelliği taşıyordu.",
+      "hyp": "Romantizm Göte, Pih'te ve Şilegel gibi yazarlardan geçen geniş bir kültürel determinizm özelliği taşıyordu.",
+      "duration_s": 12.36,
+      "latency_s": 1.9566,
+      "ref_norm": "romantizm goethe fichte ve schlegel gibi yazarlardan geçen geniş bir kültürel determinizm özelliği taşıyordu",
+      "hyp_norm": "romantizm göte pihte ve şilegel gibi yazarlardan geçen geniş bir kültürel determinizm özelliği taşıyordu"
+    },
+    {
+      "id": "10067972835475076305",
+      "ref": "Japonya'nın nükleer ajansına göre, tesiste radyoaktif sezyum ve iyodin tespit edildi.",
+      "hyp": "Japonya'nın nükleer ajansına göre tesiste radyoaktif sezyum ve iyodin tespit edildi.",
+      "duration_s": 11.1,
+      "latency_s": 1.9625,
+      "ref_norm": "japonyanın nükleer ajansına göre tesiste radyoaktif sezyum ve iyodin tespit edildi",
+      "hyp_norm": "japonyanın nükleer ajansına göre tesiste radyoaktif sezyum ve iyodin tespit edildi"
+    },
+    {
+      "id": "10073710776711594036",
+      "ref": "Bu teoriler, bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir.",
+      "hyp": "Bu teoriler, bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir.",
+      "duration_s": 16.62,
+      "latency_s": 1.5067,
+      "ref_norm": "bu teoriler bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir",
+      "hyp_norm": "bu teoriler bazı insanların yaptıkları şeyleri arzu etmelerine sebebiyet veren şeylere ve çevrelerindeki şeylerin onlara belirli şeyleri yapıp yapmamasına sebep olan şeyler ile ilgilenir"
+    },
+    {
+      "id": "101089684978402857",
+      "ref": "Avrupa nispeten küçük ama birçok bağımsız ülkenin bulunduğu bir kıtadır. Normal şartlar altında, birden fazla ülkeyi gezmek birçok vize uygulamalarından ve pasaport kontrollerinden geçmek anlamına gelmektedir.",
+      "hyp": "Avrupa nispeten küçük ama birçok bağımsız ülkenin bulunduğu bir kıtadır. Normal şartlar altında birden fazla ülkeyi gezmek, birçok vize uygun olmalarından ve pasaport kontrollerinden geçmek anlamına gelmektedir.",
+      "duration_s": 15.84,
+      "latency_s": 1.8509,
+      "ref_norm": "avrupa nispeten küçük ama birçok bağımsız ülkenin bulunduğu bir kıtadır normal şartlar altında birden fazla ülkeyi gezmek birçok vize uygulamalarından ve pasaport kontrollerinden geçmek anlamına gelmektedir",
+      "hyp_norm": "avrupa nispeten küçük ama birçok bağımsız ülkenin bulunduğu bir kıtadır normal şartlar altında birden fazla ülkeyi gezmek birçok vize uygun olmalarından ve pasaport kontrollerinden geçmek anlamına gelmektedir"
+    },
+    {
+      "id": "10147164563742619338",
+      "ref": "Güreşçi arkadaşları da Luna'ya saygılarını sundular.",
+      "hyp": "Güreşçi arkadaşları da Luna'ya saygılarını sundular.",
+      "duration_s": 4.2,
+      "latency_s": 0.5549,
+      "ref_norm": "güreşçi arkadaşları da lunaya saygılarını sundular",
+      "hyp_norm": "güreşçi arkadaşları da lunaya saygılarını sundular"
+    },
+    {
+      "id": "10153339660659037735",
+      "ref": "Apia, Samoa'nın başkentidir. Şehir Upolu adasındadır ve 40.000'in biraz altında bir nüfusa sahiptir.",
+      "hyp": "Apia, Samoa'nın başkentidir. Şehir, upol adasındadır ve 40 binin biraz altında bir nüfusa sahiptir.",
+      "duration_s": 10.2,
+      "latency_s": 1.6792,
+      "ref_norm": "apia samoanın başkentidir şehir upolu adasındadır ve 40 000in biraz altında bir nüfusa sahiptir",
+      "hyp_norm": "apia samoanın başkentidir şehir upol adasındadır ve 40 binin biraz altında bir nüfusa sahiptir"
+    },
+    {
+      "id": "10175328357718171270",
+      "ref": "Özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor.",
+      "hyp": "Özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor.",
+      "duration_s": 9.12,
+      "latency_s": 1.528,
+      "ref_norm": "özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor",
+      "hyp_norm": "özellikle mikro ifadeleri doğru bir şekilde yorumlama yöntemi ile bir kişinin yalan söyleyip söylemediğinin anlaşılabileceği öne sürülüyor"
+    },
+    {
+      "id": "10199707715835400660",
+      "ref": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "hyp": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "duration_s": 5.76,
+      "latency_s": 1.0921,
+      "ref_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur",
+      "hyp_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur"
+    },
+    {
+      "id": "10206694987828197818",
+      "ref": "Örneğin, Kuzey Carolina'daki Bennet Okulu'ndan öğrenciler her yıl Eyalet Başkenti'ne yaptıkları gezilerle ilgili bir web sitesi tasarlarlar, her yıl web sitesi yeniden düzenlenir, ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur.",
+      "hyp": "Orneğin, Kuzey karoline'daki Wennett Okulu'ndan öğrenciler her yıl eyalet başkentine yaptıkları gezilerle ilgili bir web sitesi tasarlarlar. Her yıl web sitesi yeniden düzenlenir. Ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur.",
+      "duration_s": 22.2,
+      "latency_s": 3.1969,
+      "ref_norm": "örneğin kuzey carolinadaki bennet okulundan öğrenciler her yıl eyalet başkentine yaptıkları gezilerle ilgili bir web sitesi tasarlarlar her yıl web sitesi yeniden düzenlenir ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur",
+      "hyp_norm": "orneğin kuzey karolinedaki wennett okulundan öğrenciler her yıl eyalet başkentine yaptıkları gezilerle ilgili bir web sitesi tasarlarlar her yıl web sitesi yeniden düzenlenir ancak eski sürümler bir not defteri olarak kullanılmak üzere çevrimiçi olarak tutulur"
+    },
+    {
+      "id": "10208729035292662070",
+      "ref": "Eğlence haberleri web sitesi TMZ'ye göre fotoğrafçı aracını Sepulveda Bulvarı'nın öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış, daha sonra yolun karşısına geçip devam ederek Kaliforniya Otoyol Devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur.",
+      "hyp": "Eğlence haberleri web sitesi TMZ'ye göre fotoğrafçı aracının sepulveda bulvarı'nın öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış. Daha sonra yolun karşısına geçip devam ederek Kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur.",
+      "duration_s": 24.42,
+      "latency_s": 3.4638,
+      "ref_norm": "eğlence haberleri web sitesi tmzye göre fotoğrafçı aracını sepulveda bulvarının öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur",
+      "hyp_norm": "eğlence haberleri web sitesi tmzye göre fotoğrafçı aracının sepulveda bulvarının öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur"
+    },
+    {
+      "id": "10213509574977034508",
+      "ref": "Bu, oyunculara cihazı havada hareket ettirerek video oyunlarındaki hareket ve eylemleri kontrol etme imkanı sunacaktır.",
+      "hyp": "Bu, oyunculara cihazı havada hareket ettirerek video oyunlarındaki hareket ve eylemleri kontrol imkanı sunacaktır.",
+      "duration_s": 8.64,
+      "latency_s": 1.3282,
+      "ref_norm": "bu oyunculara cihazı havada hareket ettirerek video oyunlarındaki hareket ve eylemleri kontrol etme imkanı sunacaktır",
+      "hyp_norm": "bu oyunculara cihazı havada hareket ettirerek video oyunlarındaki hareket ve eylemleri kontrol imkanı sunacaktır"
+    },
+    {
+      "id": "10238618737057418994",
+      "ref": "Bunun neticesinde iki balık cinsinin soyu tükendi ve aralarında kambur kefalin de yer aldığı iki balık cinsi tehlike altına girdi.",
+      "hyp": "Bunun neticesinde iki balık cinsinin soyu tükendi ve aralarında kambur kefalin de yer aldığı iki balık cinsi tehlike altına girdi.",
+      "duration_s": 12.24,
+      "latency_s": 1.9065,
+      "ref_norm": "bunun neticesinde iki balık cinsinin soyu tükendi ve aralarında kambur kefalin de yer aldığı iki balık cinsi tehlike altına girdi",
+      "hyp_norm": "bunun neticesinde iki balık cinsinin soyu tükendi ve aralarında kambur kefalin de yer aldığı iki balık cinsi tehlike altına girdi"
+    },
+    {
+      "id": "10272545259067985824",
+      "ref": "Piramit ses ve ışık gösterisi, çocuklar için bölgedeki en ilginç şeylerden biridir.",
+      "hyp": "Bir piramit, ses ve ışık gösterisi, çocuklar için bölgedeki en ilginç şeylerden biridir.",
+      "duration_s": 6.78,
+      "latency_s": 1.2005,
+      "ref_norm": "piramit ses ve ışık gösterisi çocuklar için bölgedeki en ilginç şeylerden biridir",
+      "hyp_norm": "bir piramit ses ve ışık gösterisi çocuklar için bölgedeki en ilginç şeylerden biridir"
+    },
+    {
+      "id": "10394858340231356520",
+      "ref": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "hyp": "Bu, bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur.",
+      "duration_s": 5.52,
+      "latency_s": 0.5439,
+      "ref_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur",
+      "hyp_norm": "bu bazı fiiller ve nesneler arasında ayrım yapmanın önemli bir yoludur"
+    },
+    {
+      "id": "10397909750877235311",
+      "ref": "Eserleri öylesine saygın kalite ve detaya sahiptir ki, filatelistler arasında çok az sayıdaki \"ünlü\" kişiden biridir. Bazı kişilerin tek uzmanlık alanı onun eserlerini toplamaktır.",
+      "hyp": "Eserleri öylesine saygın kalite ve detaya sahiptir ki, platilistler arasında çok az sayıdaki ünlü kişiden biridir. Bazı kişilerin tek uzmanlık alanı onun eserlerini toplamaktır.",
+      "duration_s": 13.32,
+      "latency_s": 1.2293,
+      "ref_norm": "eserleri öylesine saygın kalite ve detaya sahiptir ki filatelistler arasında çok az sayıdaki ünlü kişiden biridir bazı kişilerin tek uzmanlık alanı onun eserlerini toplamaktır",
+      "hyp_norm": "eserleri öylesine saygın kalite ve detaya sahiptir ki platilistler arasında çok az sayıdaki ünlü kişiden biridir bazı kişilerin tek uzmanlık alanı onun eserlerini toplamaktır"
+    },
+    {
+      "id": "10399654856513535403",
+      "ref": "Aynı ay, başka bir yolcu uçağı Meşhed'deki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "hyp": "Aynı ay başka bir yolcu uçağı meşet'teki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu.",
+      "duration_s": 10.2,
+      "latency_s": 1.2676,
+      "ref_norm": "aynı ay başka bir yolcu uçağı meşheddeki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu",
+      "hyp_norm": "aynı ay başka bir yolcu uçağı meşetteki bir pisti aşarak bir duvara çarptı ve on yedi kişinin ölümüne neden oldu"
+    },
+    {
+      "id": "10406878871118112918",
+      "ref": "Bir örgütün işlevsel departmanlarında mümkün olan tüm kaynaklar etkin biçimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir.",
+      "hyp": "Bir örgütün işlevsel departmanlarının mümkün olan tüm kaynaklar etkin biçimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir.",
+      "duration_s": 9.3,
+      "latency_s": 1.4425,
+      "ref_norm": "bir örgütün işlevsel departmanlarında mümkün olan tüm kaynaklar etkin biçimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir",
+      "hyp_norm": "bir örgütün işlevsel departmanlarının mümkün olan tüm kaynaklar etkin biçimde kullanıldığında yaratıcılık ve ustalık ortaya çıkabilir"
+    },
+    {
+      "id": "10411678016280931424",
+      "ref": "Piramit ses ve ışık gösterisi, çocuklar için bölgedeki en ilginç şeylerden biridir.",
+      "hyp": "Piramit ses ve ışık gösterisi, çocuklar için bölgedeki en ilginç şeylerden biridir.",
+      "duration_s": 6.54,
+      "latency_s": 1.2179,
+      "ref_norm": "piramit ses ve ışık gösterisi çocuklar için bölgedeki en ilginç şeylerden biridir",
+      "hyp_norm": "piramit ses ve ışık gösterisi çocuklar için bölgedeki en ilginç şeylerden biridir"
+    },
+    {
+      "id": "10434128772254756539",
+      "ref": "Hastane, diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi.",
+      "hyp": "Hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi.",
+      "duration_s": 13.08,
+      "latency_s": 2.0025,
+      "ref_norm": "hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi",
+      "hyp_norm": "hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi"
+    },
+    {
+      "id": "10442981480105409939",
+      "ref": "Kabuk daha ince olduğundan yan tarafta daha çok maria olabilir. Lav için yer yüzüne çıkmak daha kolaydı.",
+      "hyp": "Kavuk daha ince olduğundan yan tarafta daha çok maria olabilir. Laf için yeryüzüne çıkmak daha kolaydı.",
+      "duration_s": 9.9,
+      "latency_s": 1.5744,
+      "ref_norm": "kabuk daha ince olduğundan yan tarafta daha çok maria olabilir lav için yer yüzüne çıkmak daha kolaydı",
+      "hyp_norm": "kavuk daha ince olduğundan yan tarafta daha çok maria olabilir laf için yeryüzüne çıkmak daha kolaydı"
+    },
+    {
+      "id": "10453371514313949242",
+      "ref": "Eğlence haberleri web sitesi TMZ'ye göre fotoğrafçı aracını Sepulveda Bulvarı'nın öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış, daha sonra yolun karşısına geçip devam ederek Kaliforniya Otoyol Devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur.",
+      "hyp": "Eğlence haberleri web sitesi TMZ'ye göre fotoğrafçı, aracını Sepul Veda Bulvarı'nın öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış. Daha sonra yolun karşısına geçip devam ederek Kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur.",
+      "duration_s": 23.58,
+      "latency_s": 3.4861,
+      "ref_norm": "eğlence haberleri web sitesi tmzye göre fotoğrafçı aracını sepulveda bulvarının öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur",
+      "hyp_norm": "eğlence haberleri web sitesi tmzye göre fotoğrafçı aracını sepul veda bulvarının öteki tarafında durdurmuş ve polis çevirmesinin fotoğraflarını çekmeye çalışmış daha sonra yolun karşısına geçip devam ederek kaliforniya otoyol devriye polis memurunun trafiği durdurup onu iki kez geriye dönmesini emretmesine neden olmuştur"
+    },
+    {
+      "id": "10463484270271750239",
+      "ref": "Mesela, dünyadaki en yaygın hareketsiz görüntü fotoğrafçılığı biçimi, analog film çağının bitiminde baskın film boyutu olan 35 mm'dir.",
+      "hyp": "Mesela dünyadaki en yaygın, hareketsiz görüntü fotoğrafçılığı biçimi analog film çağının bitiminde baskın film boyutu olan 35 mm'dir.",
+      "duration_s": 14.4,
+      "latency_s": 1.8668,
+      "ref_norm": "mesela dünyadaki en yaygın hareketsiz görüntü fotoğrafçılığı biçimi analog film çağının bitiminde baskın film boyutu olan 35 mmdir",
+      "hyp_norm": "mesela dünyadaki en yaygın hareketsiz görüntü fotoğrafçılığı biçimi analog film çağının bitiminde baskın film boyutu olan 35 mmdir"
+    },
+    {
+      "id": "10477007908892261743",
+      "ref": "Saint Petersburg gemi seyahatleri, şehirde zaman geçirmeyi de içerir. Turistik gemi yolcuları vize gereksinimlerinden muaftır (şartları kontrol edin).",
+      "hyp": "Seyit, Petersburg, gemi seyahatleri, şehirde zaman geçirmeyi de içerir. Turistik gemi yolcuları vize gereksinimlerinden muaftır. Parantez içinde\"şartları kontrol edin.",
+      "duration_s": 16.56,
+      "latency_s": 2.3363,
+      "ref_norm": "saint petersburg gemi seyahatleri şehirde zaman geçirmeyi de içerir turistik gemi yolcuları vize gereksinimlerinden muaftır şartları kontrol edin",
+      "hyp_norm": "seyit petersburg gemi seyahatleri şehirde zaman geçirmeyi de içerir turistik gemi yolcuları vize gereksinimlerinden muaftır parantez içinde şartları kontrol edin"
+    },
+    {
+      "id": "10535511649972840884",
+      "ref": "Bir gözlemci, sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla Bişkek'in bir \"anarşi\" durumuna saplandığını söyledi.",
+      "hyp": "Bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla Bişkek'in bir anarşi durumuna saplandığını söyledi.",
+      "duration_s": 12.12,
+      "latency_s": 1.9192,
+      "ref_norm": "bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla bişkekin bir anarşi durumuna saplandığını söyledi",
+      "hyp_norm": "bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla bişkekin bir anarşi durumuna saplandığını söyledi"
+    },
+    {
+      "id": "10553789323222308394",
+      "ref": "Sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti. Mendoza vuruldu.",
+      "hyp": "Sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti. Mandozla vuruldu.",
+      "duration_s": 10.68,
+      "latency_s": 1.2983,
+      "ref_norm": "sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti mendoza vuruldu",
+      "hyp_norm": "sonrasında fotoğrafçılar tuvalete gitmesi gereken yaşlı bir kadının yerine geçti mandozla vuruldu"
+    },
+    {
+      "id": "10555026931768074821",
+      "ref": "Hong Kong siluetini meydana getiren binalar, Victoria Limanı’ndaki sularla daha da ön plana çıkan, parlayan bir sütunlu grafiğe benzetilir.",
+      "hyp": "Hong Kong siluetini meydana getiren binalar Victoria Limanı'ndaki sularla daha da ön plana çıkan parlayan bir sütunlu grafiğe benzetilir.",
+      "duration_s": 16.14,
+      "latency_s": 1.8364,
+      "ref_norm": "hong kong siluetini meydana getiren binalar victoria limanındaki sularla daha da ön plana çıkan parlayan bir sütunlu grafiğe benzetilir",
+      "hyp_norm": "hong kong siluetini meydana getiren binalar victoria limanındaki sularla daha da ön plana çıkan parlayan bir sütunlu grafiğe benzetilir"
+    },
+    {
+      "id": "10586596331450835487",
+      "ref": "Misafirleri iyi bir ruh halinde tutmak ve hoşnut etmek için genellikle özel olarak hazırlanan yiyecek, içecek ve eğlence ikramları olur.",
+      "hyp": "Misafirleri iyi bir ruh halinde tutmak ve hoşnut etmek için genellikle özel olarak hazırlanan yiyecek, içecek ve eğlence ikramları olur.",
+      "duration_s": 15.12,
+      "latency_s": 2.409,
+      "ref_norm": "misafirleri iyi bir ruh halinde tutmak ve hoşnut etmek için genellikle özel olarak hazırlanan yiyecek içecek ve eğlence ikramları olur",
+      "hyp_norm": "misafirleri iyi bir ruh halinde tutmak ve hoşnut etmek için genellikle özel olarak hazırlanan yiyecek içecek ve eğlence ikramları olur"
+    },
+    {
+      "id": "10609789664954157038",
+      "ref": "Köprünün altındaki dikey açıklık 15 metredir. İnşaat 2011 yılı Ağustos ayında tamamlandı, Mart 2017'ye kadar trafiğe açılmadı.",
+      "hyp": "Köprünün altındaki dikey açıklık on beş metredir inşaat 2011 yılı Ağustos ayında tamamlandı. Mart, 2017'ye kadar trafiğe açılmadı.",
+      "duration_s": 13.32,
+      "latency_s": 2.3533,
+      "ref_norm": "köprünün altındaki dikey açıklık 15 metredir inşaat 2011 yılı ağustos ayında tamamlandı mart 2017ye kadar trafiğe açılmadı",
+      "hyp_norm": "köprünün altındaki dikey açıklık on beş metredir inşaat 2011 yılı ağustos ayında tamamlandı mart 2017ye kadar trafiğe açılmadı"
+    },
+    {
+      "id": "10612660122923021939",
+      "ref": "Çocuklar, ihmalden istismara ve hatta gaspa kadar çok çeşitli sebeplerden dolayı Koruyucu Bakım'a yerleştirilir.",
+      "hyp": "Çocuklar ihmalden istismara ve hatta gasba kadar çok çeşitli sebeplerden dolayı koruyucu bakıma yerleştirilir.",
+      "duration_s": 7.92,
+      "latency_s": 1.4207,
+      "ref_norm": "çocuklar ihmalden istismara ve hatta gaspa kadar çok çeşitli sebeplerden dolayı koruyucu bakıma yerleştirilir",
+      "hyp_norm": "çocuklar ihmalden istismara ve hatta gasba kadar çok çeşitli sebeplerden dolayı koruyucu bakıma yerleştirilir"
+    },
+    {
+      "id": "10624291443218471784",
+      "ref": "Moldova'nın başkenti Kişinev'dir. Ülkenin yerel dili Rumencedir, fakat yaygın olarak Rusça kullanılmaktadır.",
+      "hyp": "Moldova'nın başkenti Kişinev'dir. Ülkenin yerel dili Rumencedir fakat yaygın olarak Rusça kullanılmaktadır.",
+      "duration_s": 11.64,
+      "latency_s": 1.8064,
+      "ref_norm": "moldovanın başkenti kişinevdir ülkenin yerel dili rumencedir fakat yaygın olarak rusça kullanılmaktadır",
+      "hyp_norm": "moldovanın başkenti kişinevdir ülkenin yerel dili rumencedir fakat yaygın olarak rusça kullanılmaktadır"
+    },
+    {
+      "id": "10650678428420499578",
+      "ref": "İnternette yapılan 'Düşman çevre rotası' araması muhtemelen yerel bir şirketin adresini sağlayacaktır.",
+      "hyp": "İnternette yapılan düşman çeviri rotası araması muhtemelen yerel bir şirketin adresini sağlayacaktır.",
+      "duration_s": 11.22,
+      "latency_s": 1.8323,
+      "ref_norm": "internette yapılan düşman çevre rotası araması muhtemelen yerel bir şirketin adresini sağlayacaktır",
+      "hyp_norm": "internette yapılan düşman çeviri rotası araması muhtemelen yerel bir şirketin adresini sağlayacaktır"
+    },
+    {
+      "id": "10657798416573898692",
+      "ref": "Gianarlo Fisichella arabasının kontrolünü kaybetti ve starttan çok kısa bir süre sonra yarışı bitirdi.",
+      "hyp": "Cianar lo fi Sella arabasının kontrolünü kaybetti ve starttan çok kısa bir süre sonra yarışı bitirdi.",
+      "duration_s": 9.42,
+      "latency_s": 1.49,
+      "ref_norm": "gianarlo fisichella arabasının kontrolünü kaybetti ve starttan çok kısa bir süre sonra yarışı bitirdi",
+      "hyp_norm": "cianar lo fi sella arabasının kontrolünü kaybetti ve starttan çok kısa bir süre sonra yarışı bitirdi"
+    },
+    {
+      "id": "10660750621675264830",
+      "ref": "Tibet meditasyonunun merkezi Tanrı Yogası'dır. Çeşitli tanrıların görselleştirilmesiyle enerji kanalları temizlenir, çakralar aktif hale getirilir ve aydınlanma bilinci oluşturulur.",
+      "hyp": "Tibet meditasyonunun merkezi Tanrı yogasıdır. Çeşitli tanrıların görselleştirilmesiyle enerji kanalları temizlenir. Çakralar aktif hale getirilir ve aydınlanma bilinci oluşturulur.",
+      "duration_s": 18.24,
+      "latency_s": 3.1356,
+      "ref_norm": "tibet meditasyonunun merkezi tanrı yogasıdır çeşitli tanrıların görselleştirilmesiyle enerji kanalları temizlenir çakralar aktif hale getirilir ve aydınlanma bilinci oluşturulur",
+      "hyp_norm": "tibet meditasyonunun merkezi tanrı yogasıdır çeşitli tanrıların görselleştirilmesiyle enerji kanalları temizlenir çakralar aktif hale getirilir ve aydınlanma bilinci oluşturulur"
+    },
+    {
+      "id": "10672808331401656242",
+      "ref": "Savaş sona erdikten sonra iki yıl geçmesiyle birlikte, eski müttefikler artık düşmandı ve Soğuk Savaş başladı.",
+      "hyp": "Savaş sona erdikten sonra, iki yıl geçmesiyle birlikte, eski müttefikler artık düşmandı ve Soğuk Savaş başladı.",
+      "duration_s": 9.96,
+      "latency_s": 1.3815,
+      "ref_norm": "savaş sona erdikten sonra iki yıl geçmesiyle birlikte eski müttefikler artık düşmandı ve soğuk savaş başladı",
+      "hyp_norm": "savaş sona erdikten sonra iki yıl geçmesiyle birlikte eski müttefikler artık düşmandı ve soğuk savaş başladı"
+    },
+    {
+      "id": "10691448504216512855",
+      "ref": "Hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri, 100 yıldan eski malları antika olarak tanımlıyor.",
+      "hyp": "Hangi yönetilmiş nesnelerin antik olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri yüz yıldan eski malların antik olarak tanımlıyor.",
+      "duration_s": 9.54,
+      "latency_s": 1.3837,
+      "ref_norm": "hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri 100 yıldan eski malları antika olarak tanımlıyor",
+      "hyp_norm": "hangi yönetilmiş nesnelerin antik olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri yüz yıldan eski malların antik olarak tanımlıyor"
+    },
+    {
+      "id": "10693256384443357560",
+      "ref": "Moldova'nın başkenti Kişinev'dir. Ülkenin yerel dili Rumencedir, fakat yaygın olarak Rusça kullanılmaktadır.",
+      "hyp": "Moldova'nın başkenti Kişinev'dir. Ülkenin yerel dili Rumencedir. Fakat yaygın olarak Rusça kullanılmaktadır.",
+      "duration_s": 7.62,
+      "latency_s": 1.2597,
+      "ref_norm": "moldovanın başkenti kişinevdir ülkenin yerel dili rumencedir fakat yaygın olarak rusça kullanılmaktadır",
+      "hyp_norm": "moldovanın başkenti kişinevdir ülkenin yerel dili rumencedir fakat yaygın olarak rusça kullanılmaktadır"
+    },
+    {
+      "id": "10716458928761617534",
+      "ref": "Sızdırılan belgenin, Filistin'in, 1967'de gerçekleşen Arap-İsrail Savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir.",
+      "hyp": "Sızdırılan belgenin Filistin'in 1967'de gerçekleşen Arap İsrail Savaşı'ndan önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir.",
+      "duration_s": 19.2,
+      "latency_s": 2.7959,
+      "ref_norm": "sızdırılan belgenin filistinin 1967de gerçekleşen arap israil savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir",
+      "hyp_norm": "sızdırılan belgenin filistinin 1967de gerçekleşen arap israil savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir"
+    },
+    {
+      "id": "10760091089267409199",
+      "ref": "Sahneler piramitlerin üzerine yansıtılır ve farklı piramitler aydınlatılır.",
+      "hyp": "Sahneler piramitlerin üzerine yansıtılır ve farklı piramitler aydınlatılır.",
+      "duration_s": 10.2,
+      "latency_s": 1.5731,
+      "ref_norm": "sahneler piramitlerin üzerine yansıtılır ve farklı piramitler aydınlatılır",
+      "hyp_norm": "sahneler piramitlerin üzerine yansıtılır ve farklı piramitler aydınlatılır"
+    },
+    {
+      "id": "10770402786745665462",
+      "ref": "Televizyon haberleri santralden yükselen beyaz dumanı gösteriyor.",
+      "hyp": "Televizyon haberleri santralden yükselen beyaz dumanı gösteriyor.",
+      "duration_s": 8.04,
+      "latency_s": 1.2633,
+      "ref_norm": "televizyon haberleri santralden yükselen beyaz dumanı gösteriyor",
+      "hyp_norm": "televizyon haberleri santralden yükselen beyaz dumanı gösteriyor"
+    },
+    {
+      "id": "10799180210491213091",
+      "ref": "15 Ağustos 1940 tarihinde Müttefikler güney Fransa'yı işgal etti, işgal için \"Dragoon Operasyonu\" ismi kullanıldı.",
+      "hyp": "On beş Ağustos 1940 tarihinde müttefikler Güney Fransa'yı işgal etti, işgal için Dragon operasyonu ismi kullanıldı.",
+      "duration_s": 12.12,
+      "latency_s": 2.0776,
+      "ref_norm": "15 ağustos 1940 tarihinde müttefikler güney fransayı işgal etti işgal için dragoon operasyonu ismi kullanıldı",
+      "hyp_norm": "on beş ağustos 1940 tarihinde müttefikler güney fransayı işgal etti işgal için dragon operasyonu ismi kullanıldı"
+    },
+    {
+      "id": "10811797645973652250",
+      "ref": "Dr. Malar Malasubramanian, 29, Cincinnati'nin yaklaşık 15 mil kuzeyindeki bir banliyö olan Blue Ash, Ohio'da, yol kenarında üzerinde bir tişört ve iç çamaşırıyla, ağır ilaç etkisi altında görünür biçimde yatarken bulundu.",
+      "hyp": "Doktor Malar Malasuk Romanyan 29, Sinsonnati'nin yaklaşık 15 mil kuzeyindeki bir banliyo olan Blue Ohaio'da yol kenarında üzerinde bir tişört ve iç çamaşırıyla ağır ilaç etkisi altında görünür biçimde yatarken bulundu.",
+      "duration_s": 22.68,
+      "latency_s": 3.3346,
+      "ref_norm": "dr malar malasubramanian 29 cincinnatinin yaklaşık 15 mil kuzeyindeki bir banliyö olan blue ash ohioda yol kenarında üzerinde bir tişört ve iç çamaşırıyla ağır ilaç etkisi altında görünür biçimde yatarken bulundu",
+      "hyp_norm": "doktor malar malasuk romanyan 29 sinsonnatinin yaklaşık 15 mil kuzeyindeki bir banliyo olan blue ohaioda yol kenarında üzerinde bir tişört ve iç çamaşırıyla ağır ilaç etkisi altında görünür biçimde yatarken bulundu"
+    },
+    {
+      "id": "10849374568647159699",
+      "ref": "Sızdırılan belgenin, Filistin'in, 1967'de gerçekleşen Arap-İsrail Savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir.",
+      "hyp": "Sızdırılan belgenin Filistin'in 1967'de gerçekleşen Arap İsrail Savaşı'ndan önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir.",
+      "duration_s": 15.84,
+      "latency_s": 2.602,
+      "ref_norm": "sızdırılan belgenin filistinin 1967de gerçekleşen arap israil savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir",
+      "hyp_norm": "sızdırılan belgenin filistinin 1967de gerçekleşen arap israil savaşından önceki sınırlara dönülmesini talep ettiği sınır anlaşmazlığından bahsettiği iddia edilmektedir"
+    },
+    {
+      "id": "10863226628485399557",
+      "ref": "Söylentileri \"siyasi gevezelik ve aptallık\" olarak değerlendirdi.",
+      "hyp": "Söylentileri siyasi gevezelik ve aptallık olarak değerlendirdi.",
+      "duration_s": 5.22,
+      "latency_s": 0.8539,
+      "ref_norm": "söylentileri siyasi gevezelik ve aptallık olarak değerlendirdi",
+      "hyp_norm": "söylentileri siyasi gevezelik ve aptallık olarak değerlendirdi"
+    },
+    {
+      "id": "10865804320068913800",
+      "ref": "Ulaşılması en kolay olan bitki kaynakları, yapraklardan ve baklagillerden elde edilen proteinler olabilirdi, ancak bitkilerin bizim gibi primatlar tarafından pişirilmeden sindirilmesi pek mümkün değildir.",
+      "hyp": "Buluşulması en kolay olan bitki kaynakları, yapraklardan ve baklagillerden elde edilen proteinler olabilirdi ancak bitkilerin bizim gibi primatlar tarafından pişirilmeden sildirilmesi pek mümkün değildir.",
+      "duration_s": 13.92,
+      "latency_s": 1.9775,
+      "ref_norm": "ulaşılması en kolay olan bitki kaynakları yapraklardan ve baklagillerden elde edilen proteinler olabilirdi ancak bitkilerin bizim gibi primatlar tarafından pişirilmeden sindirilmesi pek mümkün değildir",
+      "hyp_norm": "buluşulması en kolay olan bitki kaynakları yapraklardan ve baklagillerden elde edilen proteinler olabilirdi ancak bitkilerin bizim gibi primatlar tarafından pişirilmeden sildirilmesi pek mümkün değildir"
+    },
+    {
+      "id": "10897040023819169605",
+      "ref": "Hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri, 100 yıldan eski malları antika olarak tanımlıyor.",
+      "hyp": "Hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur. Bazı vergi daireleri yüzyıldan eski malları antik olarak tanımlıyor.",
+      "duration_s": 13.5,
+      "latency_s": 1.8713,
+      "ref_norm": "hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri 100 yıldan eski malları antika olarak tanımlıyor",
+      "hyp_norm": "hangi üretilmiş nesnelerin antika olduğuna dair kapsamlı bir tanım yoktur bazı vergi daireleri yüzyıldan eski malları antik olarak tanımlıyor"
+    },
+    {
+      "id": "10904323644119083565",
+      "ref": "Hastane, diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi.",
+      "hyp": "Hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi.",
+      "duration_s": 9.72,
+      "latency_s": 1.3318,
+      "ref_norm": "hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi",
+      "hyp_norm": "hastane diğer insanların muhtemel enfeksiyonunu önlemek için hastayı diğerlerinden tecrit etmeyi içeren bir enfeksiyon kontrol protokolü izledi"
+    },
+    {
+      "id": "10904414206534229939",
+      "ref": "MS; beyin, omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır.",
+      "hyp": "Ems, beyin, omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır.",
+      "duration_s": 12.18,
+      "latency_s": 1.9096,
+      "ref_norm": "ms beyin omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır",
+      "hyp_norm": "ems beyin omurilik ve optik sinirden oluşan merkezi sinir sistemini etkileyen bir hastalıktır"
+    },
+    {
+      "id": "10921957992542400504",
+      "ref": "Bir gözlemci, sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla Bişkek'in bir \"anarşi\" durumuna saplandığını söyledi.",
+      "hyp": "Bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla Bişkek'in bir anarşi durumuna saplandığını söyledi.",
+      "duration_s": 8.28,
+      "latency_s": 1.2878,
+      "ref_norm": "bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla bişkekin bir anarşi durumuna saplandığını söyledi",
+      "hyp_norm": "bir gözlemci sokaklarında çetelerinin dolaşarak mağazaları yağmalamasıyla bişkekin bir anarşi durumuna saplandığını söyledi"
+    },
+    {
+      "id": "10931851117268547234",
+      "ref": "Siz anlamına gelen Sie ile birlikte tüm isimler her zaman, cümle ortasında dahi, büyük harfle başlar.",
+      "hyp": "Siz anlamına gelen si ile birlikte tüm isimler her zaman cümle ortasında dahil büyük harfle başlar.",
+      "duration_s": 11.28,
+      "latency_s": 1.5353,
+      "ref_norm": "siz anlamına gelen sie ile birlikte tüm isimler her zaman cümle ortasında dahi büyük harfle başlar",
+      "hyp_norm": "siz anlamına gelen si ile birlikte tüm isimler her zaman cümle ortasında dahil büyük harfle başlar"
+    }
+  ]
+}
