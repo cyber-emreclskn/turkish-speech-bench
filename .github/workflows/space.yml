@@ -2,13 +2,15 @@ name: Deploy leaderboard
 
 # Builds leaderboard.json from results/ and syncs the static leaderboard page to a
 # Hugging Face Space (static Spaces are free; no server code runs).
+# The same results are also published as a Hugging Face dataset (leaderboard.csv
+# plus the raw result files); its id can be changed with the HF_DATASET variable.
 # Requires the HF_TOKEN secret (write access). The Space id defaults to
 # <hf-user>/turkish-speech-bench and can be changed with the HF_SPACE variable.
 
 on:
   push:
     branches: [main]
-    paths: ["results/**", "space/**", ".github/workflows/space.yml"]
+    paths: ["results/**", "space/**", "dataset/**", ".github/workflows/space.yml"]
   workflow_dispatch:
 
 permissions:
@@ -24,6 +26,7 @@ jobs:
     env:
       HF_TOKEN: ${{ secrets.HF_TOKEN }}
       HF_SPACE: ${{ vars.HF_SPACE || 'emreclskn/turkish-speech-bench' }}
+      HF_DATASET: ${{ vars.HF_DATASET || 'emreclskn/turkish-speech-bench-results' }}
     steps:
       - name: Skip when HF_TOKEN is not configured
         if: env.HF_TOKEN == ''
@@ -61,4 +64,31 @@ jobs:
               print(f"::error title=Space deploy failed::{type(exc).__name__}: {msg}")
               sys.exit(1)
           print(f"::notice title=Leaderboard deployed::https://huggingface.co/spaces/{repo}")
+          PY
+      - name: Build the results dataset
+        if: env.HF_TOKEN != ''
+        run: |
+          mkdir -p build/dataset
+          cp dataset/README.md build/dataset/
+          uv run tsb report results --format csv > build/dataset/leaderboard.csv
+          rsync -a --include='*/' --include='*.json' --exclude='*' results/ build/dataset/results/
+          head -n 3 build/dataset/leaderboard.csv
+      - name: Upload the results dataset
+        if: env.HF_TOKEN != ''
+        run: |
+          uv run --no-project --with "huggingface_hub>=0.24" python - <<'PY'
+          import os, sys
+          from huggingface_hub import HfApi
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          repo = os.environ["HF_DATASET"]
+          try:
+              api.create_repo(repo, repo_type="dataset", exist_ok=True)
+              api.upload_folder(repo_id=repo, repo_type="dataset", folder_path="build/dataset",
+                                commit_message=f"Sync from GitHub {os.environ['GITHUB_SHA'][:7]}",
+                                delete_patterns=["results/**"])
+          except Exception as exc:
+              msg = str(exc).replace("\n", " ")[:900]
+              print(f"::error title=Dataset deploy failed::{type(exc).__name__}: {msg}")
+              sys.exit(1)
+          print(f"::notice title=Dataset deployed::https://huggingface.co/datasets/{repo}")
           PY
