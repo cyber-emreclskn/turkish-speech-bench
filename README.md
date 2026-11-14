@@ -20,7 +20,7 @@ reproducibly.
   versions; results are only compared within the same hardware.
 - 🔁 **Reproducible** — deterministic subsets, pinned threads, untimed downloads and
   warm-up; a GitHub Actions workflow anyone can re-run.
-- 🔌 **Pluggable** — faster-whisper, Vosk and any Hugging Face CTC model out of the box;
+- 🔌 **Pluggable** — faster-whisper, Vosk, sherpa-onnx and any Hugging Face CTC model out of the box;
   new backends are ~40 lines.
 
 ## Leaderboard
@@ -52,6 +52,7 @@ per line, then `tsb run -m ... -d my_data.jsonl`.
 | [faster-whisper](https://github.com/SYSTRAN/faster-whisper) (CTranslate2, INT8) | `whisper` | `faster-whisper:small`, `faster-whisper:large-v3-turbo` |
 | [Vosk](https://alphacephei.com/vosk/) (Kaldi) | `vosk` | `vosk:vosk-model-small-tr-0.3` |
 | Hugging Face CTC (wav2vec2, XLS-R, HuBERT…) | `ctc` | `hf-ctc:mpoyraz/wav2vec2-xls-r-300m-cv7-turkish` |
+| [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) transducers (Zipformer…, streaming or offline) | `sherpa` | `sherpa-onnx:mihuai/turkish-stt-66m-v2` |
 
 ## How results are produced
 

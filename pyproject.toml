@@ -45,7 +45,8 @@ dependencies = [
 whisper = ["faster-whisper>=1.0"]
 vosk = ["vosk>=0.3.45"]
 ctc = ["transformers>=4.40", "torch>=2.2"]
-all = ["turkish-speech-bench[whisper,vosk,ctc]"]
+sherpa = ["sherpa-onnx>=1.10"]
+all = ["turkish-speech-bench[whisper,vosk,ctc,sherpa]"]
 
 [project.scripts]
 tsb = "tsbench.cli:main"
@@ -88,7 +89,7 @@ packages = ["tsbench"]
 mypy_path = "src"
 
 [[tool.mypy.overrides]]
-module = ["jiwer.*", "soundfile.*", "soxr.*", "cpuinfo.*", "faster_whisper.*", "vosk.*", "transformers.*", "torch.*"]
+module = ["jiwer.*", "soundfile.*", "soxr.*", "cpuinfo.*", "faster_whisper.*", "vosk.*", "transformers.*", "torch.*", "sherpa_onnx.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

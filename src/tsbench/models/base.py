@@ -78,6 +78,7 @@ _BUILTIN = {
     "faster-whisper": "tsbench.models.faster_whisper:FasterWhisper",
     "vosk": "tsbench.models.vosk:Vosk",
     "hf-ctc": "tsbench.models.hf_ctc:HFCTC",
+    "sherpa-onnx": "tsbench.models.sherpa_onnx:SherpaOnnx",
 }
 
 
