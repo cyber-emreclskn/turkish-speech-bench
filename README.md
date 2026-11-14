@@ -66,6 +66,11 @@ Results from real devices (kiosks, NUCs, Raspberry Pi-class boards, laptops) are
 valuable contribution — see [CONTRIBUTING.md](CONTRIBUTING.md). Model requests and new
 backends are welcome too.
 
+## Citing
+
+If you use the benchmark or its numbers, please cite it — GitHub's **Cite this
+repository** button (from [CITATION.cff](CITATION.cff)) gives you BibTeX and APA.
+
 ## License
 
 Code: MIT. Each dataset and model keeps its own license; it is recorded in every
