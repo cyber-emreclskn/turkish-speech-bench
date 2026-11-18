@@ -13,7 +13,7 @@ on:
         description: "fleurs-tr, cv17-tr or mediaspeech-tr, optionally :split"
         default: "fleurs-tr"
       limit:
-        description: "First N utterances (empty = full split)"
+        description: "First N utterances, or 'all' for the full split"
         default: "200"
       threads:
         description: "CPU threads"
@@ -74,7 +74,8 @@ jobs:
           set +e
           args=()
           for m in $MODELS; do args+=(-m "$m"); done
-          [ -n "$LIMIT" ] && args+=(--limit "$LIMIT")
+          # An empty input falls back to the default, so the full split is spelled "all".
+          [ -n "$LIMIT" ] && [ "$LIMIT" != "all" ] && args+=(--limit "$LIMIT")
           # No --label: the default names the runner's CPU, since GitHub's runners vary.
           uv run --no-sync tsb run "${args[@]}" -d "$DATASET" -t "$THREADS" > report.md
           status=$?
