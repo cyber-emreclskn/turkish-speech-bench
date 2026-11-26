@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "turkish-speech-bench"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reproducible CPU benchmark for Turkish speech recognition: accuracy, speed and memory on real hardware"
 readme = "README.md"
 license = "MIT"
